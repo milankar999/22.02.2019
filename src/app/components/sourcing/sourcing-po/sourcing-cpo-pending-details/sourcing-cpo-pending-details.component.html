@@ -1,0 +1,58 @@
+
+<br>
+<br>
+<h2>Sourcing-Customer-Cpo-Pending-Details</h2>
+ <div class="col-md-offset-0 col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading text-center"> Sourcing-Customer-Cpo-Pending-Details</div>
+                 <div class="panel-body">
+                   <!-- <button type="button"  class="btn btn-success" style="float:right">Release Po</button> -->
+                    <a href="sourcing/sourcing-po/{{cpo_id}}/souring-cpo-vendor-product"> <button class="btn btn-success" style="float: right">Release Po</button></a>
+                 </div>
+    
+             <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+                 <thead>
+                               <tr>
+                                    <th></th>
+                                    <th>Product Title</th>
+                                    <th>Description</th>
+                                    <th>Model</th>
+                                    <th>Brand</th>
+                                    <th>Product Code</th>
+                                    <th>Part No</th>
+                                    <th>HSN Code</th>
+                                    <th>Pack Size</th>
+                                    <th>GST</th>
+                                    <th>UOM</th>
+                                    <th>Quantity</th>
+                                    <th></th>
+                                </tr>
+
+                                <tr *ngFor="let data of cpopendingdetails" >
+                                   <td><span class="glyphicon glyphicon-forward" style="color: blue"></span></td>          
+                                  <td>{{data.product_title}}</td>
+                                   <td>{{data.description}}</td>
+                                   <td>{{data.model}}</td>
+                                   <td>{{data.brand}}</td>
+                                   <td>{{data.product_code}}</td>
+                                   <td>{{data.part_no}}</td>
+                                   <td>{{data.hsn_code}}</td>
+                                   <td>{{data.pack_size}}</td> 
+                                   <td>{{data.gst}}</td>
+                                   <td>{{data.uom}}</td>
+                                   <td>{{data.quantity}}</td>
+                                    <td></td>
+                                </tr>         
+                 </thead>
+              </table> <br>
+         </div>
+ </div>
+ <app-sourcing-header></app-sourcing-header>
+ <app-sourcing-footer></app-sourcing-footer>
+ 
+  
+    
+   
+
+    
+  

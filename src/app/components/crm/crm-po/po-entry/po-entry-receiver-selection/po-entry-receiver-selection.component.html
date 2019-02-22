@@ -1,0 +1,104 @@
+<br><br>
+<h2 align="center">Receiver Selection List </h2>
+   
+     <div class="col-md-offset-2 col-md-8">  <!--table fields-->
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center"> Receiver Selection table</div>
+                     <div class="panel-body">
+                         <div class="col-md-4">
+                             <input type="text" class="form-control" placeholder="search..."[(ngModel)]="query">
+                         </div>
+                          <!--After clicking the buttons open the model dialog using open/close event biniding methods-->
+                            <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openModalDialog()"><span class="glyphicon glyphicon-plus">ADD NEW</span></button> 
+    
+                                 <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
+                                         <!--modal-->
+                                         <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+                                            <!--modal-dialog-->
+                                             <div class="modal-dialog" role="document">
+                                             <!--modal-conent-->
+                                                  <div class="modal-content">
+                                            <!--modal-header-->
+                                    <div class="panel panel-primary">
+                                         <div class="panel-heading text-center">New  Reciver-Selection
+                                             <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+                                     </div>
+                <!--modal-body-->
+                <div class="modal-body">
+                    <form #submitreciverForm="ngForm" (ngSubmit)="submitreciverlist(event)" class="form-signin" [formGroup]="poForm" >
+                             <div class="form-group" [ngClass]="{'has-error':poForm.get('person_name').touched && poForm.get('person_name').invalid}">
+                                        <label for="person_name" class="control-label">Person Name*</label>
+                                        <input type="text" id="person_name" class="form-control" formControlName="person_name" [(ngModel)]="model.person_name">
+                                        <span *ngIf="poForm.get('person_name').touched && poForm.get('person_name').invalid" class="help-block">person_name can't be blank.</span>
+                                 </div>
+
+                             <div class="form-group" [ngClass]="{'has-error':poForm.get('mobileNo1').touched && poForm.get('mobileNo1').invalid}">
+                                        <label for="mobileNo1" class="control-label">Mobile No1*</label>
+                                        <input type="text" id="mobileNo1" class="form-control" formControlName="mobileNo1" maxlength="10"  [(ngModel)]="model.mobileNo1" >
+                                        <span *ngIf="poForm.get('mobileNo1').touched && poForm.get('mobileNo1').invalid" class="help-block">mobileNo1 can't be blank.</span>
+                            </div>
+
+                            <div class="form-group">
+                                    <label class="form-input" for="mobileNo2"> Mobil No 2 </label>
+                                    <input type="text" class="form-control" id="mobileNo2" name="mobileNo2" formControlName="mobileNo2"  [(ngModel)]="model.mobileNo2" ><br>
+                            </div>
+                                          
+                             <div class="form-group" [ngClass]="{'has-error':poForm.get('email').touched && poForm.get('email').invalid}">
+                                            <label for="email" class="control-label">Office Email 1*</label>
+                                            <input type="email1" id="email1" class="form-control" formControlName="email"  [(ngModel)]="model.email1"  >
+                                            <span *ngIf="poForm.get('email').touched && poForm.get('email').hasError('required')" class="help-block">Office Email 1 can't be blank.</span>
+                                            <span *ngIf="poForm.get('email').touched && poForm.get('email').hasError('email')"  class="help-block">Office Email  must be valid</span>
+                            </div>
+
+                              <div class="form-group">
+                                    <label class="form-input" for="email2">Office Email ID 2 </label>
+                                    <input type="email" class="form-control" id="email2" name="email2" formControlName="email2"  [(ngModel)]="model.email2" ><br>
+                              </div>
+                              
+                              <div class="form-group" [ngClass]="{'has-error':poForm.get('department_name').touched && poForm.get('department_name').invalid}">
+                                    <label for="department_name" class="control-label">Department Name*</label>
+                                    <input type="text" id="department_name" class="form-control" formControlName="department_name"  [(ngModel)]="model.department_name" >
+                                    <span *ngIf="poForm.get('department_name').touched && poForm.get('department_name').invalid" class="help-block">department_name can't be blank.</span>
+                             </div>
+
+                              <hr> 
+
+                                    <button [disabled]="submitreciverForm.invalid" class="btn btn-primary">submit</button>&nbsp;
+                                    <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br><br><br>
+      
+       <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+           <thead>
+               <tr>
+                  <th></th>
+                  <th>Person Name</th>
+                  <th>mobileNo1</th>
+                  <th>mobileNo2</th>
+                  <th>email1</th>
+                  <th>email2</th> 
+                   <th>department_name</th>                 
+              </tr >
+           <tr *ngFor="let data of  reciverselectionlist">
+                   <td>
+                      <a href="crm/po-entry/{{customer_id}}/{{requester_id}}/{{data.id}}/supportinginfo"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                  </td>                
+                  <td>{{data.person_name}}</td>
+                  <td>{{data.mobileNo1}}</td>
+                  <td>{{data.mobileNo2}}</td>
+                  <td>{{data.email1}}</td>
+                  <td>{{data.email2}}</td>
+                  <td>{{data.department_name}}</td>
+               </tr>
+     </thead>
+      </table> <br>
+  
+      </div>
+      </div>
+      </div>
+      <app-crm-footer></app-crm-footer>
+      <app-crm-header></app-crm-header>

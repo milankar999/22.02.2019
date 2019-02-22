@@ -1,0 +1,76 @@
+
+<br><br><br>
+<div class="col-md-offset-4 col-md-4">  <!--table fields-->
+     <div class="well">
+        <h2 align="center"> Edit Line Items </h2>
+            <hr>
+         <form>
+                <div class="form-group">
+                    <label class="form-input" for="productname">Product Title</label>
+                    <input type="text" class="form-control" id="productname" name=" productname" placeholder="product name" [(ngModel)]="model.productname"
+                    required 
+                    #productname="ngModel">
+                    <span *ngIf="productname.touched && productname.invalid" class="help-block">product title can't be blank</span>
+                 
+                    <label class="form-input" for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" [(ngModel)]="model.description"
+                     required 
+                     #description="ngModel">
+                     <span *ngIf="description.touched && description.invalid" class="help-block">description can't be blank</span>
+                 
+                    <label class="form-input" for="model"> Model <a style="color: red">*</a></label>
+                    <input type="text" class="form-control" id="model" name="model" [(ngModel)]="model.model"
+                    required 
+                    #model="ngModel">
+                    <span *ngIf="model.touched && model.invalid" class="help-block">model can't be blank</span>
+                
+                    <label class="form-input" for="brand">Brand <a style="color: rgb(177, 37, 37)">*</a></label>
+                    <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="model.brand"
+                    required 
+                    #brand="ngModel">
+                   <!---- <span *ngIf="brand.touched && brand.invalid" class="help-block">Brand can't be blank</span>-->
+                
+                    <label class="form-input" for=" partno">Part No <a style="color: red">*</a></label>
+                    <input type="text" class="form-control" id="partno" name="partno" [(ngModel)]="model.partno"
+                    required 
+                    #partno="ngModel">
+                    <!----<span *ngIf="partno.touched && partno.invalid" class="help-block">part no can't be blank</span>-->
+                
+                    <label class="form-input" for="productcode">Product Code <a style="color: red">*</a></label>
+                    <input type="text" class="form-control" id="productcode" name="productcode" [(ngModel)]="model.productcode"
+                    required 
+                    #productcode="ngModel">
+                    <!----<span *ngIf="productcode.touched && productcode.invalid" class="help-block">product code can't be blank</span>-->
+                
+                    <label class="form-input" for="hsncode">Hsn Code</label>
+                    <input type="text" class="form-control" id="hsncode" name="hsncode">
+                    <label class="form-input" for="GSTNo">Gst</label>
+                    <input type="text" class="form-control" id="GSTNo" name="GSTNo">
+                    <label class="form-input" for="quantity">Quantity</label>
+                    <input type="number" min="1" max="100"class="form-control" id="quantity" name="quantity" [(ngModel)]="model.quantity"
+                    required 
+                    #quantity="ngModel">
+                    <span *ngIf="quantity.touched && quantity.invalid" class="help-block">Quantity can't be blank</span>
+                    <label class="form-input" for=" uom">UOM</label>
+                    <input type="text" class="form-control" id="uom " name="uom" [(ngModel)]="model.uom"
+                    required 
+                    #uom="ngModel">
+                    <span *ngIf="uom.touched && uom.invalid" class="help-block">UOM can't be blank</span>
+                
+                    <label class="form-input" for="  price"> Price / Unit</label>
+                    <input type="text" class="form-control" id=" price" name=" price" [(ngModel)]="model.price"
+                    required 
+                    #price="ngModel">
+                    <span *ngIf="price.touched && price.invalid" class="help-block">price can't be blank</span>
+                
+                 </div>
+                   <hr>
+                    <button routerLink="/crm/po-entry/po12345" type="button" class="btn btn-success">Submit</button>&nbsp;
+                    <button type="button" class="btn btn-danger">Cancel</button>
+         </form>
+     </div>
+    
+   
+     <app-sourcing-header></app-sourcing-header>
+     <app-sourcing-footer></app-sourcing-footer>
+     

@@ -1,0 +1,56 @@
+<br><br><br>
+<h3 align="center">GRN Without Traditional PO List</h3>
+<div class="col-md-offset-0 col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center">GRN Without Traditional PO List</div>
+                <div class="panel-body">
+                  
+                </div>
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                  <table id="sourcing1" class="table table-hover table-bordered table-sm" width="100%" >
+                     <thead>
+                       <tr>
+                          <th></th>
+                          <th>Product Name</th>
+                          <th>Description</th>
+                          <th>Model</th>
+                          <th>Brand</th>
+                          <th>Part No</th>
+                          <th>Product No</th>
+                          <th>HSN Code</th>
+                          <th>GST</th>
+                          <th>Quantity</th>
+                          <th>UOM</th> 
+                          <th></th>
+                        </tr>
+                       <tr formArrayName="products" *ngFor="let order of form.controls.products.controls; let i = index">
+                            <td>
+                               <span class="glyphicon glyphicon-forward" style="color: blue"></span>&nbsp;&nbsp;
+                               <input type="checkbox" [formControlName]="i"> 
+                           </td>
+                           <td>{{products[i].Product_Name}}</td>
+                           <td>{{products[i].description}}</td>
+                           <td>{{products[i]. model}}</td>
+                           <td>{{products[i].brand}}</td>
+                           <td>{{products[i].part_no}}</td>
+                           <td>{{products[i].product_no}}</td>
+                           <td>{{products[i].hsn_code}}</td>
+                           <td>{{products[i].gst}}</td>
+                           <td>{{products[i].quantity}}</td>
+                           <td>{{products[i].UOM}}</td>
+                                <td>
+                                  <span class="glyphicon glyphicon-edit" style="color: blue"></span>&nbsp;
+                                </td>         
+                           </tr>
+                           <hr>
+                             <button class="btn btn-success" style="float: right">Proceed</button>
+                     </thead>
+                 </table> 
+                 </form>
+              <br>
+      </div>
+  </div>
+  <app-grn-header></app-grn-header>
+<app-grn-footer></app-grn-footer>
+    
+  

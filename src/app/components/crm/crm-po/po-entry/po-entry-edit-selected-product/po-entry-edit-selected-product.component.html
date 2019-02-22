@@ -1,0 +1,56 @@
+<app-crm-header></app-crm-header>
+<app-crm-header></app-crm-header>
+<br><br><br>
+<div class="col-md-offset-4 col-md-8">  <!--table fields-->
+     <div class="well">
+        <h2 align="center"> Po-Entry Edit Selceted Product</h2>
+            <hr>
+         <form #submiteditproductForm="ngForm" (ngSubmit)="submiteditproductlist(event)" class="form-sigin">
+                <div class="form-group">
+                    <label class="form-input" for="producttitle"> Product Title</label>
+                    <input type="text" class="form-control" id=" producttitle" value="{{producttitle}}" name="producttitle" [(ngModel)]="Model.product_title" required #product_title="ngModel" > <br>
+                  
+                    <label class="form-input" for="descriptions">Description</label>
+                    <input type="text" class="form-control" id="descriptions" name="descriptions" value="{{descriptions}}" [(ngModel)]="Model.description" required #description="ngModel"><br>
+                    
+                 
+                    <label class="form-input" for="models"> Model <a style="color: red">*</a></label>
+                    <input type="text" class="form-control" id="models" name="models" value="{{models}}" [(ngModel)]="Model.model" required #model="ngModel"><br>
+                
+                    <label class="form-input" for="brands">Brand </label>
+                    <input type="text" class="form-control" id="brands" name="brands" value="{{brands}}" [(ngModel)]="Model.brand" required #brand="ngModel"><br>
+                
+                   
+                    <label class="form-input" for="product_codes">Product Code</label>
+                    <input type="text" class="form-control" id="product_codes" name="product_codes" value="{{product_codes}}" [(ngModel)]="Model.product_code" required #product_code="ngModel"><br>
+                
+                    <label class="form-input" for="part_nos">Part No</label>
+                    <input type="text" class="form-control" id="part_nos" name="part_nos" value="{{part_nos}}"  [(ngModel)]="Model.part_no" required #part_no="ngModel"><br>
+
+                
+                    <label class="form-input" for="pack_sizes">Pack Size</label>
+                    <input type="text" class="form-control" id="pack_sizes" name="pack_sizes" value="{{pack_sizes}}"  [(ngModel)]="Model.pack_size" required #pack_size="ngModel"><br>
+
+                    <label class="form-input" for="hsn_codes">Hsn Code</label>
+                    <input type="text" class="form-control" id="hsn_codes" name="hsn_codes" value="{{hsn_codes}}" [(ngModel)]="Model.hsn_code" required #hsn_code="ngModel" ><br>
+
+                    <label class="form-input" for="gst_no">gst</label>
+                    <input type="text" class="form-control" id="gst_no" name="gst_no" value="{{gst_no}}" [(ngModel)]="Model.gst" required #gst="ngModel" ><br>
+
+                    <label class="form-input" for="quantitys">Quantity</label>
+                    <input type="text" class="form-control" id="quantitys" name="quantitys" value="{{quantitys}}" [(ngModel)]="Model.quantity" required #quantity="ngModel"  ><br>
+
+                    <label class="form-input" for=" uom_no">UOM</label>
+                    <input type="text" class="form-control" id="uom_no " name="uom_no" value="{{uom_no}}"  [(ngModel)]="Model.uom" required #uom="ngModel" ><br>
+                
+                    <label class="form-input" for="unit_prices"> Price / Unit</label>
+                    <input type="text" class="form-control" id="unit_prices" name="unit_prices" value="{{unit_prices}}"  [(ngModel)]="Model.unit_price" required #unit_price="ngModel"><br>
+                    
+                 </div>
+                   <hr>
+                    <button  type="submiteditproductForm.invalid" class="btn btn-success">Submit</button>&nbsp;
+                    <button type="button" class="btn btn-danger">Cancel</button>
+         </form>
+     </div>
+   
+  <app-crm-footer></app-crm-footer>

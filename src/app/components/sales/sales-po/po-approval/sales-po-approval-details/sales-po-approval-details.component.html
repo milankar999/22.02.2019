@@ -1,0 +1,58 @@
+<app-sales-header></app-sales-header>
+<br>
+<br>
+ <h2>Pending Approval Details</h2>
+   <div class="col-md-offset-0 col-md-12">
+     <div class="panel panel-primary">
+         <div class="panel-heading text-center"> Pending Approval Details</div>
+                 <div class="panel-body">
+                  <br>
+               
+                <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+                   <thead>
+                     <tr>
+                        <th></th>
+                        <th>product title</th>
+                        <th>description</th>
+                        <th>model</th>
+                        <th>brand</th>
+                        <th>product code</th>
+                        <th>part no</th>
+                        <th>pack size</th>               
+                        <th>hsn code</th>
+                        <th>gst</th>
+                        <th>quantity</th>
+                        <th>uom</th>
+                        <th>unit price</th>
+                       </tr >
+                                         
+                     <tr *ngFor="let item of  SalesPoApprovallist">
+                          <td>
+                             <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                             </td> 
+                              <td>{{item.product_title}}</td>
+                              <td>{{item.description}}</td>
+                              <td>{{item.model}}</td>
+                              <td>{{item.brand}}</td>
+                              <td>{{item.product_code}}</td>
+                              <td>{{item.part_no}}</td>
+                              <td>{{item.pack_size }}</td>
+                              <td>{{item.hsn_code}}</td>
+                              <td>{{item.gst}}</td>
+                              <td>{{item.quantity}}</td>
+                              <td>{{item.uom}}</td>
+                              <td>{{item.unit_price}}</td>
+                         </tr>
+
+                         
+                   </thead>
+               </table> <br>
+               <button routerLink="/sales-po/po-approval/{{sales_id}}/sales-po-approval-support-info" class="btn btn-success" style="float:right">View Details</button>
+            </div>
+       </div>
+   </div>
+<app-crm-footer></app-crm-footer>
+     
+      
+
+

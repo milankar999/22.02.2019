@@ -1,0 +1,100 @@
+<br><br><br><hr>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center">Drag and Drop</div>
+             <div class="panel-body">
+      
+      <div cdkDropListGroup>
+        <div class="example-container">
+          <h2>Selction Quotation List</h2>
+      
+          <div
+            cdkDropList
+            #quotationselectionList="cdkDropList"
+            [cdkDropListData]="quotationselection"
+            [cdkDropListConnectedTo]="[quotationselectionlistList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box"></div>
+            <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+              <thead><!--table header-->
+                  <tr>
+                     <th></th>
+                     <th>Quotation no</th>         
+                     <th>Quotation date</th>
+                     <th>RFP Customer contact Name</th>
+                     <th>RFP NO</th>
+                     <th>enquiry reference</th>  
+                     <th></th>          
+                 </tr >
+              </thead>
+              <tr *ngFor="let item of quotationselection" cdkDrag>
+                 
+                <td><span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                </td>
+                
+                     <td>{{item. quotation_no}}</td>
+                     <td>{{item.quotation_date}}</td>
+                     <td>{{item.rfp.customer_contact_person.name}}</td>
+                     <td>{{item.rfp.rfp_no}}</td>
+                     <td>{{item.enquiry_reference}}</td>
+                     <td>
+                      <a href="crm/po-entry/{{item.quotation_no}}/quotation-selection-details" target="_blank" data-toggle="tooltip" title="Details"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                  </td>   
+                  </tr>
+                 
+         </table>
+         <button type="button" class="btn btn-danger" (click)=" dragid(event)" style="float:right">Proceed &nbsp;<span class="glyphicon glyphicon-forward"></span></button><br><br>
+          </div>
+        </div>
+      
+      
+        <div class="example-container">
+          <h2> Quotation Selction List</h2>
+      
+          <div
+            cdkDropList
+            #quotationselectionlistList="cdkDropList"
+            [cdkDropListData]="quotationselectionlist"
+            [cdkDropListConnectedTo]="[quotationselectionList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box"></div>
+           <div class="col-md-4">
+              <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
+          </div><br><br>
+            <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+              <thead><!--table header-->
+                  <tr>
+                     <th></th>
+                     <th>Quotation no</th>         
+                     <th>Quotation date</th>
+                     <th>RFP Customer contact Name</th>
+                     <th>RFP NO</th>
+                     <th>enquiry reference</th>  
+                     <th></th>          
+                    
+                 </tr >
+              </thead>
+                 <tr *ngFor="let item of  quotationselectionlist|quotationSearch:query" cdkDrag >
+                      <td><span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                     </td>
+                     
+                      <td>{{item.quotation_no}}</td>
+                      <td>{{item.quotation_date}}</td>
+                      <td>{{item.rfp.customer_contact_person.name}}</td>
+                      <td>{{item.rfp.rfp_no}}</td>
+                      <td>{{item.enquiry_reference}}</td>
+                      <td>
+                        <a href="crm/po-entry/{{item.quotation_no}}/quotation-selection-details" target="_blank" data-toggle="tooltip" title="Details"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
+                    </td>   
+                  </tr>
+                 
+            
+         </table> <br>
+      
+          </div>
+        </div>
+      </div>
+      
+      <app-crm-footer></app-crm-footer>
+      <app-crm-header></app-crm-header>

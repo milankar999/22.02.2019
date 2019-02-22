@@ -1,0 +1,243 @@
+
+<br><br><br>
+<div class="col-md-offset-4 col-md-4">  <!--table fields-->
+    <div class="well">
+      <h2 align="center">Add Vender Po info </h2>
+      <hr>
+     <form>
+         <div class="form-group">
+            
+            <label class="form-input" for="billingaddress"> Billingaddress</label>
+            <input type="text" class="form-control" id="billingaddress" value="{{billing_address}}" name="billingaddress" [(ngModel)]="model.billingaddress"
+             required 
+             #billingaddress="ngModel">
+             <span *ngIf="billingaddress.touched && billingaddress.invalid" class="help-block">billingaddress can't be blank</span>
+
+            <label class="form-input" for="shippingaddress"> Shippingaddress</label>
+             <input type="text" class="form-control" id="shippingaddress" value="{{shipping_address}}" name="shippingaddress" [(ngModel)]="model.shippingaddress"
+              required 
+              #shippingaddress="ngModel">
+              <span *ngIf="shippingaddress.touched && shippingaddress.invalid" class="help-block">shippingaddress can't be blank</span>
+
+            <label class="form-input" for="deliverydate">Delivery date</label>
+            <input type="date" class="form-control" id="deliverydate"  name="deliverydate" [(ngModel)]="model.deliverydate"
+                  required 
+            #deliverydate="ngModel">
+            <span *ngIf="deliverydate.touched && deliverydate.invalid" class="help-block">delivery date can't be blank</span><br>
+
+            <label class="form-input" for="incoterm">Incoterm</label>
+             <input type="text" class="form-control" id="incoterm" value="{{inco_term}}" name="incoterm" [(ngModel)]="model.incoterm"
+              required 
+              #incoterm="ngModel">
+              <span *ngIf="incoterm.touched && incoterm.invalid" class="help-block">incoterm can't be blank</span>
+            
+            <label class="form-input" for="paymentterm"> Payment term</label>
+            <input type="text" class="form-control" id="paymentterm" value="{{payment_term}}" name="paymentterm" [(ngModel)]="model.paymentterm"
+                  required 
+              #paymentterm="ngModel">
+              <span *ngIf="paymentterm.touched && paymentterm.invalid" class="help-block">paymentterm can't be blank</span>
+
+
+
+
+            <label class="form-input" for="advancepersentage">Advance Persentage</label>
+            <input type="number"  class="form-control" id="advancepersentage" value="{{advance_persentage}}" name="advancepersentage" [(ngModel)]="model.advancepersentage"
+                  required 
+              #advancepersentage="ngModel">
+            <span *ngIf="advancepersentage.touched && advancepersentage.invalid" class="help-block">advancepersentage can't be blank</span>
+  
+         </div>
+          <hr>
+          <button routerLink="/crm/po-entry/po12345" type="button" class="btn btn-success">Submit</button>&nbsp;
+          <button type="button" class="btn btn-danger">Cancel</button>
+     </form>
+ <div>
+</div>
+</div>
+<app-sourcing-header></app-sourcing-header>
+<app-sourcing-footer></app-sourcing-footer> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

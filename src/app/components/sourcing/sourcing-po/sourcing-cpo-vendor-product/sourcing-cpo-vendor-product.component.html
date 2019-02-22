@@ -1,0 +1,118 @@
+<br><br>
+<h2 align="center"> Sourcing Vendor Product List </h2>
+   <div class="col-md-offset-0 col-md-12">
+      <div  *ngFor="let offer of cpo_vendor_list">
+         <div class="panel panel-primary">
+            <div class="panel-heading text-center">
+               Vendor : {{offer.vendor.name}} &nbsp; || &nbsp; Vendor Contact Person : {{offer.vendor_contact_person.name}}&nbsp; || &nbsp; Offer reference : {{offer.offer_reference}} &nbsp; || &nbsp; Offer date {{offer.offer_date}}
+            </div> 
+            <div class="panel-body">
+                  <button class="btn btn-primary btn-sm">Generate PO</button>&nbsp;&nbsp;
+                  <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking Approval To Release PO">Release PO</button>&nbsp;&nbsp;
+                  <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking for Direct Buying">Direct Buying PO</button>
+                  
+                  <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"> <button class="btn btn-danger btn-sm" style="float: right">Change</button></a>      
+                  <br><br>
+                  <!--Table-->
+                  <table id="sourcing1" class="table table-hover table-bordered table-sm" width="100%" >
+                        <thead>
+                          <tr>
+                             <th></th>
+                             <th>Product Name</th>
+                             <th>Description</th>
+                             <th>Model</th>
+                             <th>Brand</th>
+                             <th>Product Code</th>
+                             <th>HSN Code</th>
+                             <th>GST</th>
+                             <th>Quantity</th>
+                             <th>UOM</th>
+                             <th>Price</th>  
+                             <th></th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let data of  offer.vpo_lineitems">
+                              <td><a href="sourcing/sourcing-po/{{cpo_id}}/vpo/{{offer.id}}/lineitem/{{data.id}}/edit" data-toggle="tooltip" data-placement="top" title="Edit Product Details"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a></td>
+                              <td>{{data.product_title}}</td>
+                              <td>{{data.description}}</td>
+                              <td>{{data.model}}</td>
+                              <td>{{data.brand}}</td>
+                              <td>{{data.product_code}}</td>
+                              <td>{{data.hsn_code}}</td>
+                              <td>{{data.gst}}</td>
+                              <td>{{data.quantity}}</td>
+                              <td>{{data.uom}}</td>
+                              <td>{{data.unit_price}}</td>
+                              <td></td>
+                           </tr>
+                        </tbody>
+                  </table> 
+                          
+                              <hr>
+                                <button class="btn btn-success" style="float: right">Proceed</button>
+                        
+                    
+                  <!--ENd of Table-->
+            </div>
+         </div>
+      </div>
+   </div>
+   <h2 align="center"> Unassigned Product List </h2>
+   <div class="col-md-offset-0 col-md-12">
+            <div class="panel panel-primary">
+               <div class="panel-heading text-center">
+                 Please Assigne this Products to Some Vendors
+               </div> 
+               <div class="panel-body">
+                     <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"> <button class="btn btn-danger btn-sm" style="float: right">Direce Buy From Market</button></a>      
+                     <br><br>
+                     <!--Table-->
+                     <table id="sourcing1" class="table table-hover table-bordered table-sm" width="100%" >
+                           <thead>
+                             <tr>
+                                <th></th>
+                                <th>Product Name</th>
+                                <th>Description</th>
+                                <th>Model</th>
+                                <th>Brand</th>
+                                <th>Product Code</th>
+                                <th>HSN Code</th>
+                                <th>GST</th>
+                                <th>Quantity</th>
+                                <th>UOM</th>
+                                <th>Price</th>  
+                                <th></th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                                 <tr *ngFor="let product of  unassigned_product">
+                                       <td><a href="" data-toggle="tooltip" data-placement="top" title="Edit Product Details"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a></td>
+                                       <td>{{product.product_title}}</td>
+                                       <td>{{product.description}}</td>
+                                       <td>{{product.model}}</td>
+                                       <td>{{product.brand}}</td>
+                                       <td>{{product.product_code}}</td>
+                                       <td>{{product.hsn_code}}</td>
+                                       <td>{{product.gst}}</td>
+                                       <td>{{product.quantity}}</td>
+                                       <td>{{product.uom}}</td>
+                                       <td>{{product.unit_price}}</td>
+                                       <td></td>
+                                 </tr>
+                           </tbody>
+                     </table>         
+                     <hr>
+                     <!--ENd of Table-->
+               </div>
+            </div>
+      </div>
+
+
+
+
+
+
+
+<app-sourcing-header></app-sourcing-header>
+<app-sourcing-footer></app-sourcing-footer>

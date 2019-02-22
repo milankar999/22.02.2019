@@ -1,0 +1,66 @@
+
+<br><br>
+<hr>
+ <div class="col-md-offset-2 col-md-10">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">Product Selection List</div>
+                 <div class="panel-body">
+        
+                 </div>
+                <form  #productsubmitForm="ngForm"  (ngSubmit)="productsubmit(event)">
+     <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+           <tr>
+
+               <th></th>
+                <th>Product Title</th>
+                <th>Description</th>
+                <th>Model</th>
+                <th>Brand</th>
+                <th>Product Code</th>
+                <th>Part No</th>
+                <th>Pack Size</th>
+                <th>MOQ</th>
+                <th>HSN Code</th>
+                <th>GST</th>
+                <th>Quantity</th>
+                <th>UOM</th>
+                <th>Lead Time</th>
+                <th></th>
+               
+            </tr >
+            <tr  *ngFor="let data of products">
+               
+                    <td><span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                        <input type="checkbox" name="{{data.id}}" id="{{data.id}}" (change)="checkLineitem($event,this.name)"/>
+                    </td>
+
+                 <td>{{data.product_title}}</td>
+                 <td>{{data.description}}</td>
+                 <td>{{data.model}}</td>
+                 <td>{{data.brand}}</td>
+                 <td>{{data.product_code}}</td>
+                 <td>{{data.part_number}}</td>
+                 <td>{{data.pack_size}}</td>
+                 <td>{{data.moq}}</td>
+                 <td>{{data.hsn_code}}</td>
+                 <td>{{data.gst}}</td>
+                 <td>{{data.quantity}}</td>
+                 <td>{{data.uom}}</td>
+                 <td>{{data.lead_time}}</td>
+                 <td></td>
+                </tr>
+          
+             
+             <hr>
+            &nbsp;  <button class="btn btn-danger">Proceed</button>
+       </table> <br>
+</form>
+ </div>
+ </div>
+    <app-crm-footer></app-crm-footer>
+    <app-crm-header></app-crm-header>
+    
+   
+
+    
+  

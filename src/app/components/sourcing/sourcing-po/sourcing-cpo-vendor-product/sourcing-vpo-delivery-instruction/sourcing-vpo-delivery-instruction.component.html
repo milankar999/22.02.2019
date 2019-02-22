@@ -1,0 +1,60 @@
+
+<br><br><br>
+ <div class="col-md-offset-4 col-md-4">  <!--table fields-->
+    <div class="well">
+      <h2 align="center">  Delivery Instruction</h2>
+      <hr>
+         <form>
+              <div class="form-group">
+                   <!--Only contain text fields with validation in  delivery instruction-->
+                  
+                   <label class="form-input" for=""></label>
+                   <input type="text" class="form-control" id="name" value="{{name}}" name="name" [(ngModel)]="model.name"
+                   required 
+                   #name="ngModel">
+                   <span *ngIf="name.touched && name.invalid" class="help-block">text  can't be blank</span> <br>
+
+                   <label class="form-input" for=" "></label>
+                   <input type="text" class="form-control" id="" value="{{mobile_number}}" name="mobilenumber" [(ngModel)]="model.mobilenumber"
+                   required 
+                   #mobilenumber="ngModel">
+                    <span *ngIf="mobilenumber.touched && mobilenumber.invalid" class="help-block"> text can't be blank</span>  <br>
+
+                   <label class="form-input" for="dept"></label>
+                   <input type="text" class="form-control" id="dept" value="{{dept}}" name="dept" [(ngModel)]="model.dept"
+                   required 
+                  #dept="ngModel">
+                    <span *ngIf="dept.touched && dept.invalid" class="help-block">txt can't be blank</span>  <br>
+
+                    <label class="form-input" for="Location"></label>
+                    <input type="text" class="form-control" id="location" value="{{location}}" name="location" [(ngModel)]="model.location"
+                    required 
+                    #location="ngModel">
+                    <span *ngIf="location.touched && location.invalid" class="help-block">text can't be blank</span>  <br>
+
+                    <label class="form-input" for="address"></label>
+                  <input type="text" class="form-control" id="address" value="{{address}}" name="address" [(ngModel)]="model.address"
+                    required 
+                  #address="ngModel">
+                  <span *ngIf="address.touched && address.invalid" class="help-block">text  can't be blank</span> <br> <br>
+
+
+
+                   <!---empty text box with out validation-->
+                  <input type="text" class="form-control" ><br> <br>
+                  <input type="text" class="form-control" ><br> <br>
+                  <input type="text" class="form-control" ><br> <br>
+                  <input type="text" class="form-control" ><br> <br>
+                  <input type="text" class="form-control" ><br> <br>
+               </div>
+            <hr>
+            <button routerLink="#" type="button" class="btn btn-success">Submit</button>&nbsp;<!--Submit button and cancel button-->
+            <button type="button" class="btn btn-danger">Cancel</button>
+         </form>
+     </div>
+     </div>
+     
+     <app-sourcing-header></app-sourcing-header>
+     <app-sourcing-footer></app-sourcing-footer>   
+
+

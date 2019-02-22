@@ -1,0 +1,36 @@
+<app-crm-header></app-crm-header>
+<br><br><hr>
+<div class="col-md-offset-4 col-md-4">  <!--table fields-->
+     <div class="well">
+        <h2 align="center">Crm-Po-Rejected-Suppinfo-edit </h2>
+            <hr>
+            <form #submitrejectedsuppinfoForm="ngForm" (ngSubmit)="submitrejectedsuppinfolist(event)" class="form-sigin">
+                <div class="form-group">
+                    <label class="form-input" for="customer_pono">Customer PO No</label>
+                    <input type="text" class="form-control" id="customer_pono" name="customer_pono" value="{{customer_pono}}" [(ngModel)]="model.customer_po_no" required #customer_po_no="ngModel"><br>
+
+                    <label class="form-input" for="customer_podate">Customer PO Date</label>
+                    <input type="date" class="form-control" id="customer_podate" name="customer_podate" value="{{customer_podate}}" [(ngModel)]="model.customer_po_date" required #customer_po_date="ngModel"><br>
+
+                    <label class="form-input" for="deliverydate">Delivery Date</label>
+                    <input type="date" class="form-control" id="deliverydate" name="deliverydate" value="{{deliverydate}}"  [(ngModel)]="model.delivery_date" required #delivery_date="ngModel"><br>
+
+                    <label class="form-input" for="billingaddress">Billing Address</label>
+                    <input type="text" class="form-control" id="billingaddress" name="billingaddress" value="{{billingaddress}}" [(ngModel)]="model.billing_address" required #billing_address="ngModel"><br>
+
+                    <label class="form-input" for="shippingaddress">Shipping Address</label>
+                    <input type="text" class="form-control" id="shippingaddress" name="shippingaddress" value="{{shippingaddress}}" [(ngModel)]="model.shipping_address" required #shipping_address="ngModel"><br>
+
+                    <label class="form-input" for="incoterms">Inco Terms</label>
+                    <input type="text" class="form-control" id="incoterms" name="incoterms" value="{{incoterms}}" [(ngModel)]="model.inco_terms" required #inco_terms="ngModel"><br>
+
+                    <label class="form-input" for="paymentterms">Payment Terms</label>
+                    <input type="text" class="form-control" id="paymentterms" name="paymentterms" value="{{paymentterms}}" [(ngModel)]="model.payment_terms" required #payment_terms="ngModel"><br>
+                 </div>
+                   <hr>
+                    <button  type="submitrejectedsuppinfoForm.invalid" class="btn btn-success">Submit</button>&nbsp;
+                    <button type="button" class="btn btn-danger">Cancel</button>
+         </form>
+     </div>
+   
+  <app-crm-footer></app-crm-footer>
