@@ -7,6 +7,8 @@ import { CpoPendingDetails } from '../../../interface/sourcing/po/cpo-pending-de
 import { SourcingVendorProduct} from '../../../interface/sourcing/po/sourcing-vendor-product';
 import { SourcingVendorProductVPOLineitem} from '../../../interface/sourcing/po/sourcing-vendor-product-vpolineitem';
 import { UnassignedProductList } from '../../../interface/sourcing/po/unassigned-product-list';
+import { Postassigned } from '../../../interface/sourcing/po/postassigned';
+
 
 @Injectable({
   providedIn: 'root'
@@ -39,4 +41,16 @@ getSourcingCpoVenderProduct(id):Observable<SourcingVendorProduct[]>{
     headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
   });   
  }
+ Postassignvendorlist(vpo_lineitems,id,vpo_id){
+   console.log(vpo_lineitems);
+  return this.http.post<Postassigned[]>("/api/po_to_vendor/pending_cpo/"+id+"/vpo/"+vpo_id+"/assign_lineitems/",   //Api id ...
+  {
+      
+    "vpo_lineitems":vpo_lineitems
+  },
+{
+  headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+});   
+}
+
 }

@@ -10,8 +10,11 @@
                   <button class="btn btn-primary btn-sm">Generate PO</button>&nbsp;&nbsp;
                   <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking Approval To Release PO">Release PO</button>&nbsp;&nbsp;
                   <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking for Direct Buying">Direct Buying PO</button>
+            
                   
-                  <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"> <button class="btn btn-danger btn-sm" style="float: right">Change</button></a>      
+                  <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"> <button class="btn btn-danger btn-sm" style="float: right">Change</button></a>
+                  <input type="button" class="btn btn-success btn-sm" style="float: right" (click)="submitassignvendorlist($event)" data-toggle="tooltip" data-placement="top" name="{{offer.id}}" value="Abserve Unassigned selected lineitems" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                     
                   <br><br>
                   <!--Table-->
                   <table id="sourcing1" class="table table-hover table-bordered table-sm" width="100%" >
@@ -33,7 +36,8 @@
                         </thead>
                         <tbody>
                            <tr *ngFor="let data of  offer.vpo_lineitems">
-                              <td><a href="sourcing/sourcing-po/{{cpo_id}}/vpo/{{offer.id}}/lineitem/{{data.id}}/edit" data-toggle="tooltip" data-placement="top" title="Edit Product Details"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a></td>
+                              <td><a href="sourcing/sourcing-po/{{cpo_id}}/vpo/{{offer.id}}/lineitem/{{data.id}}/edit" data-toggle="tooltip" data-placement="top" title="Edit Product Details"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a>&nbsp;&nbsp;&nbsp;
+                               <a href="#"> <span class="glyphicon glyphicon-trash"></span></a> </td>
                               <td>{{data.product_title}}</td>
                               <td>{{data.description}}</td>
                               <td>{{data.model}}</td>
@@ -81,13 +85,14 @@
                                 <th>GST</th>
                                 <th>Quantity</th>
                                 <th>UOM</th>
-                                <th>Price</th>  
                                 <th></th>
                               </tr>
                            </thead>
                            <tbody>
                                  <tr *ngFor="let product of  unassigned_product">
-                                       <td><a href="" data-toggle="tooltip" data-placement="top" title="Edit Product Details"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a></td>
+                                       <td><a href="" data-toggle="tooltip" data-placement="top" title="Edit Product Details"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a>
+                                          <input type="checkbox" name="{{product.id}}" id="{{product.id}}" (change)="checkUnassignitem($event,this.name)"/></td>
+
                                        <td>{{product.product_title}}</td>
                                        <td>{{product.description}}</td>
                                        <td>{{product.model}}</td>
@@ -97,11 +102,13 @@
                                        <td>{{product.gst}}</td>
                                        <td>{{product.quantity}}</td>
                                        <td>{{product.uom}}</td>
-                                       <td>{{product.unit_price}}</td>
+                                       
                                        <td></td>
                                  </tr>
                            </tbody>
-                     </table>         
+                     </table>  
+                     
+                   
                      <hr>
                      <!--ENd of Table-->
                </div>

@@ -17,30 +17,21 @@ export class SourcingCpoVendorProductComponent implements OnInit {
 
   model:any={}
   product="";
+  vendorname="";
+  vpo_id="";
   cpo_vendor_list:object[]=[];
   vpo_lineitems:object[]=[];
   unassigned_product:object[]=[];
   cpo_id="";
+  selected_unassignitem_list: Array<{id: string}> = [];
+  item_list=[];  
+  
 
   form: FormGroup;
-  products = [
-   
-  ];
+  accepted_display='none';
   constructor(private formBuilder: FormBuilder,private PoVendorService:PoVendorService,private router:Router,private route:ActivatedRoute,) { 
-    const controls = this.products.map(c => new FormControl(false));
-    //controls[0].setValue(true); 
-    this.form = this.formBuilder.group({
-      products: new FormArray(controls)
-    });
-  }
-
-  submit() {
-    const selectedOrderIds = this.form.value.products
-      .map((v, i) => v ? this.products[i].id : null)
-      .filter(v => v !== null);
-    console.log(selectedOrderIds);
-  }
   
+  }  
 
   ngOnInit() {
    let id=this.route.snapshot.paramMap.get('cpo_id');  
@@ -62,8 +53,40 @@ export class SourcingCpoVendorProductComponent implements OnInit {
       console.log(data);
     })
   }
+  submitassignvendorlist(event){
+    console.log(event.target.name);
+    let vpo_id = event.target.name;
+    let id=this.route.snapshot.paramMap.get('cpo_id');  
+    this.cpo_id = id;  
+  
+    for(let item in this. selected_unassignitem_list)
+  {
+    this.item_list.push(this. selected_unassignitem_list[item]['id']);
+ }
+  console.log(this.item_list);
+    this.PoVendorService.Postassignvendorlist(this.item_list,id,vpo_id).subscribe((data)=>{ 
+      console.log(data);
+      window.location.reload();
+    })
+  }
 
-
+  openAcceptedModalDialog(){
+    this.accepted_display='block';
+  }
+  closeAcceptedModalDialog(){
+    this.accepted_display='none';
+  }
+  checkUnassignitem(event,id) {
+    if(event.target.checked) {
+        this.selected_unassignitem_list.push({id:event.target.name});
+       console.log(this.selected_unassignitem_list);
+    } 
+    else {
+      this.selected_unassignitem_list.splice(event.target.name,1);
+      console.log(this.selected_unassignitem_list);
+    }
+  }
+  
 }
 
 

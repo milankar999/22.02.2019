@@ -355,18 +355,6 @@ postdeleterejectlineitemDetails(reject_id,edit_reject_id){
   
   }
   postSelectedProduct(product_title,description,model,brand,product_code,part_no,pack_size,hsn_code,gst,quantity,uom,unit_price,quot_id){
-    console.log(product_title);
-    console.log(description);
-    console.log(model);
-    console.log(brand);
-    console.log(product_code);
-    console.log(part_no);
-    console.log(pack_size);
-    console.log(hsn_code);
-    console.log(gst);
-    console.log(quantity);
-    console.log(uom);
-    console.log(unit_price);
     
   return this.http.post<SelectProductNewLineitem[]>("/api/po_from_customer/customer/"+quot_id+"/add_new_item/", //PoEntryrejected lineitem list database API LInk,
   {   

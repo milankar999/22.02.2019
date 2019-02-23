@@ -10,4 +10,5 @@ export interface UnassignedProductList {
     gst:number,
     uom:string,
     quantity:number
+    
 }

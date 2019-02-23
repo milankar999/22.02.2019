@@ -5,15 +5,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class QuotationSearchPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return value.filter((el)=>{
-      //searching element of the leave_type Employee,manager,admin
-        if(el.quotation_no.indexOf(args)===-1){
-          return false;
-        }
-        else {
-          return true;
+  transform(value: any, quotationSearch: string, item:any){
+    if(!quotationSearch){
+      return value;
+    }else if (value){
+   
+    
+      return value.filter(item=> {
+        for (let key in item) {
+          if ((typeof item[key] === 'string' || item[key] instanceof String) &&
+            (item[key].indexOf(quotationSearch) !== -1)) {
+            return true;
+          }
         }
       });
     }
   }
+}
+
