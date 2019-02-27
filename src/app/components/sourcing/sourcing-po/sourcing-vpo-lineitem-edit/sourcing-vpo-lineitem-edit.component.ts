@@ -63,6 +63,7 @@ this.PoVendorServic.getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id).subscrib
   this.description=data['description'];
   this.model=data['model'];
   this.brand=data['brand'];
+  this.product_code=data['product_code'];
   this.hsn_code=data['hsn_code'];
   this.pack_size=data['pack_size'];
   this.gst=data['gst'];
@@ -84,11 +85,12 @@ this.PoVendorServic.getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id).subscrib
   this.receiver_id=rece_id;
 
   this.PoVendorServic.PostSourcingVpoLineitemedit(
-    this.Model.id,
+   
     this.Model.product_title,
     this.Model.description,
     this.Model.model,
     this.Model.brand,
+    this.Model.product_code,
     this.Model.hsn_code,
     this.Model.pack_size,
     this.Model.gst,
@@ -99,9 +101,9 @@ this.PoVendorServic.getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id).subscrib
   ).subscribe(data=>{
       this.lineitem_object=data;
       console.log(data);
-      //this.router.navigate(['/api/po_to_vendor/pending_cpo/24fee713-7d0e-4794-81ec-6a752cc52a64/vpo/031d73a5-ea70-456c-9c7b-e461c9022ce4/lineitem/00596812-d867-4631-afbb-c281bc000b95/edit/']);
+      this.router.navigate(['sourcing/sourcing-po/'+ cust_id +'/souring-cpo-vendor-product']);  //go back to souring-cpo-vendor-product component
     })
-    //this.router.navigate(['sourcing/sourcing-po/'+ cust_id +'/souring-cpo-vendor-product']);
+     
 }
 
 deletesourcingvpolineitemlist(event){
