@@ -137,15 +137,17 @@ PostSourcingVpoLineitemedit(product_title,description, model,brand,product_code,
     "product_title": product_title,
     "description": description,
     "model": model,
-    " brand": brand,
+    "brand": brand,
     "product_code":  product_code,
-    " hsn_code": hsn_code,
+    "hsn_code": hsn_code,
     "pack_size":  pack_size,
     "gst":gst,
     "uom":uom,
     "quantity":quantity,
     "unit_price":unit_price,
-    cust_id,requ_id,rece_id
+    cust_id,
+    requ_id,
+    rece_id
   },
   {
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
