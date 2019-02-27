@@ -1,8 +1,8 @@
 <br><br>
-<h2 align="center"> Sourcing Vendor Product List </h2>
+<h3 align="center"> Sourcing Vendor Product List </h3>
    <div class="col-md-offset-0 col-md-12">
       <div  *ngFor="let offer of cpo_vendor_list">
-         <div class="panel panel-primary">
+         <div class="panel panel-info">
             <div class="panel-heading text-center">
                Vendor : {{offer.vendor.name}} &nbsp; || &nbsp; Vendor Contact Person : {{offer.vendor_contact_person.name}}&nbsp; || &nbsp; Offer reference : {{offer.offer_reference}} &nbsp; || &nbsp; Offer date {{offer.offer_date}}
             </div> 
@@ -63,9 +63,9 @@
          </div>
       </div>
    </div>
-   <h2 align="center"> Unassigned Product List </h2>
+   <h3 align="center"> Unassigned Product List </h3>
    <div class="col-md-offset-0 col-md-12">
-            <div class="panel panel-primary">
+            <div class="panel panel-info">
                <div class="panel-heading text-center">
                  Please Assigne this Products to Some Vendors
                </div> 

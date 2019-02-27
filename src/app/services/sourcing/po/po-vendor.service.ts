@@ -119,7 +119,6 @@ headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('
 });
 
 }
-
 //SourcingVpoLineitemEdit GET method()...Component--(sourcing-vpo-lineitem-edit)
 getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id):Observable<SourcingVpoLineitemEdit[]>{ 
   console.log(cust_id,requ_id,rece_id)       
@@ -162,8 +161,14 @@ postdeletesourcingvpolineitemedit(cust_id,requ_id,rece_id){
     headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
   });   
     }
+Postsubmitvpoconfirmlist(cpo_id,vpocontact_id, vpoconfirm_id){
+  return this.http.post<[]>('api/po_to_vendor/pending_cpo/'+cpo_id+'/vendor/'+vpocontact_id+'/contact_person/'+vpoconfirm_id+'/create_vpo/',
+  {
 
-
-
+  },
+  {
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
+  })
+}
 }
 
