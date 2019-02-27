@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
-
 import { symbolValidator,passwordMatch} from 'src/app/helpers/validation';
-
 import{ Router,ActivatedRoute } from '@angular/router';
 import{ HttpResponse} from '@angular/common/http';
 import { PoVendorService} from 'src/app/services/sourcing/po/po-vendor.service';
@@ -54,7 +52,6 @@ submitvpocontactlist(event){
      this.model.mobileNo2,
      this.model.email1,this.model.email2,
      this.model.supplier_name,cpo_id,vpocontact_id).subscribe(data => {
-     
     console.log(data);
     window.location.reload();
    
@@ -85,8 +82,8 @@ localstorage(event){
   this.vpocontact_id= vpocontact_id 
   console.log(event.target.name);
   console.log(event.target.id);
-  localStorage.setItem('name',event.target.name);
-  localStorage.setItem('name',event.target.name);
+  localStorage.setItem('contact_person',event.target.name);
+ 
 
   this.router.navigate(['sourcing-po/souring-cpo-vendor-product/'+cpo_id+'/vendor/'+vpocontact_id+'/contact_person/'+event.target.id+'/createnewvpo']);
 
