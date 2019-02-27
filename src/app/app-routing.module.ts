@@ -99,6 +99,8 @@ const routes:Routes=[
   { path:'sourcing/sourcing-po/:sourcingdetail/sourcing-cpo-pending-details', component:SourcingCpoPendingDetailsComponent,canActivate:[AuthGuard] },
   
   { path:'sourcing/sourcing-po/:cpo_id/souring-cpo-vendor-product',component:SourcingCpoVendorProductComponent },
+
+  { path:'sourcing/sourcing-po/sourcing-vpo-lineitem-edit',component:SourcingVpoLineitemEditComponent },
   { path:'sourcing/sourcing-po/:cpo_id/vpo/:vpo_id/lineitem/:lineitem_id/edit',component:SourcingVpoLineitemEditComponent },
 
 

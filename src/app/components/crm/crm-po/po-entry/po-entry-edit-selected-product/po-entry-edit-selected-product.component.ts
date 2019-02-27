@@ -60,6 +60,7 @@ submiteditproductlist(event){
   this.quotation_id=quot_id;
   let prod_id=this.route.snapshot.paramMap.get('selected-product');
   this.product_id=prod_id;
+  
   this.PoEntryServicesService.putEditSelectedProduct(
     this.Model.product_title,
     this.Model.description,

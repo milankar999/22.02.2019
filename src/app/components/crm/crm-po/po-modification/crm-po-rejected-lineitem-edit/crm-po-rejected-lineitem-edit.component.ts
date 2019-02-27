@@ -9,7 +9,9 @@ import{ Router,ActivatedRoute } from '@angular/router';
 })
 export class CrmPoRejectedLineitemEditComponent implements OnInit {
 rejectlineitemedit:object[]=[];
+
 Model : any={};
+
   producttitle="";
   descriptions="";
   models="";
@@ -26,7 +28,8 @@ Model : any={};
   cpo_reject_edit_id="";
 
  
-  constructor(private PoEntryServicesService:PoEntryServicesService,private route:ActivatedRoute, private router:Router ) { }
+  constructor(private PoEntryServicesService:PoEntryServicesService,
+    private route:ActivatedRoute, private router:Router ) { }
 
   ngOnInit() {
     let reject_id=this.route.snapshot.paramMap.get('cpo_id');

@@ -43,6 +43,7 @@ export class CrmPoRejectedSuppinfoEditComponent implements OnInit {
   submitrejectedsuppinfolist(event){
     let reject_id=this.route.snapshot.paramMap.get('cpo_id');
     this.cpo_reject_id=reject_id;
+    
     this.PoEntryServicesService.PostPoRejectSuppInfo(this.model.customer_po_no,
       this.model.customer_po_date,
       this.model.delivery_date,
