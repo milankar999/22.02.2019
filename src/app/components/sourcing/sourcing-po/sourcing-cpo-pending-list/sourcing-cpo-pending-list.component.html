@@ -3,7 +3,7 @@
 <h2 align="center">pending po list </h2>
 <hr>
  <div class="col-md-offset-2 col-md-8">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading text-center"> Penfing po  List</div>
                  <div class="panel-body">
                      <div class="col-md-4">
@@ -26,11 +26,7 @@
             </tr >
         </thead>
                 <tr *ngFor="let data of  pendinglist">
-                   
-                  <!--<td>
-                         <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
-                         <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td> --> 
+            
                     <td>
                             <a href="sourcing/sourcing-po/{{data.id}}/sourcing-cpo-pending-details"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
                         </td>

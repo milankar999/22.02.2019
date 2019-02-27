@@ -20,6 +20,7 @@ export class SourcingVpoConfirmationComponent implements OnInit {
 
 
   ngOnInit() {
+    
    
   }
   submitvpoconfirmlist(event){
@@ -31,7 +32,9 @@ export class SourcingVpoConfirmationComponent implements OnInit {
     let vpoconfirm_id = this.route.snapshot.paramMap.get('vpoconfirmation');
     this.vpoconfirm_id= vpoconfirm_id;
     this.PoVendorService.Postsubmitvpoconfirmlist(cpo_id,vpocontact_id, vpoconfirm_id).subscribe(data => {
-     console.log(data);
+      console.log(data);
+      localStorage.removeItem('contact_person');
+      localStorage.removeItem('name');
      this.router.navigate(['sourcing/sourcing-po/'+cpo_id+'/souring-cpo-vendor-product']);
 
 

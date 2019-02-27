@@ -1,7 +1,6 @@
 <app-crm-header></app-crm-header>
 <br>
-<br><br>
-<h2 align="center">PO-Entry Selection  Product List </h2>
+<br><br><hr>
 <button type="button" class="btn btn-primary btn-sm" (click)="openModalDialog()" style="float:left"> <span class="glyphicon glyphicon-forward"></span>ADD LineItem</button> 
 <!--After clicking the buttons open the model dialog using open/close event biniding methods-->
 <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
@@ -12,7 +11,7 @@
         <!--modal-conent-->
         <div class="modal-content">
             <!--modal-header-->
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
                 <div class="panel-heading text-center">New product Line Item
                 <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
 
@@ -104,7 +103,7 @@
 
 <br><br>
  
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
         
             <div class="panel-heading text-center">PO-Entry Selection  Product List</div>
                  <div class="panel-body">
