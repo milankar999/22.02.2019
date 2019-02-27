@@ -1,0 +1,103 @@
+<app-sourcing-header></app-sourcing-header>
+<br><br>
+<h2 align="center">Sourcing VPO Contact Person Selection</h2>
+<hr>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">New Contact Person Details </div>
+                 <div class="panel-body">
+                    <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openModalDialog()"><span class="glyphicon glyphicon-plus">ADD NEW</span></button>
+                    <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
+                    <!--modal-->
+                    <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+                        <!--modal-dialog-->
+                        <div class="modal-dialog" role="document">
+                            <!--modal-conent-->
+                                 <div class="modal-content">
+                                     <!--modal-header-->
+                                     <div class="panel panel-primary">
+                                        <div class="panel-heading text-center">New Contact-Person-Selection                                   
+                                            <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+                                    </div>
+                                     <!--modal-body-->
+                <div class="modal-body">
+                    <form #submitvpocontactlistForm="ngForm" (ngSubmit)="submitvpocontactlist(event)" class="form-signin" [formGroup]="poForm" >
+                        <div class="form-group" [ngClass]="{'has-error':poForm.get('name').touched && poForm.get('name').invalid}">
+                                 
+                            <label for="name" class="control-label">Name*</label>
+                            <input type="text" id="name" class="form-control" formControlName="name" [(ngModel)]="model.name">
+                            <span *ngIf="poForm.get('name').touched && poForm.get('name').invalid" class="help-block">Name can't be blank.</span>
+                     </div>
+                     <div class="form-group" [ngClass]="{'has-error':poForm.get('mobileNo1').touched && poForm.get('mobileNo1').invalid}">
+                        <label for="mobileNo1" class="control-label">Mobile No1*</label>
+                        <input type="text" id="mobileNo1" class="form-control" formControlName="mobileNo1" maxlength="10" [(ngModel)]="model.mobileNo1">
+                        <span *ngIf="poForm.get('mobileNo1').touched && poForm.get('mobileNo1').invalid" class="help-block">mobileNo1 can't be blank.</span>
+            </div>
+
+            <div class="form-group">
+                    <label class="form-input" for="mobileNo2"> Mobil No 2 </label>
+                    <input type="text" class="form-control" id="mobileNo2" name="mobileNo2" formControlName="mobileNo2"  [(ngModel)]="model.mobileNo2"><br>
+            </div>
+                          
+             <div class="form-group" [ngClass]="{'has-error':poForm.get('email').touched && poForm.get('email').invalid}">
+                            <label for="email" class="control-label">Office Email 1*</label>
+                            <input type="email1" id="email1" class="form-control" formControlName="email"  [(ngModel)]="model.email1" >
+                            <span *ngIf="poForm.get('email').touched && poForm.get('email').hasError('required')" class="help-block">Office Email 1 can't be blank.</span>
+                            <span *ngIf="poForm.get('email').touched && poForm.get('email').hasError('email')"  class="help-block">Office Email 1 must be valid</span>
+            </div>
+
+              <div class="form-group">
+                    <label for="email2" class="control-label">Office Email ID 2 </label>
+                    <input type="email" class="form-control" id="email2" name="email2" formControlName="email2" [(ngModel)]="model.email2"><br>
+              </div>
+           <hr> 
+
+                    <button [disabled]="submitvpocontactlistForm.invalid" class="btn btn-primary">submit</button>&nbsp;
+                    <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
+                      </form>
+                  </div>
+             </div>
+         </div>
+     </div>
+   </div> 
+ </div>
+    <!--Table data-->
+     <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+         <thead><!--table header-->
+             <tr>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>MobileNo 1</th>
+                    <th>MobileNo 1</th>
+                    <th>Email 1</th>
+                    <th>Email 2</th>
+                    <th></th>
+                  </tr>
+         </thead>
+            <tr *ngFor="let data of  sourcingVPO_contact_person">
+                 <td>
+        <!---- <a href="sourcing-po/souring-cpo-vendor-product/{{cpo_id}}/vendor/{{vpocontact_id}}/contact_person/{{data.id}}/createnewvpo">-->
+            <input type="button" value="Select" class="glyphicon glyphicon-forward" style="color: blue" name="{{data.name}}" id="{{data.id}}" (click)="localstorage($event)" />
+                </td>
+                
+                <td>{{data.name}}</td>
+                <td>{{data.mobileNo1}}</td>
+                <td>{{data.mobileNo2}}</td>
+                <td>{{data.email1}}</td>
+                <td>{{data.email2}}</td>
+                <td></td>
+             </tr>
+            
+       
+    </table> <br>
+
+    </div>
+  
+    <app-sourcing-footer></app-sourcing-footer>
+   
+    
+   
+
+    
+  

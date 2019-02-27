@@ -14,11 +14,12 @@ import { PoVendorService} from 'src/app/services/sourcing/po/po-vendor.service';
   styleUrls: ['./sourcing-cpo-vendor-product.component.css']
 })
 export class SourcingCpoVendorProductComponent implements OnInit {
-
+  display='none';
   model:any={}
   product="";
   vendorname="";
   vpo_id="";
+  lineitem_id="";
   cpo_vendor_list:object[]=[];
   vpo_lineitems:object[]=[];
   unassigned_product:object[]=[];
@@ -35,7 +36,7 @@ export class SourcingCpoVendorProductComponent implements OnInit {
 
   ngOnInit() {
    let id=this.route.snapshot.paramMap.get('cpo_id');  
-   this.cpo_id = id;                        //display singel api id --  app routemodel we mention the id as :cpo_id/
+   this.cpo_id = id;                  //display singel api id --  app routemodel we mention the id as :cpo_id/
    this.SourcingCpoVenderProduct(id);
    this.GetUnassignedVenderProduct(id);
   }
@@ -44,6 +45,7 @@ export class SourcingCpoVendorProductComponent implements OnInit {
     this.PoVendorService.getSourcingCpoVenderProduct(id).subscribe((data)=>{  // get method
       this.cpo_vendor_list=data;
       console.log(data);
+   
     })
   }
 
@@ -69,12 +71,29 @@ export class SourcingCpoVendorProductComponent implements OnInit {
       window.location.reload();
     })
   }
-
-  openAcceptedModalDialog(){
-    this.accepted_display='block';
+  deletelineitem(event,id){
+    
+    console.log(event.target.name);
+    let vpo_id = event.target.name;
+   
+    let cpo_id=this.route.snapshot.paramMap.get('cpo_id');  
+    this.cpo_id = cpo_id;  
+  
+   
+    let lineitem_id=this.route.snapshot.paramMap.get('lineitem_id'); 
+    this.lineitem_id =lineitem_id;
+    this.PoVendorService.deleteLineItemEdit(cpo_id,vpo_id,lineitem_id).subscribe((data)=>{  // delete method
+      console.log(data);
+     
+    })
   }
-  closeAcceptedModalDialog(){
-    this.accepted_display='none';
+
+  openModalDialog(){
+    this.display='block';
+  }
+  closeModalDialog(){
+    this.display='none';
+    
   }
   checkUnassignitem(event,id) {
     if(event.target.checked) {

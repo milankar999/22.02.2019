@@ -67,4 +67,5 @@ postRejectionlist(rejection_reason,sal_id){
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
   });
 }
+
 }

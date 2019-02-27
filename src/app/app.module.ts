@@ -93,6 +93,10 @@ import { CashPurchaseContactPersonSelectionComponent } from './components/grn/go
 import { CashPurchaseContactProductEntryComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-product-entry/cash-purchase-contact-product-entry.component';
 import { QuotationSearchPipe } from './pipes/quotation-search.pipe';
 import { SourcingVpoLineitemEditComponent } from './components/sourcing/sourcing-po/sourcing-vpo-lineitem-edit/sourcing-vpo-lineitem-edit.component';
+import { SourcingNewVpoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-new-vpo.component';
+import { SourcingVpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-vendor-selection/sourcing-vpo-vendor-selection.component';
+import { SourcingVpoContactpersonSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-contactperson-selection/sourcing-vpo-contactperson-selection.component';
+import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-confirmation/sourcing-vpo-confirmation.component';
 
 
 
@@ -176,7 +180,11 @@ import { SourcingVpoLineitemEditComponent } from './components/sourcing/sourcing
     CashPurchaseContactPersonSelectionComponent,
     CashPurchaseContactProductEntryComponent,
     QuotationSearchPipe,
-    SourcingVpoLineitemEditComponent, 
+    SourcingVpoLineitemEditComponent,
+    SourcingNewVpoComponent,
+    SourcingVpoVendorSelectionComponent,
+    SourcingVpoContactpersonSelectionComponent,
+    SourcingVpoConfirmationComponent, 
   ],
   imports: [
     BrowserModule,

@@ -37,7 +37,8 @@
                         <tbody>
                            <tr *ngFor="let data of  offer.vpo_lineitems">
                               <td><a href="sourcing/sourcing-po/{{cpo_id}}/vpo/{{offer.id}}/lineitem/{{data.id}}/edit" data-toggle="tooltip" data-placement="top" title="Edit Product Details"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a>&nbsp;&nbsp;&nbsp;
-                               <a href="#"> <span class="glyphicon glyphicon-trash"></span></a> </td>
+                                 <a name="{{offer.id}}" id="{{offer.id}}" (click)=" deletelineitem($event,this.name)"><span class="glyphicon glyphicon-trash"></span></a>
+                               </td>
                               <td>{{data.product_title}}</td>
                               <td>{{data.description}}</td>
                               <td>{{data.model}}</td>
@@ -69,6 +70,7 @@
                  Please Assigne this Products to Some Vendors
                </div> 
                <div class="panel-body">
+                     <a href="sourcing/sourcing-po/souring-cpo-vendor-product/{{cpo_id}}/vpo-vendor-selection"> <button class="btn btn-success btn-sm" style="float: left">Sourcing New PO</button></a>      
                      <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"> <button class="btn btn-danger btn-sm" style="float: right">Direce Buy From Market</button></a>      
                      <br><br>
                      <!--Table-->

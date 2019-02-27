@@ -59,6 +59,10 @@ import { GrnWithoutPoLineitemsEditComponent } from './components/grn/goods-recei
 import { CashPurchaseContactPersonSelectionComponent } from './components/grn/goods-receive/immediate/cash-purchase-contact-person-selection/cash-purchase-contact-person-selection.component';
 import { SourcingVpoSignatureComponent } from './components/sourcing/sourcing-po/sourcing-vpo-signature/sourcing-vpo-signature.component';
 import { SourcingVpoLineitemEditComponent } from './components/sourcing/sourcing-po/sourcing-vpo-lineitem-edit/sourcing-vpo-lineitem-edit.component';
+import { SourcingNewVpoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-new-vpo.component';
+import { SourcingVpoContactpersonSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-contactperson-selection/sourcing-vpo-contactperson-selection.component';
+import { SourcingVpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-vendor-selection/sourcing-vpo-vendor-selection.component';
+import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-confirmation/sourcing-vpo-confirmation.component';
  
 
 
@@ -104,9 +108,13 @@ const routes:Routes=[
 
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection', component: SourcingCpoVendorSelectionComponent },
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor', component: SourcingCpoNewVendorComponent,canActivate:[AuthGuard] }, 
- 
   { path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent },
-  { path:'sourcing/sourcing-home', component:SourcingHomeComponent}, 
+
+//Sourcing NEW VPO
+  { path :'sourcing/sourcing-po/souring-cpo-vendor-product/:cpo_id/vpo-vendor-selection',component:SourcingVpoVendorSelectionComponent},
+  { path : 'sourcing/sourcing-po/souring-cpo-vendor-product/:cpo_id/vendor/:vpocontact_id/contact_person_selection', component:SourcingVpoContactpersonSelectionComponent},
+  { path : 'sourcing-po/souring-cpo-vendor-product/:cpo_id/vendor/:vpocontact_id/contact_person/:vpoconfirmation/createnewvpo',component:SourcingVpoConfirmationComponent},
+
 //sourcing Vpo 
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-add-basic-info', component:SourcingVpoAddBasicInfoComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-check-vendor-info', component: SourcingVpoCheckVendorInfoComponent},

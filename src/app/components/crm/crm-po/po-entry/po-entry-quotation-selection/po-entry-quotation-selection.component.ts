@@ -64,6 +64,8 @@ dragid(event){
 checkQuotationitem(event,id) {
   if(event.target.checked) {
       this. selected_quotationitem_list.push({id:event.target.name});
+      console.log(this.selected_quotationitem_list);
+    
      
   } 
   else {

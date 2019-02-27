@@ -8,6 +8,11 @@ import { SourcingVendorProduct} from '../../../interface/sourcing/po/sourcing-ve
 import { SourcingVendorProductVPOLineitem} from '../../../interface/sourcing/po/sourcing-vendor-product-vpolineitem';
 import { UnassignedProductList } from '../../../interface/sourcing/po/unassigned-product-list';
 import { Postassigned } from '../../../interface/sourcing/po/postassigned';
+import { SourcingNewVpo  } from '../../../interface/sourcing/po/sourcing-new-vpo';
+import { SourcingVpoContactPerson } from '../../../interface/sourcing/po/sourcing-vpo-contact-person';
+
+
+
 
 
 @Injectable({
@@ -52,5 +57,66 @@ getSourcingCpoVenderProduct(id):Observable<SourcingVendorProduct[]>{
   headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
 });   
 }
+deleteLineItemEdit(cpo_id,vpo_id,lineitem_id){
+  console.log(cpo_id);
+  console.log(vpo_id);
+  console.log(lineitem_id);
+  
+
+  return this.http.delete("/api/po_to_vendor/pending_cpo/"+cpo_id+"/vpo/"+vpo_id+"/lineitem/"+lineitem_id+"/edit/",   //Api id ...
+  {
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+  });   
+ }
+ getSourcingNewVpoProduct(cpo_id):Observable< SourcingNewVpo[]>{
+  return this.http.get< SourcingNewVpo[]>("api/po_to_vendor/pending_cpo/"+cpo_id+"/new_vendor_selection/",  //Api id ...
+  {
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+  });   
+ }
+ getSourcingVpoContactPerson(cpo_id,vpocontact_id):Observable< SourcingVpoContactPerson []>{
+  return this.http.get< SourcingVpoContactPerson []>("/api/po_to_vendor/pending_cpo/"+cpo_id+"/vendor/"+vpocontact_id+"/contact_person_selection/",  //Api id ...
+  {
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+  });   
+ }
+ Postsubmitvpocontactlist(name,mobileNo1,mobileNo2,email1,email2,supplier_name,cpo_id,vpocontact_id){
+  return this.http.post<SourcingVpoContactPerson>("/api/po_to_vendor/pending_cpo/"+cpo_id+"/vendor/"+vpocontact_id+"/contact_person_selection/",//employee leave req database API Link
+      {
+       "name" : name,
+       "mobileNo1" : mobileNo1,
+       "mobileNo2" : mobileNo2,
+       "email1" : email1,
+       "email2" : email2,
+       "supplier_name":supplier_name
+},{
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header Authorize
+});
 
 }
+postSourcingVpoProduct(name,location,address,city,state,pin,country,office_email1,office_email2,office_phone1, office_phone2,gst_number,payment_term,advance_persentage,inco_term,cpo_id){
+  return this.http.post<SourcingNewVpo>("api/po_to_vendor/pending_cpo/"+cpo_id+"/new_vendor_selection/",//employee leave req database API Link
+  {
+   "name" : name,
+   "location": location,
+   "address" : address,
+   "city" : city,
+   "state": state,
+   "pin": pin,
+   "country":country,
+   "office_email1":office_email1,
+   "office_email2":office_email2,
+   "office_phone1":office_phone1,
+   "office_phone2":office_phone2,
+   "gst_number":gst_number,
+   "payment_term":payment_term,
+   "advance_persentage":advance_persentage,
+   "inco_term":inco_term
+  
+},{
+headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header Authorize
+});
+
+}
+}
+

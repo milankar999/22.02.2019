@@ -1,0 +1,164 @@
+<app-sourcing-header></app-sourcing-header>
+<br><br>
+<h2 align="center">Sourcing New VPO Selection List</h2>
+<hr>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">Sourcing New VPO Selection List </div>
+                 <div class="panel-body">
+                        <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openModalDialog()"><span class="glyphicon glyphicon-plus">ADD NEW</span></button>
+                        <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
+                        <!--modal-->
+                        <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+                                <!--modal-dialog-->
+                                <div class="modal-dialog" role="document">
+                                    <!--modal-conent-->
+                                         <div class="modal-content">
+                                             <!--modal-header-->
+                                             <div class="panel panel-primary">
+                                                <div class="panel-heading text-center">New Contact-Person-Selection                                   
+                                                    <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+                                                </div>
+                                                 <div class="modal-body">
+                                    
+                                                        
+                                                                <div class="form-group">
+                                                                    <label class="form-input" for="name">Name <a style="color: red">*</a></label>
+                                                                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" required #name="ngModel">
+                                                              </div>
+                                                              <div class="form-group">
+                                                                <label class="form-input" for="location">Location<a style="color: red">*</a></label>
+                                                                <input type="text" class="form-control" id="location" name="location" [(ngModel)]="model.location" required #location="ngModel">
+                                                          </div>
+                                                          <div class="form-group">
+                                                            <label class="form-input" for="address">Address<a style="color: red">*</a></label>
+                                                            <input type="text" class="form-control" id="address" name="address" [(ngModel)]="model.address" required #address="ngModel">
+                                                      </div>
+                                                      <div class="form-group">
+                                                        <label class="form-input" for="city">City<a style="color: red">*</a></label>
+                                                        <input type="text" class="form-control" id="city" name="city" [(ngModel)]="model.city" required #city="ngModel">
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label class="form-input" for="pin">Pin<a style="color: red">*</a></label>
+                                                    <input type="text" class="form-control" id="pin" name="pin" [(ngModel)]="model.pin" required #pin="ngModel">
+                                                  </div>
+                                                          
+                                                  <div class="form-group">
+                                                    <label class="form-input" for="state">State<a style="color: red">*</a></label>
+                                                    <input type="text" class="form-control" id="state" name="state" [(ngModel)]="model.state" required #state="ngModel">
+                                                 </div>
+                                                 <div class="form-group">
+                                                    <label class="form-input" for="country">Country<a style="color: red">*</a></label>
+                                                    <input type="text" class="form-control" id="country" name="country" [(ngModel)]="model.country" required #country="ngModel">
+                                              </div>
+                                              <div class="form-group">
+                                                <label class="form-input" for="office_email1">Office Email ID 1<a style="color: red">*</a></label>
+                                                <input type="text" class="form-control" id="office_email1" name="office_email1" [(ngModel)]="model.office_email1" required #office_email1="ngModel">
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="form-input" for="office_email1">Office Email ID 2</label>
+                                            <input type="text" class="form-control" id="office_email2" name="office_email2" [(ngModel)]="model.office_email2" required #office_email2="ngModel">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-input" for="office_phone1">Office Phone 1<a style="color: red">*</a></label>
+                                            <input type="text" class="form-control" id="office_phone1" name="office_phone1" [(ngModel)]="model.office_phone1" required #office_phone1="ngModel">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-input" for="office_phone2">Office Phone 2</label>
+                                            <input type="text" class="form-control" id="office_phone2" name="office_phone2" [(ngModel)]="model.office_phone2" required #office_phone2="ngModel">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-input" for="gst_number">GST<a style="color: red">*</a></label>
+                                            <input type="text" class="form-control" id=" gst_number" name="gst_number" [(ngModel)]="model.gst_number" required #gst_number="ngModel">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-input" for="payment_term">Payment Term<a style="color: red">*</a></label>
+                                            <input type="text" class="form-control" id="payment_term" name="payment_term" [(ngModel)]="model.payment_term" required #payment_term="ngModel">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-input" for="advance_persentage">Advance Percentage<a style="color: red">*</a></label>
+                                            <input type="text" class="form-control" id="advance_persentage" name="advance_persentage" [(ngModel)]="model.advance_persentage" required #advance_persentage="ngModel">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-input" for= "inco_term">Inco Term<a style="color: red">*</a></label>
+                                            <input type="text" class="form-control" id="inco_term" name="inco_term" [(ngModel)]="model.inco_term" required #inco_term="ngModel">
+                                        </div>
+ 
+                                     <div class="modal-footer">
+                                            <input type="submit" class="btn btn-success" (click)="submitvpolist(event)" value="Confirm">
+                                              <input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancel">
+                                               
+                                         
+                                        </div>
+                        
+                                    </div>
+                                
+                                 </div>
+                            </div> 
+                            </div>
+             </div><br><br>
+    <!--Table data-->
+     <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+         <thead><!--table header-->
+             <tr>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Pin</th>
+                    <th>Country</th>
+                    <th>Office Email 1</th>
+                    <th>Office Email 2</th>
+                    <th>Office Phone 1</th>
+                    <th>Office Phone 2</th>
+                    <th>GST</th>
+                    <th>Payment Term</th>
+                    <th>Advance Persentage</th>
+                    <th>Inco Term</th>
+                    <th></th>
+                  </tr>
+         </thead>
+            <tr *ngFor="let data of sourcing_new_vpo">
+                 <td>
+                   <!---- <a href="sourcing/sourcing-po/souring-cpo-vendor-product/{{cpo_id}}/vendor/{{data.id}}/contact_person_selection">-->
+                    <input type="button" value="Select" class="glyphicon glyphicon-forward" style="color: blue" name="{{data.name}}" id="{{data.id}}" (click)="localstorage($event)" />
+                </td>
+                
+                <td>{{data.name}}</td>
+                <td>{{data.location}}</td>
+                <td>{{data.address}}</td>
+                <td>{{data.city}}</td>
+                <td>{{data.state}}</td>
+                <td>{{data.pin}}</td>
+                <td>{{data.country}}</td>
+                <td>{{data.office_email1}}</td>
+                <td>{{data.office_email2}}</td>
+                <td>{{data.office_phone1}}</td>
+                <td>{{data.office_phone2}}</td>
+                <td>{{data.gst_number}}</td>
+                <td>{{data.payment_term}}</td>
+                <td>{{data.advance_persentage}}</td>
+                <td>{{data.inco_term}}</td>
+                <td></td>
+             </tr>
+            
+       
+    </table> <br>
+</div>
+</div>
+
+
+
+  
+
+    
+    <app-sourcing-footer></app-sourcing-footer>
+   
+    
+   
+
+    
+  
