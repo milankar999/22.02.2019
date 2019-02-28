@@ -121,7 +121,8 @@ const routes:Routes=[
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-delivery-instruction', component: SourcingVpoDeliveryInstructionComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-receiver-info', component:  SourcingVpoReceiverInfoComponent},
 
-  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info',component:SourcingVpoAddContactpersonInfoComponent},
+ // { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info',component:SourcingVpoAddContactpersonInfoComponent},
+  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/:cpo_id/vpo/:vpo_id/sourcing-vpo-add-contactperson-info',component:SourcingVpoAddContactpersonInfoComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-condition', component:SourcingVpoTermsConditionsComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent},     
 //sales vpo

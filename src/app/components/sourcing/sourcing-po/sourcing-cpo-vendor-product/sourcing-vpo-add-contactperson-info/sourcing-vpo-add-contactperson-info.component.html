@@ -1,41 +1,46 @@
 <br><br><br>
 <div class="col-md-offset-4 col-md-4">  <!--table fields-->
      <div class="well">
-        <h2 align="center"> Contact Person Info </h2>
+        <h2 align="center"> Contact Person info </h2>
             <hr>
-         <form>
-                <div class="form-group">
-                    <label class="form-input" for="personname">Contact Person Name<a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="personname" name=" personname" placeholder="person name" [(ngModel)]="model.personname"
-                    required 
-                    #personname="ngModel">
-                    <span *ngIf="personname.touched && personname.invalid" class="help-block">person name can't be blank</span>
-                 
-                    <label class="form-input" for="phonenumber1">Phone Number 1<a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="phonenumber" name="phonenumber1" placeholder="phone number" [(ngModel)]="model.phonenumber"
+         
+
+            <form #submitsourcingvpoaddcontactpersoninfoForm="ngForm" (ngSubmit)="submitsourcingvpoaddcontactpersoninfolist(event)" class="form-sigin">
+                
+              <div class="form-group">
+                   
+                    <label class="form-input" for="name"> Name</label>
+                    <input type="text" class="form-control" id="name" value="{{po_contact_info['vendor_contact_person']['name']}}" name="name" [(ngModel)]="model.name"
                      required 
-                     #phonenumber1="ngModel">
-                     <span *ngIf="phonenumber1.touched && phonenumber1.invalid" class="help-block">phonenumber can't be blank</span>
-                     <label class="form-input" for="phonenumber2">Phone Number 2</label>
-                     <input type="text" class="form-control" id="phonenumber2" name="phonenumber2" placeholder="phone number" [(ngModel)]="model.phonenumber"
+                     #name="ngModel">
+                     <span *ngIf="name.touched && name.invalid" class="help-block">name can't be blank</span>
+                   
+                    <label class="form-input" for="mobilenumber1">Mobile Number 1<a style="color: red">*</a></label>
+                    <input type="text" class="form-control" id="mobilenumber1" name="mobilenumber1" value="{{po_contact_info['vendor_contact_person']['mobileNo1']}}" placeholder="mobile number" [(ngModel)]="model.mobilenumber1"
+                     required 
+                     #mobilenumber1="ngModel">
+                    
+                     <label class="form-input" for="mobilenumber2">Mobile Number 2</label>
+                     <input type="text" class="form-control" id="mobilenumber2" name="mobilenumber2" value="{{po_contact_info['vendor_contact_person']['mobileNo2']}}" placeholder="mobile number" [(ngModel)]="model.mobilenumber2"
                       required 
-                      #phonenumber2="ngModel">
-                      <span *ngIf="phonenumber2.touched && phonenumber2.invalid" class="help-block">phonenumber can't be blank</span>
+                      #mobilenumber2="ngModel">
+                       
                  
                     <label class="form-input" for="email1"> Email 1<a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="email1" name="email1" placeholder="email1" [(ngModel)]="model.email1"
+                    <input type="text" class="form-control" id="email1" name="email1" value="{{po_contact_info['vendor_contact_person']['email1']}}" placeholder="email 1" [(ngModel)]="model.email1"
                     required 
                     #email1="ngModel">
-                    <span *ngIf="email1.touched && email1.invalid" class="help-block">Email can't be blank</span>
+                    
 
                     <label class="form-input" for="email2"> Email 2</label>
-                    <input type="text" class="form-control" id="email2" name="email2" placeholder="email2" [(ngModel)]="model.email2"
+                    <input type="text" class="form-control" id="email2" name="email2" value="{{po_contact_info['vendor_contact_person']['email2']}}" placeholder="email2" [(ngModel)]="model.email2"
                     required 
                     #email2="ngModel">
-            
+
                  </div>
                    <hr>
-                    <button type="button" class="btn btn-success">Submit</button>&nbsp;
+                  <!--  <button type="button" class="btn btn-success">Submit</button>&nbsp;-->
+                    <button  type="submitsourcingvpoaddcontactpersoninfoForm.invalid" class="btn btn-success">Submit</button>&nbsp;
                     <button type="button" class="btn btn-danger">Cancel</button>&nbsp;
                     <button type="button" class="btn btn-primary">Reset</button>
          </form>

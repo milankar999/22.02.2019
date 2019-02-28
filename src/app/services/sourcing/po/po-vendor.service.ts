@@ -11,6 +11,7 @@ import { Postassigned } from '../../../interface/sourcing/po/postassigned';
 import { SourcingNewVpo  } from '../../../interface/sourcing/po/sourcing-new-vpo';
 import { SourcingVpoContactPerson } from '../../../interface/sourcing/po/sourcing-vpo-contact-person';
 import { SourcingVpoLineitemEdit}from '../../../interface/sourcing/po/sourcing-vpo-lineitem-edit';
+import { SourcingVpoAddContactpersonInfo} from '../../../interface/sourcing/po/sourcing-vpo-add-contactperson-info';
 
 
 
@@ -128,6 +129,46 @@ getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id):Observable<SourcingVpoLineit
     });       
 }
 
+// Sourcing VPo Add contactperson info GET method()...Component--( Sourcing VPo Add contactperson info )
+getSourcingVpoAddContactPersoninfo(cpo_id,vpo_id):Observable<SourcingVpoAddContactpersonInfo[]>{ 
+  console.log(cpo_id,vpo_id)       
+  return this.http.get<SourcingVpoAddContactpersonInfo []>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier_contact_person_info_checking/', // Sourcing VPo Add contactperson info  database API LInk
+   {
+       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+    });       
+}
+
+// SourcingVpoLineitemEdit PUT method()... .Component--(Sourcing-Vpo-Lineitem-Edit)
+Postsubmitsourcingvpoaddcontactpersoninfolist(name,mobileNo1,mobileNo2,email1,email2,created_at,updated_at,supplier_name,created_by,  cpo_id,vpo_id,){
+  return this.http.put<SourcingVpoAddContactpersonInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier_contact_person_info_checking/', //SourcingVpoLineitemEdit database API LInk
+  {
+   
+    "name": name,
+     "mobileNo1":mobileNo1,
+     "mobileNo2":mobileNo2,
+    "email1":email1,
+    "email2":email2,
+    "created_at":created_at,
+   "updated_at":updated_at,
+   "supplier_name":supplier_name,
+   "created_by":created_by,
+   cpo_id,vpo_id,
+   
+  },
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });        
+}
+
+
+
+
+
+
+
+
+
+
 // SourcingVpoLineitemEdit PUT method()... .Component--(Sourcing-Vpo-Lineitem-Edit)
 PostSourcingVpoLineitemedit(product_title,description, model,brand,product_code,hsn_code,pack_size,gst,uom,quantity,unit_price,cust_id,requ_id,rece_id){
   return this.http.put<SourcingVpoLineitemEdit[]>("/api/po_to_vendor/pending_cpo/"+cust_id+"/vpo/"+ requ_id+"/lineitem/"+ rece_id+"/edit/", //SourcingVpoLineitemEdit database API LInk
@@ -170,5 +211,10 @@ Postsubmitvpoconfirmlist(cpo_id,vpocontact_id, vpoconfirm_id){
     headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
   })
 }
+
+
+
+
+
 }
 
