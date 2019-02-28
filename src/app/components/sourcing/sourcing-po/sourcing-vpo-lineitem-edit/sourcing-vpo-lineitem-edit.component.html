@@ -36,12 +36,7 @@
                  required 
                  #productcode="ngModel">
                  <span *ngIf="productcode.touched && productcode.invalid" class="help-block">Product code can't be blank</span>
-               <!-- <label class="form-input" for="productcode">Product Code</label>
-               <input type="text" class="form-control" id="productcode" value="{{product_code}}" name="productcode" [(ngModel)]="model.productcode"
-                required 
-                #productcode="ngModel">
-                <span *ngIf="productcode.touched && productcode.invalid" class="help-block">Product code can't be blank</span>-->
-
+              
                 
                <label class="form-input" for="hsncode">Hsn code</label>
                <input type="text" class="form-control" id="hsncode" value="{{lineitem_object.hsn_code}}" name="hsncode" [(ngModel)]="Model.hsncode"
@@ -81,34 +76,16 @@
                #unitprice="ngModel">
                <span *ngIf=" unitprice.touched && unitprice.invalid" class="help-block">Unit Price can't be blank</span>
 
-               <!--<label class="form-input" for="deliverydate">Delivery date</label>
-                         <input type="date" class="form-control" id="deliverydate"  name="deliverydate" [(ngModel)]="model.deliverydate"
-                         required 
-                         #deliverydate="ngModel">
-                        <span *ngIf="deliverydate.touched && deliverydate.invalid" class="help-block">delivery date can't be blank</span><br>-->
-  
+                        <hr>
+                        
                         <button  type="submitvpolineitemeditForm.invalid" class="btn btn-success">Submit</button>&nbsp;
          </div>
        </form>
-
-                        <hr>
-                        
-
-                      <!-- <form #deletesourcingvpolineitemForm="ngForm" (ngSubmit)="deletesourcingvpolineitemlist(event)" class="form-signin"> --> 
-                          <button type="deleterejectlineitemForm.invalid" class="btn btn-danger" (click)="openModalDialog()" style="float:left">Delete</button> 
-                      <!-- </form>   -->     
+         <button type="deleterejectlineitemForm.invalid" class="btn btn-danger" (click)="openModalDialog()" style="float:left">Delete</button> 
+                    
                       
-                              <!--Model starts hear-->
                     <hr>
-                              <!-- <button type="button" class="btn btn-danger">Reject</button>  -->  
-                              <!-- </form>  -->
-
-                              <!-- <button type="button" class="btn btn-danger" (click)="openModalDialog()"> 
-                              <span class="glyphicon glyphicon-remove"></span> Delete</button> -->
-
-                              <!--</form>  -->
-
-                              <!--After clicking the buttons open the model dialog using open/close event biniding methods-->
+                            
                               <br>
                  <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
                     <!--modal-->
@@ -118,7 +95,7 @@
                           <!--modal-conent-->
                             <div class="modal-content">
                               <!--modal-header-->
-                              <!-- <div class="panel panel-primary">-->
+                            
                                 <br>
                               <div class="panel-heading text-center"> Sourcing Vpo lineitem edit 
                               <button type="button" class="close" (click)="closeModalDialog()">&times;</button></div>
@@ -137,17 +114,11 @@
                                        <button type="deletesourcingvpolineitemForm.invalid" class="btn btn-success" (click)="deletesourcingvpolineitemlist(event)">yes</button>
 
                                       <button type="button" class="btn btn-danger" (click)="closeModalDialog()">No</button>
-                               <!-- </div> -->
-                           <!-- </div> --> 
-                      <!--</div> --> 
-                  <!--</div> --> 
-
-       <!--last-->
-    
+                            
 <br>
 <br>   
  <div>
-<!--</div>-->
+
 </div>
  <app-sourcing-header></app-sourcing-header>
 <app-sourcing-footer></app-sourcing-footer> 
