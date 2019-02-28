@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { PoVendorService } from 'src/app/services/sourcing/po/po-vendor.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder,FormGroup } from '@angular/forms';
+import{ HttpResponse} from '@angular/common/http';
+ 
 
 @Component({
   selector: 'app-sourcing-vpo-add-contactperson-info',
@@ -7,9 +12,68 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SourcingVpoAddContactpersonInfoComponent implements OnInit {
 model:any={}
-  constructor() { }
+query:string='';
+
+public requestorId;
+display='none';
+poForm :FormGroup;
+ 
+po_contact_info:object[]=[];
+name="";
+mobileNo1= "";
+mobileNo2= "";
+email1= "";
+email2= "";
+created_at= "";
+updated_at= "";
+supplier_name= "";
+created_by= "";
+id="";
+cpo_id="";
+vpo_id="";
+
+constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute,private router:Router,
+  private builder:FormBuilder) { }
 
   ngOnInit() {
+    let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.cpo_id=cpo_id;
+    let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
+    this.vpo_id=vpo_id;
+    this.SourcingVpoAddContactPersoninfo(cpo_id,vpo_id);
+    console.log(this.name);
+   
+  }
+  SourcingVpoAddContactPersoninfo(cpo_id,vpo_id){
+
+    this.PoVendorService.getSourcingVpoAddContactPersoninfo(cpo_id,vpo_id).subscribe((data)=>{ 
+      console.log(data);
+      this.po_contact_info=data;  //object
+    }); 
   }
 
+  submitsourcingvpoaddcontactpersoninfolist(event){
+    let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.cpo_id=cpo_id;
+    let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
+    this.vpo_id=vpo_id;
+
+    this.PoVendorService.Postsubmitsourcingvpoaddcontactpersoninfolist(
+      this.model.name,
+      this.model.mobileNo1,
+      this.model.mobileNo2,
+      this.model.email1,
+      this.model.email2,
+      this.model.created_at,
+      this.model.updated_at,
+      this.model.supplier_name,
+      this.model.created_by,
+      cpo_id,vpo_id,
+      ).subscribe(data=>{
+        this.po_contact_info=data;
+        console.log(data);
+        //this.router.navigate(['sourcing/sourcing-po/'+ cust_id +'/souring-cpo-vendor-product']);  //go back to souring-cpo-vendor-product component
+
+  })
+}
 }

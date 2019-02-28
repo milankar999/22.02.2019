@@ -76,7 +76,7 @@ submitbasicinfo(event){
     this.model.insurance,
     cpo_id,vpo_id).subscribe((data)=>{ 
       console.log(data);
-
+      this.router.navigate(['sourcing/sourcing-po/sourcing-cpo-vendor-product/'+ cpo_id +'/vpo/' + vpo_id + '/sourcing-vpo-add-contactperson-info']);
 });
 }
 }

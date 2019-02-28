@@ -99,7 +99,6 @@ import { SourcingVpoContactpersonSelectionComponent } from './components/sourcin
 import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-confirmation/sourcing-vpo-confirmation.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -184,7 +183,7 @@ import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing
     SourcingNewVpoComponent,
     SourcingVpoVendorSelectionComponent,
     SourcingVpoContactpersonSelectionComponent,
-    SourcingVpoConfirmationComponent, 
+    SourcingVpoConfirmationComponent,
   ],
   imports: [
     BrowserModule,
