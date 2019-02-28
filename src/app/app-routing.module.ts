@@ -116,7 +116,7 @@ const routes:Routes=[
   { path : 'sourcing-po/souring-cpo-vendor-product/:cpo_id/vendor/:vpocontact_id/contact_person/:vpoconfirmation/createnewvpo',component:SourcingVpoConfirmationComponent},
 
 //sourcing Vpo 
-  { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-add-basic-info', component:SourcingVpoAddBasicInfoComponent},
+  { path:'sourcing/po_to_vendo/pending_cpo/:cpo_id/vpo/:vpo_id/basic-info', component:SourcingVpoAddBasicInfoComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-check-vendor-info', component: SourcingVpoCheckVendorInfoComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-delivery-instruction', component: SourcingVpoDeliveryInstructionComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-receiver-info', component:  SourcingVpoReceiverInfoComponent},

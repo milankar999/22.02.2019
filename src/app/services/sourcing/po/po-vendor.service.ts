@@ -10,9 +10,9 @@ import { UnassignedProductList } from '../../../interface/sourcing/po/unassigned
 import { Postassigned } from '../../../interface/sourcing/po/postassigned';
 import { SourcingNewVpo  } from '../../../interface/sourcing/po/sourcing-new-vpo';
 import { SourcingVpoContactPerson } from '../../../interface/sourcing/po/sourcing-vpo-contact-person';
-import { SourcingVpoLineitemEdit}from '../../../interface/sourcing/po/sourcing-vpo-lineitem-edit';
-
-
+import { SourcingVpoLineitemEdit} from '../../../interface/sourcing/po/sourcing-vpo-lineitem-edit';
+import { BasicInfo } from '../../../interface/sourcing/po/basic-info';
+import {SupplierCheckInfo } from '../../../interface/sourcing/po/supplier-check-info';
 
 
 
@@ -59,11 +59,6 @@ getSourcingCpoVenderProduct(id):Observable<SourcingVendorProduct[]>{
 });   
 }
 deleteLineItemEdit(cpo_id,vpo_id,lineitem_id){
-  console.log(cpo_id);
-  console.log(vpo_id);
-  console.log(lineitem_id);
-  
-
   return this.http.delete("/api/po_to_vendor/pending_cpo/"+cpo_id+"/vpo/"+vpo_id+"/lineitem/"+lineitem_id+"/edit/",   //Api id ...
   {
     headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
@@ -170,5 +165,41 @@ Postsubmitvpoconfirmlist(cpo_id,vpocontact_id, vpoconfirm_id){
     headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
   })
 }
+getSourcingVpoBasicInfo(cpo_id,vpo_id):Observable<BasicInfo[]>{ 
+  
+  return this.http.get<BasicInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/basic_info_checking/', //SourcingVpoLineitemEdit database API LInk
+   {
+       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+    });       
 }
+PutSourcingVpoBasicInfo(billing_address,shipping_address,delivery_date,offer_reference,offer_date,payment_term,advance_percentage,freight_charges,custom_duties,pf,insurance,cpo_id,vpo_id){
+  return this.http.put<BasicInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/basic_info_checking/', //SourcingVpoLineitemEdit database API LInk
+ {
+  "billing_address": billing_address,
+  "shipping_address" : shipping_address,
+  "delivery_date" : delivery_date,
+  "offer_reference": offer_reference,
+  "offer_date" : offer_date,
+  "payment_term" : payment_term,
+  "advance_percentage" : advance_percentage,
+  "freight_charges" : freight_charges,
+  "custom_duties" : custom_duties,
+  "pf" :  pf,
+  "insurance" : insurance
+ },
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+getSourcingVpoCheckInfo(cpo_id,vpo_id):Observable<SupplierCheckInfo[]>{ 
+  
+  return this.http.get<SupplierCheckInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier_info_checking/', //SourcingVpoLineitemEdit database API LInk
+   {
+       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+    });       
+}
+}
+
+
+
 

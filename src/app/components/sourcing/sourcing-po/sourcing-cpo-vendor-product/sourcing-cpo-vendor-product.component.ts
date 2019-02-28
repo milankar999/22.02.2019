@@ -58,6 +58,7 @@ export class SourcingCpoVendorProductComponent implements OnInit {
   submitassignvendorlist(event){
     console.log(event.target.name);
     let vpo_id = event.target.name;
+    this.vpo_id=vpo_id;
     let id=this.route.snapshot.paramMap.get('cpo_id');  
     this.cpo_id = id;  
   

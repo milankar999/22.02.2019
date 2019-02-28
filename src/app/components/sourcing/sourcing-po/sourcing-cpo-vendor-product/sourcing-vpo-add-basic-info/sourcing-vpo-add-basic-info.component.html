@@ -2,54 +2,71 @@
 <br><br><br>
 <div class="col-md-offset-4 col-md-4">  <!--table fields-->
     <div class="well">
-      <h2 align="center">Add Vender Po info </h2>
+      <h2 align="center">Basic VPO info </h2>
       <hr>
      <form>
          <div class="form-group">
             
             <label class="form-input" for="billingaddress"> Billingaddress</label>
-            <input type="text" class="form-control" id="billingaddress" value="{{billing_address}}" name="billingaddress" [(ngModel)]="model.billingaddress"
+            <input type="text" class="form-control" id="billingaddress" value="{{billingaddress}}" name="billingaddress" [(ngModel)]="model.billing_address"
              required 
-             #billingaddress="ngModel">
-             <span *ngIf="billingaddress.touched && billingaddress.invalid" class="help-block">billingaddress can't be blank</span>
-
+             #billing_address="ngModel"><br>
+          
             <label class="form-input" for="shippingaddress"> Shippingaddress</label>
-             <input type="text" class="form-control" id="shippingaddress" value="{{shipping_address}}" name="shippingaddress" [(ngModel)]="model.shippingaddress"
+             <input type="text" class="form-control" id="shippingaddress" value="{{shippingaddress}}" name="shippingaddress" [(ngModel)]="model.shipping_address"
               required 
-              #shippingaddress="ngModel">
-              <span *ngIf="shippingaddress.touched && shippingaddress.invalid" class="help-block">shippingaddress can't be blank</span>
+              #shipping_address="ngModel"><br>
+             
 
             <label class="form-input" for="deliverydate">Delivery date</label>
-            <input type="date" class="form-control" id="deliverydate"  name="deliverydate" [(ngModel)]="model.deliverydate"
+            <input type="date" class="form-control" id="deliverydate" value="{{deliverydate}}"  name="deliverydate" [(ngModel)]="model.delivery_date"
                   required 
-            #deliverydate="ngModel">
-            <span *ngIf="deliverydate.touched && deliverydate.invalid" class="help-block">delivery date can't be blank</span><br>
-
-            <label class="form-input" for="incoterm">Incoterm</label>
-             <input type="text" class="form-control" id="incoterm" value="{{inco_term}}" name="incoterm" [(ngModel)]="model.incoterm"
-              required 
-              #incoterm="ngModel">
-              <span *ngIf="incoterm.touched && incoterm.invalid" class="help-block">incoterm can't be blank</span>
+            #delivery_date="ngModel"><br>
+          
+            <label class="form-input" for=" offerreference">Offfer Reference</label>
+            <input type="text" class="form-control" id=" offerreference" value="{{offerreference}}" name="offerreference" [(ngModel)]="model.offer_reference"
+             required 
+             #offer_reference="ngModel"><br>
             
-            <label class="form-input" for="paymentterm"> Payment term</label>
-            <input type="text" class="form-control" id="paymentterm" value="{{payment_term}}" name="paymentterm" [(ngModel)]="model.paymentterm"
+             <label class="form-input" for="offerdate">Offer Date</label>
+             <input type="date" class="form-control" id=" offerdate" value="{{offerdate}}" name="offerdate" [(ngModel)]="model.offer_date"
+              required 
+              #offer_date="ngModel"><br>
+            
+            <label class="form-input" for="paymentterm">Payment Term</label>
+             <input type="text" class="form-control" id="paymentterm" value="{{paymentterm}}" name="paymentterm" [(ngModel)]="model.payment_term"
+              required 
+              #payment_term="ngModel"><br>
+          
+            <label class="form-input" for="advancepercentage">Advance Percentage</label>
+            <input type="text" class="form-control" id="advancepercentage" value="{{advancepercentage}}" name="advancepercentage" [(ngModel)]="model.advance_percentage"
+              required 
+              #advance_percentage="ngModel"><br>
+             
+              <label class="form-input" for="freightcharges">Freight Charges</label>
+              <input type="text" class="form-control" id="freightcharges" value="{{freightcharges}}" name="freightcharges" [(ngModel)]="model.freight_charges"
+                required 
+                #freight_charges="ngModel"><br>
+               
+                <label class="form-input" for="customduties">Custom Duties</label>
+                <input type="text" class="form-control" id="customduties" value="{{customduties}}" name="customduties" [(ngModel)]="model.custom_duties"
                   required 
-              #paymentterm="ngModel">
-              <span *ngIf="paymentterm.touched && paymentterm.invalid" class="help-block">paymentterm can't be blank</span>
-
-
-
-
-            <label class="form-input" for="advancepersentage">Advance Persentage</label>
-            <input type="number"  class="form-control" id="advancepersentage" value="{{advance_persentage}}" name="advancepersentage" [(ngModel)]="model.advancepersentage"
-                  required 
-              #advancepersentage="ngModel">
-            <span *ngIf="advancepersentage.touched && advancepersentage.invalid" class="help-block">advancepersentage can't be blank</span>
-  
+                  #custom_duties="ngModel"><br>
+                 
+                  <label class="form-input" for="p_f">PF</label>
+                  <input type="text" class="form-control" id=" p_f" value="{{p_f}}" name="p_f" [(ngModel)]="model.pf"
+                    required 
+                    #pf="ngModel"><br>
+                  
+                    <label class="form-input" for="insurances">Insurance</label>
+                    <input type="text" class="form-control" id="insurances" value="{{insurances}}" name="insurances" [(ngModel)]="model.insurance"
+                      required 
+                      #insurance="ngModel"><br>
+                    
          </div>
           <hr>
-          <button routerLink="/crm/po-entry/po12345" type="button" class="btn btn-success">Submit</button>&nbsp;
-          <button type="button" class="btn btn-danger">Cancel</button>
+          <button  type="button" class="btn btn-success" (click)="submitbasicinfo(event)">Submit</button>&nbsp;
+   
      </form>
  <div>
 </div>
