@@ -14,7 +14,7 @@ import { SourcingVpoLineitemEdit} from '../../../interface/sourcing/po/sourcing-
 import { BasicInfo } from '../../../interface/sourcing/po/basic-info';
 import {SupplierCheckInfo } from '../../../interface/sourcing/po/supplier-check-info';
 import { SourcingVpoAddContactpersonInfo} from '../../../interface/sourcing/po/sourcing-vpo-add-contactperson-info';
-
+import { PutSupplierCheckInfo } from '../../../interface/sourcing/po/put-supplier-check-info';
 
 
 @Injectable({
@@ -239,7 +239,32 @@ getSourcingVpoCheckInfo(cpo_id,vpo_id):Observable<SupplierCheckInfo[]>{
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
+PutSourcingVpoCheckInfo(name,location,address,city,state,pin,country,office_email1,office_email2,office_phone1,office_phone2,gst_number, payment_term, advance_persentage,inco_term,supplier_id,cpo_id,vpo_id){
+  return this.http.put<PutSupplierCheckInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier/'+supplier_id+'/update/', //SourcingVpoLineitemEdit database API LInk
+ {
+   "id":supplier_id,
+    "name":name,
+    "location":location,
+    "address":address,
+    "city":city,
+    "state":state,
+    "pin":pin,
+    "country":country,
+    "office_email1":office_email1,
+    "office_email2":office_email2,
+    "office_phone1":office_phone1,
+    "office_phone2":office_phone2,
+    "gst_number":gst_number,
+     "payment_term":payment_term,
+     "advance_persentage":advance_persentage,
+     "inco_term":inco_term,
+ },
+ {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
 }
+}
+
 
 
 

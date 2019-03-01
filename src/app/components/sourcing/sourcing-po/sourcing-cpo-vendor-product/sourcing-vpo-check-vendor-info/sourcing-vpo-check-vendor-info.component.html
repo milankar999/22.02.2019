@@ -61,6 +61,11 @@
                     <option>West Bengal</option>
             </select> <br>
 
+            <label class="form-input" for="pin">Pin</label>
+            <input type="text" class="form-control" id="pin" value="{{sourcingvpocheckinfo['vendor']['pin']}}" name="pin" [(ngModel)]="model.pin"
+            required 
+            #pin="ngModel"><br>
+          
             <label class="form-input" for="country">Country</label>
             <input type="text" class="form-control" id="country" value="{{sourcingvpocheckinfo['vendor']['country']}}" name="country" [(ngModel)]="model.country"
             required 
@@ -91,9 +96,26 @@
             required 
             #gst_number="ngModel"><br>
 
+            <label class="form-input" for="payment_term">Payment Term</label>
+            <input type="text" class="form-control" id="payment_term" value="{{sourcingvpocheckinfo['vendor']['payment_term']}}" name="payment_term" [(ngModel)]="model.payment_term"
+            required 
+            #payment_term="ngModel"><br>
+
+            <label class="form-input" for="advance_persentage">Advance Persentage</label>
+            <input type="text" class="form-control" id="advance_persentage" value="{{sourcingvpocheckinfo['vendor']['advance_persentage']}}" name="advance_persentage" [(ngModel)]="model.advance_persentage"
+            required 
+            #advance_persentage="ngModel"><br>
+
+            <label class="form-input" for="inco_term">Inco Term</label>
+            <input type="text" class="form-control" id="inco_term" value="{{sourcingvpocheckinfo['vendor']['inco_term']}}" name="inco_term" [(ngModel)]="model.inco_term"
+            required 
+            #inco_term="ngModel"><br>
+            
+            
+
          </div>
           <hr>
-          <button type="button" class="btn btn-success" >Submit</button>&nbsp;
+          <button type="button" class="btn btn-success" (click)="submit_supplier_check_info(event)" >Submit</button>&nbsp;
         
      </form>
  <div>
