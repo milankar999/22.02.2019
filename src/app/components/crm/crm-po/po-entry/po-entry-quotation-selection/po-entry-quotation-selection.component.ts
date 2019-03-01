@@ -22,9 +22,7 @@ export class PoEntryQuotationSelectionComponent implements OnInit {
   selected_data=[];
   selected_quotationitem_list: Array<{id: string}> = [];
   
-  
-  
-  
+
 constructor(private poEntryServicesService:PoEntryServicesService,
   private router:Router,private route:ActivatedRoute, private formBuilder: FormBuilder) { 
    
