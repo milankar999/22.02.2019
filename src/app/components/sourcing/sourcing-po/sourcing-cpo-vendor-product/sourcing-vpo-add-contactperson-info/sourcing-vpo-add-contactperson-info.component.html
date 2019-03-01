@@ -3,7 +3,6 @@
      <div class="well">
         <h2 align="center"> Contact Person info </h2>
             <hr>
-         
 
             <form #submitsourcingvpoaddcontactpersoninfoForm="ngForm" (ngSubmit)="submitsourcingvpoaddcontactpersoninfolist(event)" class="form-sigin">
                 
@@ -16,12 +15,12 @@
                      <span *ngIf="name.touched && name.invalid" class="help-block">name can't be blank</span>
                    
                     <label class="form-input" for="mobilenumber1">Mobile Number 1<a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="mobilenumber1" name="mobilenumber1" value="{{po_contact_info['vendor_contact_person']['mobileNo1']}}" placeholder="mobile number" [(ngModel)]="model.mobilenumber1"
+                    <input type="text" class="form-control" id="mobilenumber1" name="mobilenumber1" value="{{po_contact_info['vendor_contact_person']['mobileNo1']}}" placeholder="mobile number" [(ngModel)]="model.mobileNo1"
                      required 
                      #mobilenumber1="ngModel">
                     
                      <label class="form-input" for="mobilenumber2">Mobile Number 2</label>
-                     <input type="text" class="form-control" id="mobilenumber2" name="mobilenumber2" value="{{po_contact_info['vendor_contact_person']['mobileNo2']}}" placeholder="mobile number" [(ngModel)]="model.mobilenumber2"
+                     <input type="text" class="form-control" id="mobilenumber2" name="mobilenumber2" value="{{po_contact_info['vendor_contact_person']['mobileNo2']}}" placeholder="mobile number" [(ngModel)]="model.mobileNo2"
                       required 
                       #mobilenumber2="ngModel">
                        
@@ -42,7 +41,7 @@
                   <!--  <button type="button" class="btn btn-success">Submit</button>&nbsp;-->
                     <button  type="submitsourcingvpoaddcontactpersoninfoForm.invalid" class="btn btn-success">Submit</button>&nbsp;
                     <button type="button" class="btn btn-danger">Cancel</button>&nbsp;
-                    <button type="button" class="btn btn-primary">Reset</button>
+                      <!-- <button type="button" class="btn btn-primary">Reset</button>-->
          </form>
      </div>
  <app-sourcing-header></app-sourcing-header>

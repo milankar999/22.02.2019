@@ -15,6 +15,7 @@ import { BasicInfo } from '../../../interface/sourcing/po/basic-info';
 import {SupplierCheckInfo } from '../../../interface/sourcing/po/supplier-check-info';
 import { SourcingVpoAddContactpersonInfo} from '../../../interface/sourcing/po/sourcing-vpo-add-contactperson-info';
 import { PutSupplierCheckInfo } from '../../../interface/sourcing/po/put-supplier-check-info';
+import { collectExternalReferences } from '@angular/compiler';
 
 
 @Injectable({
@@ -125,7 +126,7 @@ getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id):Observable<SourcingVpoLineit
 }
 
 // Sourcing VPo Add contactperson info GET method()...Component--( Sourcing VPo Add contactperson info )
-getSourcingVpoAddContactPersoninfo(cpo_id,vpo_id):Observable<SourcingVpoAddContactpersonInfo[]>{ 
+getSourcing_Vpo_AddContact_Person_info(cpo_id,vpo_id):Observable<SourcingVpoAddContactpersonInfo[]>{ 
   console.log(cpo_id,vpo_id)       
   return this.http.get<SourcingVpoAddContactpersonInfo []>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier_contact_person_info_checking/', // Sourcing VPo Add contactperson info  database API LInk
    {
@@ -133,36 +134,27 @@ getSourcingVpoAddContactPersoninfo(cpo_id,vpo_id):Observable<SourcingVpoAddConta
     });       
 }
 
-// SourcingVpoLineitemEdit PUT method()... .Component--(Sourcing-Vpo-Lineitem-Edit)
-Postsubmitsourcingvpoaddcontactpersoninfolist(name,mobileNo1,mobileNo2,email1,email2,created_at,updated_at,supplier_name,created_by,  cpo_id,vpo_id,){
-  return this.http.put<SourcingVpoAddContactpersonInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier_contact_person_info_checking/', //SourcingVpoLineitemEdit database API LInk
+// submit sourcing vpo addcontactperson info  PUT method()... .Component--(submit sourcing vpo addcontactperson info )
+Post_submit_sourcing_vpo_addcontact_person_info_list(name,mobileNo1,mobileNo2,email1,email2,cpo_id,vpo_id,supplier_cp_id){
+  supplier_cp_id = supplier_cp_id['vendor_contact_person']['id'];
+  console.log(email2);
+  console.log(email1); 
+  console.log(mobileNo1);
+  console.log(mobileNo2);
+  console.log(name);
+  return this.http.put<SourcingVpoAddContactpersonInfo[]>('/api/po_to_vendor/pending_cpo/'+ cpo_id +'/vpo/' + vpo_id + '/supplier_contact_person/'+ supplier_cp_id +'/edit/', //SourcingVpoLineitemEdit database API LInk     /api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier_contact_person_info_checking/
   {
-   
+    "id":supplier_cp_id,
     "name": name,
-     "mobileNo1":mobileNo1,
-     "mobileNo2":mobileNo2,
+    "mobileNo1":mobileNo1,
+    "mobileNo2":mobileNo2,
     "email1":email1,
-    "email2":email2,
-    "created_at":created_at,
-   "updated_at":updated_at,
-   "supplier_name":supplier_name,
-   "created_by":created_by,
-   cpo_id,vpo_id,
-   
+    "email2":email2
   },
   {
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
    });        
 }
-
-
-
-
-
-
-
-
-
 
 // SourcingVpoLineitemEdit PUT method()... .Component--(Sourcing-Vpo-Lineitem-Edit)
 PostSourcingVpoLineitemedit(product_title,description, model,brand,product_code,hsn_code,pack_size,gst,uom,quantity,unit_price,cust_id,requ_id,rece_id){

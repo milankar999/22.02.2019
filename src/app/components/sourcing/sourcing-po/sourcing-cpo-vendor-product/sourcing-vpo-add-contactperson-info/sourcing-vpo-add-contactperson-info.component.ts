@@ -32,6 +32,11 @@ id="";
 cpo_id="";
 vpo_id="";
 
+vendor_cp_id = "";
+ 
+
+
+
 constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute,private router:Router,
   private builder:FormBuilder) { }
 
@@ -40,15 +45,21 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
     this.cpo_id=cpo_id;
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
     this.vpo_id=vpo_id;
+
+   
+
     this.SourcingVpoAddContactPersoninfo(cpo_id,vpo_id);
     console.log(this.name);
+  
    
   }
-  SourcingVpoAddContactPersoninfo(cpo_id,vpo_id){
+  SourcingVpoAddContactPersoninfo(cpo_id,vpo_id,){
 
-    this.PoVendorService.getSourcingVpoAddContactPersoninfo(cpo_id,vpo_id).subscribe((data)=>{ 
+    this.PoVendorService.getSourcing_Vpo_AddContact_Person_info(cpo_id,vpo_id).subscribe((data)=>{ 
       console.log(data);
-      this.po_contact_info=data;  //object
+      this.po_contact_info=data;
+      this.vendor_cp_id = data['vendor_contact_person']['id']; 
+      console.log(this.vendor_cp_id); 
     }); 
   }
 
@@ -58,17 +69,19 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
     this.vpo_id=vpo_id;
 
-    this.PoVendorService.Postsubmitsourcingvpoaddcontactpersoninfolist(
+  // let ven_id=this.route.snapshot.paramMap.get('ven_id');
+   //this.ven_id=ven_id;
+    console.log(this.model.mobileNo1);
+
+    this.PoVendorService.Post_submit_sourcing_vpo_addcontact_person_info_list(                              
       this.model.name,
       this.model.mobileNo1,
       this.model.mobileNo2,
       this.model.email1,
       this.model.email2,
-      this.model.created_at,
-      this.model.updated_at,
-      this.model.supplier_name,
-      this.model.created_by,
-      cpo_id,vpo_id,
+      cpo_id,
+      vpo_id,
+      this.po_contact_info
       ).subscribe(data=>{
         this.po_contact_info=data;
         console.log(data);
