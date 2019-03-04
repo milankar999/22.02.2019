@@ -10,5 +10,6 @@ export interface BasicInfo {
     freight_charges: number,
     custom_duties:number,
     pf: number,
-    insurance: number
+    insurance: number,
+    discount:number
 }

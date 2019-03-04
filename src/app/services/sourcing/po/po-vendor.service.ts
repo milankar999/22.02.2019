@@ -16,6 +16,10 @@ import {SupplierCheckInfo } from '../../../interface/sourcing/po/supplier-check-
 import { SourcingVpoAddContactpersonInfo} from '../../../interface/sourcing/po/sourcing-vpo-add-contactperson-info';
 import { PutSupplierCheckInfo } from '../../../interface/sourcing/po/put-supplier-check-info';
 import { collectExternalReferences } from '@angular/compiler';
+import { SourcingTermsCondition } from '../../../interface/sourcing/po/sourcing-terms-condition';
+import { SourcingReceiverInfo } from '../../../interface/sourcing/po/sourcing-receiver-info';
+import { SourcingDeliveryInfo } from '../../../interface/sourcing/po/sourcing-delivery-info';
+import { SourcingPreview } from '../../../interface/sourcing/po/sourcing-preview';
 
 
 @Injectable({
@@ -137,11 +141,6 @@ getSourcing_Vpo_AddContact_Person_info(cpo_id,vpo_id):Observable<SourcingVpoAddC
 // submit sourcing vpo addcontactperson info  PUT method()... .Component--(submit sourcing vpo addcontactperson info )
 Post_submit_sourcing_vpo_addcontact_person_info_list(name,mobileNo1,mobileNo2,email1,email2,cpo_id,vpo_id,supplier_cp_id){
   supplier_cp_id = supplier_cp_id['vendor_contact_person']['id'];
-  console.log(email2);
-  console.log(email1); 
-  console.log(mobileNo1);
-  console.log(mobileNo2);
-  console.log(name);
   return this.http.put<SourcingVpoAddContactpersonInfo[]>('/api/po_to_vendor/pending_cpo/'+ cpo_id +'/vpo/' + vpo_id + '/supplier_contact_person/'+ supplier_cp_id +'/edit/', //SourcingVpoLineitemEdit database API LInk     /api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier_contact_person_info_checking/
   {
     "id":supplier_cp_id,
@@ -205,7 +204,7 @@ getSourcingVpoBasicInfo(cpo_id,vpo_id):Observable<BasicInfo[]>{
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
-PutSourcingVpoBasicInfo(billing_address,shipping_address,delivery_date,offer_reference,offer_date,payment_term,advance_percentage,freight_charges,custom_duties,pf,insurance,cpo_id,vpo_id){
+PutSourcingVpoBasicInfo(billing_address,shipping_address,delivery_date,offer_reference,offer_date,payment_term,advance_percentage,freight_charges,custom_duties,pf,insurance,discount,cpo_id,vpo_id){
   return this.http.put<BasicInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/basic_info_checking/', //SourcingVpoLineitemEdit database API LInk
  {
   "billing_address": billing_address,
@@ -218,7 +217,8 @@ PutSourcingVpoBasicInfo(billing_address,shipping_address,delivery_date,offer_ref
   "freight_charges" : freight_charges,
   "custom_duties" : custom_duties,
   "pf" :  pf,
-  "insurance" : insurance
+  "insurance" : insurance,
+  "discount":discount,
  },
   {
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
@@ -231,10 +231,14 @@ getSourcingVpoCheckInfo(cpo_id,vpo_id):Observable<SupplierCheckInfo[]>{
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
-PutSourcingVpoCheckInfo(name,location,address,city,state,pin,country,office_email1,office_email2,office_phone1,office_phone2,gst_number, payment_term, advance_persentage,inco_term,supplier_id,cpo_id,vpo_id){
-  return this.http.put<PutSupplierCheckInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier/'+supplier_id+'/update/', //SourcingVpoLineitemEdit database API LInk
+
+PutSourcingVpoCheckInfo(name,location,address,city,state,pin,country,office_email1,office_email2,office_phone1,office_phone2,gst_number, payment_term, advance_persentage,inco_term,cpo_id,vpo_id,supplier_check_cp_id){
+  supplier_check_cp_id= supplier_check_cp_id['vendor']['id'];
+console.log( supplier_check_cp_id );
+
+  return this.http.put<SupplierCheckInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier/'+ supplier_check_cp_id +'/update/', //SourcingVpoLineitemEdit database API LInk
  {
-   "id":supplier_id,
+   "id":supplier_check_cp_id,
     "name":name,
     "location":location,
     "address":address,
@@ -255,7 +259,79 @@ PutSourcingVpoCheckInfo(name,location,address,city,state,pin,country,office_emai
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
    });       
 }
+getSourcingVpoTermsCondition(cpo_id,vpo_id):Observable<SourcingTermsCondition[]>{ 
+  return this.http.get<[SourcingTermsCondition]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/terms_conditions/', //SourcingVpoLineitemEdit database API LInk
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
 }
+Putsubmit_terms_condition(mode_of_transport,inco_terms,installation,comments,cpo_id,vpo_id){
+  return this.http.put<SourcingTermsCondition[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/terms_conditions/', //SourcingVpoLineitemEdit database API LInk
+ {
+   "id":vpo_id,
+  "mode_of_transport":mode_of_transport,
+  "inco_terms":inco_terms,
+  "installation":installation,
+  "comments":comments,
+ },
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+getSourcingVpoReciverInfo(cpo_id,vpo_id):Observable<SourcingReceiverInfo[]>{ 
+  return this.http.get<SourcingReceiverInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/receiver_info/', //SourcingVpoLineitemEdit database API LInk
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+Putsubmit_reciver_info(receiver_name,receiver_phone1,receiver_phone2,receiver_dept,cpo_id,vpo_id){
+  return this.http.put<SourcingReceiverInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/receiver_info/', //SourcingVpoLineitemEdit database API LInk
+ {
+   "id":vpo_id,
+  "receiver_name":receiver_name,
+  "receiver_phone1":receiver_phone1,
+  "receiver_phone2":receiver_phone2,
+  "receiver_dept":receiver_dept,
+ },
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+getSourcingVpoDeliveryInfo(cpo_id,vpo_id):Observable<SourcingDeliveryInfo[]>{ 
+  return this.http.get<SourcingDeliveryInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/delivery_instructions/', //SourcingVpoLineitemEdit database API LInk
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+PutSourcingVpoDeliveryInfo(di1,di2,di3,di4,di5,di6,di7,di8,di9,di10,cpo_id,vpo_id){
+  return this.http.put<SourcingDeliveryInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/delivery_instructions/', //SourcingVpoLineitemEdit database API LInk
+ {
+    "id":vpo_id,
+     "di1":di1,
+     "di2":di2,
+     "di3":di3,
+     "di4":di4,
+     "di5":di5,
+     "di6":di6,
+     "di7":di7,
+     "di8":di8,
+     "di9":di9,
+     "di10":di10
+ },
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   }); 
+}
+getSourcingVpo_Preview(cpo_id,vpo_id):Observable<SourcingPreview[]>{ 
+  return this.http.get<SourcingPreview[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/preview/', //SourcingVpoLineitemEdit database API LInk
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+}
+
+
+
 
 
 

@@ -41,7 +41,7 @@ import { SourcingVpoDeliveryInstructionComponent } from './components/sourcing/s
 import { SourcingVpoReceiverInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-receiver-info/sourcing-vpo-receiver-info.component';
 import { SourcingVpoAddContactpersonInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info/sourcing-vpo-add-contactperson-info.component';
 import { SourcingVpoTermsConditionsComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-conditions/sourcing-vpo-terms-conditions.component';
-import { SourcingVpoRequesterInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info/sourcing-vpo-requester-info.component';
+
 import { VpoApprovalDetailsComponent } from './components/sales/sales-po/vpo-approval/vpo-approval-details/vpo-approval-details.component';
 import { GrnSelectTransitionTypeComponent } from './components/grn/goods-receive/grn-select-transition-type/grn-select-transition-type.component';
 import { GrnTraditionalPoListComponent } from './components/grn/goods-receive/grn-traditional-po-list/grn-traditional-po-list.component';
@@ -63,6 +63,8 @@ import { SourcingNewVpoComponent } from './components/sourcing/sourcing-po/sourc
 import { SourcingVpoContactpersonSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-contactperson-selection/sourcing-vpo-contactperson-selection.component';
 import { SourcingVpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-vendor-selection/sourcing-vpo-vendor-selection.component';
 import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-confirmation/sourcing-vpo-confirmation.component';
+import { SourcingVpoReviewComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-review/sourcing-vpo-review.component';
+import { SalesPreviewComponent } from './components/sales/sales-po/vpo-approval/sales-preview/sales-preview.component';
  
 
 
@@ -85,12 +87,13 @@ const routes:Routes=[
   { path:'crm/po-entry/cpo/:cpo_id/selected-product',component:PoEntrySelectedProductComponent},
   { path:'crm/po-entry/cpo/:cpo_id/selected-product/:selected-product/edit-selected-product',component:PoEntryEditSelectedProductComponent },
 //PO Approval sales
-  { path:'sales/sales-home',component:SalesHomeComponent,canActivate:[AuthGuard]},  
-  { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent,canActivate:[AuthGuard]},
-  { path:'sales/sales-po/:cpo_id/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent,canActivate:[AuthGuard] },
-  { path:'sales-po/po-approval/:cpo_id/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent,canActivate:[AuthGuard] },
+  { path:'sales/sales-home',component:SalesHomeComponent},  
+  { path:'sales/sales-po/sales-po-approval-list',component:SalesPoApprovalListComponent},
+  { path:'sales/sales-po/:cpo_id/sales-po-approval-details' ,component:SalesPoApprovalDetailsComponent},
+  { path:'sales-po/po-approval/:cpo_id/sales-po-approval-support-info', component:SalesPoApprovalSupportInfoComponent},
   //VPO Approval Sales
   { path:'sales/sales-po/vpo-approval/vpo-approval-details',component:VpoApprovalDetailsComponent},
+  { path:'sales/sales-po/vpo-approval/vpo-approval-preview',component:SalesPreviewComponent},
 //Rejected PO Modification
   { path:'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent },
   { path:'crm/crm-po/po-mdification/:cpo_id/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent,canActivate:[AuthGuard] },
@@ -104,7 +107,7 @@ const routes:Routes=[
   
   { path:'sourcing/sourcing-po/:cpo_id/souring-cpo-vendor-product',component:SourcingCpoVendorProductComponent },
   { path:'sourcing/sourcing-po/:cpo_id/vpo/:vpo_id/lineitem/:lineitem_id/edit',component:SourcingVpoLineitemEditComponent },
-
+  { path :'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/preview', component:SourcingVpoReviewComponent},
 
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection', component: SourcingCpoVendorSelectionComponent },
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-selection/sourcing-cpo-new-vendor', component: SourcingCpoNewVendorComponent,canActivate:[AuthGuard] }, 
@@ -116,15 +119,13 @@ const routes:Routes=[
   { path : 'sourcing-po/souring-cpo-vendor-product/:cpo_id/vendor/:vpocontact_id/contact_person/:vpoconfirmation/createnewvpo',component:SourcingVpoConfirmationComponent},
 
 //sourcing Vpo 
-  { path:'sourcing/po_to_vendo/pending_cpo/:cpo_id/vpo/:vpo_id/basic-info', component:SourcingVpoAddBasicInfoComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-check-vendor-info', component: SourcingVpoCheckVendorInfoComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-delivery-instruction', component: SourcingVpoDeliveryInstructionComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vender-product/sourcing-vpo-receiver-info', component:  SourcingVpoReceiverInfoComponent},
-
- // { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-add-contactperson-info',component:SourcingVpoAddContactpersonInfoComponent},
+  { path:'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/basic-info', component:SourcingVpoAddBasicInfoComponent},
   { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/:cpo_id/vpo/:vpo_id/sourcing-vpo-add-contactperson-info',component:SourcingVpoAddContactpersonInfoComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-condition', component:SourcingVpoTermsConditionsComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent},     
+  { path:'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/supplier_info_checking', component: SourcingVpoCheckVendorInfoComponent},
+  { path:'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/receiver-info', component:  SourcingVpoReceiverInfoComponent},
+  { path:'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/terms_conditions', component:SourcingVpoTermsConditionsComponent},
+  { path:'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/delivery_instructions', component: SourcingVpoDeliveryInstructionComponent}, 
+
 //sales vpo
   { path:'sales/sales-po/vpo-approval/vpo-approval-info',component:VpoApprovalInfoComponent },
 //sourcing vpo
@@ -142,7 +143,7 @@ const routes:Routes=[
   { path:'grn/goods-recive/grn-without-po-list', component:GrnWithoutPoListComponent},
   { path:'grn/good-recive/immediate/cash-purchase-vendor-selection', component:CashPurchaseVendorSelectionComponent},
   { path:'grn/good-recive/immediate/cash-purchase-contact-product-entry', component:CashPurchaseContactProductEntryComponent},
-  { path:'sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info', component:SourcingVpoRequesterInfoComponent},
+
   { path:'sales/sales-po/vpo-approval/vpo-approval-list/vpo-approval-list', component:VpoApprovalListComponent},
   { path:'sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-details/sourcing-vpo-details', component:SourcingVpoDetailsComponent},
   { path:'grn/goods-receive/grn-traditional-po-list/grn-traditional-po-list', component:GrnTraditionalPoListComponent}   

@@ -25,6 +25,7 @@ export class SourcingVpoAddBasicInfoComponent implements OnInit {
   customduties="";
   p_f="";
   insurances="";
+  discounts=0;
   vpo_id="";
   cpo_id="";
 
@@ -54,6 +55,9 @@ export class SourcingVpoAddBasicInfoComponent implements OnInit {
       this.customduties=data['custom_duties'];
       this.p_f=data['pf'];
       this.insurances=data['insurance'];
+     
+      this.sourcingvpobasicinfo=data;
+      console.log(this.discounts)
       console.log(data);
   });
 }
@@ -73,10 +77,11 @@ submitbasicinfo(event){
     this.model.freight_charges,
     this.model.custom_duties,
     this.model.pf,
-    this.model.insurance,
+    this.model.insurance,this.model.discount,
     cpo_id,vpo_id).subscribe((data)=>{ 
+      this.sourcingvpobasicinfo=data;
       console.log(data);
-      this.router.navigate(['sourcing/sourcing-po/sourcing-cpo-vendor-product/'+ cpo_id +'/vpo/' + vpo_id + '/sourcing-vpo-add-contactperson-info']);
+     this.router.navigate(['sourcing/sourcing-po/sourcing-cpo-vendor-product/'+ cpo_id +'/vpo/' + vpo_id + '/sourcing-vpo-add-contactperson-info']);
 });
 }
 }

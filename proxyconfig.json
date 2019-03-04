@@ -1,6 +1,6 @@
 {
     "/api/*":{
-        "target":"http://192.168.0.105:8086",
+        "target":"http://192.168.0.109:8086",
         "secure":false,
         "changeOrigin":true   
     }

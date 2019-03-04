@@ -2,84 +2,36 @@
 <br><br><br>
 <div class="col-md-offset-4 col-md-4">  <!--table fields-->
      <div class="well">
-        <h2 align="center"> Terms and Conditions </h2>
+        <h3 align="center"> Terms and Conditions </h3>
             <hr>
          <form>
                 <div class="form-group">
-                    <label class="form-input" for="personname">Delivery Periode<a style="color: red">*</a></label>
-                    <input type="text"  class="form-control" id="personname" name=" personname" [(ngModel)]="model.personname"
+                    <label class="form-input" for="mode_of_transport">Mode Of Transport</label>
+                    <input type="text"  class="form-control" id="mode_of_transport" value="{{modeoftransport}}" name="mode_of_transport" [(ngModel)]="model.mode_of_transport"
                     required 
-                    #personname="ngModel">
-                    <span *ngIf="personname.touched && personname.invalid" class="help-block">Delivery Periode can't be blank</span>
-                 
-                    <label class="form-input" for="phonenumber1">Freight Charges<a style="color: red">*</a></label>
-                    <input type="number" min="1" max="20" class="form-control" id="phonenumber" name="phonenumber1" placeholder="freight charges" [(ngModel)]="model.phonenumber"
-                     required 
-                     #description="ngModel">
-                     <span *ngIf="personname.touched && personname.invalid" class="help-block">Freight Charges can't be blank</span>
-                     <label class="form-input" for="transport">Mode of Transport</label>
-                     <input type="text" class="form-control" id="transport" name="transport" placeholder="transport mode" [(ngModel)]="model.transport"
-                      required 
-                      #transport="ngModel">
-                     <span *ngIf="transport.touched && transport.invalid" class="help-block">Mode can't be blank</span>
-                 
-                    <label class="form-input" for="insurence"> Insurence<a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="insurence" name="insurence" placeholder="insurence plan" [(ngModel)]="model.insurence"
-                    required 
-                    #insurence="ngModel">
-                    <span *ngIf="insurence.touched && insurence.invalid" class="help-block">Insurence can't be blank</span>
+                    #mode_of_transport="ngModel"><br>
 
-                    <label class="form-input" for="payment"> Payment Terms</label>
-                    <input type="text" class="form-control" id="payment" name="payment" placeholder="terms of payment" [(ngModel)]="model.payment"
+                    <label class="form-input" for="inco_terms">Inco Terms</label>
+                    <input type="text"  class="form-control" id="inco_terms" value="{{incoterms}}" name="inco_terms"  [(ngModel)]="model.inco_terms"
+                     required 
+                     #inco_terms="ngModel"><br>
+
+                   
+                     <label class="form-input" for="installation">Installation</label>
+                     <input type="text" class="form-control" id="installation" value="{{installations}}" name="installation"  [(ngModel)]="model.installation"
+                      required 
+                      #installation="ngModel"><br>
+                   
+                    <label class="form-input" for="comments">Comments</label>
+                    <input type="text" class="form-control" id="comments" name="comments" value="{{comment}}" [(ngModel)]="model.comments"
                     required 
-                    #payment="ngModel">
-                    <span *ngIf="payment.touched && payment.invalid" class="help-block">Payment Terms can't be blank</span>
-                
-                    <label class="form-input" for="price">Price Basis <a style="color: rgb(177, 37, 37)">*</a></label>
-                    <input type="text" class="form-control" id="price" name="price" placeholder="price basis" [(ngModel)]="model.price"
-                    required 
-                    #price="ngModel">
-                    <span *ngIf="price.touched && price.invalid" class="help-block">Price Basis can't be blank</span>
-                
-                    <label class="form-input" for=" p">P & F <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="p" name="partno" placeholder="P & F" [(ngModel)]="model.p"
-                    required 
-                    #p="ngModel">
-                    <span *ngIf="p.touched && p.invalid" class="help-block">P & F can't be blank</span>
-                
-                    <label class="form-input" for="duty">Exsice Duty <a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="duty" name="duty" [(ngModel)]="model.duty"
-                    required 
-                    #duty="ngModel">
-                    <span *ngIf="duty.touched && duty.invalid" class="help-block">Exise Duty can't be blank</span>
-                
-                    <label class="form-input" for="hsncode">Installation</label>
-                    <input type="text" class="form-control" id="hsncode" name="hsncode">
-                    <label class="form-input" for="GSTNo">Commissioning</label>
-                    <input type="text" class="form-control" id="GSTNo" name="GSTNo">
-                    <label class="form-input" for="validity">Offer Validity</label>
-                    <input type="number" min="1" max="100"class="form-control" id="validity" name="validity" [(ngModel)]="model.validity"
-                    required 
-                    #validity="ngModel">
-                    <span *ngIf="validity.touched && validity.invalid" class="help-block">Validity can't be blank</span>
-                    <!----<label class="form-input" for=" igst">IGST %<a style="color: red">*</a></label>
-                    <input type="number" min="0" max="20" class="form-control" id="igst " name="igst" [(ngModel)]="model.igst"
-                    required 
-                    #igst="ngModel">
-                    <span *ngIf="igst.touched && igst.invalid" class="help-block">IGST can't be blank</span>
-                
-                    <label class="form-input" for="  gst"> GST %<a style="color: red">*</a></label>
-                    <input type="number" min="0" max="20" class="form-control" id=" gst" name=" price" [(ngModel)]="model.gst"
-                    required 
-                    #gst="ngModel">
-                    <span *ngIf="gst.touched && gst.invalid" class="help-block">GST can't be blank</span>-->
-                
+                    #comments="ngModel"><br>
+                  
                  </div>
                    <hr>
-                    <button type="button" class="btn btn-success">Submit</button>&nbsp;
-                    <button type="button" class="btn btn-danger">Cancel</button>&nbsp;
-                    <!----<button type="button" class="btn btn-primary">Reset</button>-->
-                    <input type="reset" class="btn btn-primary" value="Reset">
+                   <button type="button" class="btn btn-success" (click)="submit_terms_condition(event)" >Submit</button>&nbsp;
+ 
+                    
          </form>
      </div>
 <app-sourcing-header></app-sourcing-header>

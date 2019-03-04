@@ -45,9 +45,6 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
     this.cpo_id=cpo_id;
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
     this.vpo_id=vpo_id;
-
-   
-
     this.SourcingVpoAddContactPersoninfo(cpo_id,vpo_id);
     console.log(this.name);
   
@@ -68,9 +65,6 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
     this.cpo_id=cpo_id;
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
     this.vpo_id=vpo_id;
-
-  // let ven_id=this.route.snapshot.paramMap.get('ven_id');
-   //this.ven_id=ven_id;
     console.log(this.model.mobileNo1);
 
     this.PoVendorService.Post_submit_sourcing_vpo_addcontact_person_info_list(                              
@@ -85,7 +79,7 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
       ).subscribe(data=>{
         this.po_contact_info=data;
         console.log(data);
-        //this.router.navigate(['sourcing/sourcing-po/'+ cust_id +'/souring-cpo-vendor-product']);  //go back to souring-cpo-vendor-product component
+        this.router.navigate(['sourcing/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier_info_checking']);  //go back to souring-cpo-vendor-product component
 
   })
 }

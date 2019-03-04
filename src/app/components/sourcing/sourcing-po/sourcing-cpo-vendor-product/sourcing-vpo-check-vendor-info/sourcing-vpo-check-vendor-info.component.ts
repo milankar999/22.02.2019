@@ -29,36 +29,34 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
   office_phone2="";
   gst_number="";
   supplier_id="";
-  officephone1="";
-  officephone2="";
+ vendor_supplier_id="";
 
 
 
   constructor(private formBuilder: FormBuilder,private PoVendorService:PoVendorService,private router:Router,private route:ActivatedRoute) {} 
   ngOnInit() {
-    let cpo_id="24fee713-7d0e-4794-81ec-6a752cc52a64"
-    this.cpo_id = cpo_id; 
-    let vpo_id="031d73a5-ea70-456c-9c7b-e461c9022ce4" 
-    this.vpo_id = vpo_id; 
+    let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.cpo_id=cpo_id;
+    let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
+    this.vpo_id=vpo_id;
   this.SourcingVpoCheckInfo(cpo_id,vpo_id)
     
   }
   SourcingVpoCheckInfo(cpo_id,vpo_id){
     this.PoVendorService.getSourcingVpoCheckInfo(cpo_id,vpo_id).subscribe((data)=>{ 
-     this.sourcingvpocheckinfo = data; 
       console.log(data);
+      this.sourcingvpocheckinfo = data; 
+      this.vendor_supplier_id= data['vendor']['id']; 
+      console.log(this.vendor_supplier_id); 
   
    
     });
   }
   submit_supplier_check_info(event){
-    let cpo_id="24fee713-7d0e-4794-81ec-6a752cc52a64"
-    this.cpo_id = cpo_id; 
-    let vpo_id="031d73a5-ea70-456c-9c7b-e461c9022ce4" 
-    this.vpo_id = vpo_id; 
-    let supplier_id="VI900001"
-    this.supplier_id = supplier_id;
-    console.log(this.model.office_phone1);
+    let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.cpo_id=cpo_id;
+    let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
+    this.vpo_id=vpo_id;
     this.PoVendorService.PutSourcingVpoCheckInfo(
       this.model.name,this.model.location,
       this.model.address,this.model.city,
@@ -72,11 +70,13 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
       this.model.gst_number,
       this.model.payment_term,
       this.model.advance_persentage,
-      this.model.inco_term,supplier_id,cpo_id,vpo_id).subscribe((data)=>{ 
+      this.model.inco_term,cpo_id,vpo_id,
+      this.sourcingvpocheckinfo 
+      ).subscribe((data)=>{ 
+        this.sourcingvpocheckinfo=data;
       console.log(data);
-      console.log(this.model.office_phone1);
-      console.log(this.model.office_phone2);
-   
+     
+      this.router.navigate(['sourcing/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/receiver-info']); 
      
     });
   }

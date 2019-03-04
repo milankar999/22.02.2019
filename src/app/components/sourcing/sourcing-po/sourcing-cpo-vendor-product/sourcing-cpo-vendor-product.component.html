@@ -8,9 +8,9 @@
             </div> 
             <div class="panel-body">
                   <button class="btn btn-primary btn-sm">Generate PO</button>&nbsp;&nbsp;
-                <a href="sourcing/po_to_vendo/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/basic-info"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking Approval To Release PO">Prepare PO</button></a>&nbsp;&nbsp;
-                  <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking for Direct Buying">Direct Buying PO</button>
-            
+                <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/basic-info"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking Approval To Release PO">Prepare PO</button></a>&nbsp;&nbsp;
+                  <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking for Direct Buying">Direct Buying PO</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/preview"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Preview PO">Preview PO</button></a>&nbsp;&nbsp;
                   
                   <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"> <button class="btn btn-danger btn-sm" style="float: right">Change</button></a>
                   <input type="button" class="btn btn-success btn-sm" style="float: right" (click)="submitassignvendorlist($event)" data-toggle="tooltip" data-placement="top" name="{{offer.id}}" value="Abserve Unassigned selected lineitems" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  

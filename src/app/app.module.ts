@@ -60,7 +60,7 @@ import { SourcingVpoAddContactpersonInfoComponent } from './components/sourcing/
 import { SourcingVpoCheckVendorInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-check-vendor-info/sourcing-vpo-check-vendor-info.component';
 import { SourcingVpoTermsConditionsComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-terms-conditions/sourcing-vpo-terms-conditions.component';
 import { SourcingVpoDeliveryInstructionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-delivery-instruction/sourcing-vpo-delivery-instruction.component';
-import { SourcingVpoRequesterInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-requester-info/sourcing-vpo-requester-info.component';
+
 import { SourcingVpoReceiverInfoComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-receiver-info/sourcing-vpo-receiver-info.component';
 import { VpoApprovalComponent } from './components/sales/sales-po/vpo-approval/vpo-approval.component';
 import { VpoApprovalListComponent } from './components/sales/sales-po/vpo-approval/vpo-approval-list/vpo-approval-list.component';
@@ -97,6 +97,8 @@ import { SourcingNewVpoComponent } from './components/sourcing/sourcing-po/sourc
 import { SourcingVpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-vendor-selection/sourcing-vpo-vendor-selection.component';
 import { SourcingVpoContactpersonSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-contactperson-selection/sourcing-vpo-contactperson-selection.component';
 import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-confirmation/sourcing-vpo-confirmation.component';
+import { SourcingVpoReviewComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-vpo-review/sourcing-vpo-review.component';
+import { SalesPreviewComponent } from './components/sales/sales-po/vpo-approval/sales-preview/sales-preview.component';
 
 
 @NgModule({
@@ -150,7 +152,6 @@ import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing
     SourcingVpoCheckVendorInfoComponent,
     SourcingVpoTermsConditionsComponent,
     SourcingVpoDeliveryInstructionComponent,
-    SourcingVpoRequesterInfoComponent,
     SourcingVpoReceiverInfoComponent,
     VpoApprovalComponent,
     VpoApprovalListComponent,
@@ -184,6 +185,8 @@ import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing
     SourcingVpoVendorSelectionComponent,
     SourcingVpoContactpersonSelectionComponent,
     SourcingVpoConfirmationComponent,
+    SourcingVpoReviewComponent,
+    SalesPreviewComponent,
   ],
   imports: [
     BrowserModule,

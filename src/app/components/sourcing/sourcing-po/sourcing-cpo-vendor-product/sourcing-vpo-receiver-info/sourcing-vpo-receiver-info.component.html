@@ -4,33 +4,35 @@
     <div class="well">
       <h2 align="center">Our Reciver info</h2>
       <hr>
-     <form>
-         <div class="form-group">
-             <label class="form-input" for="name">Name</label>
-             <input type="text" class="form-control" id="name" value="{{name}}" name="name" [(ngModel)]="model.name"
+      <form>
+        <div class="form-group">
+            <label class="form-input" for="receiver_name">Receiver Name</label>
+            <input type="text"  class="form-control" id="receiver_name" value="{{receivername}}" name="receiver_name" [(ngModel)]="model.receiver_name"
+            required 
+            #receiver_name="ngModel"><br>
+
+            <label class="form-input" for="receiver_phone1">Receiver Phone1</label>
+            <input type="text"  class="form-control" id="receiver_phone1" value="{{receiverphone1}}" name="receiver_phone1"  [(ngModel)]="model.receiver_phone1"
              required 
-             #name="ngModel">
-             <span *ngIf="name.touched && name.invalid" class="help-block">name can't be blank</span>
-             <label class="form-input" for="mobilenumber">Mobile Number</label>
-             <input type="text" class="form-control" id="mobilenumber" value="{{mobile_number}}" name="mobilenumber" [(ngModel)]="model.mobilenumber"
-             required 
-             #mobilenumber="ngModel">
-              <span *ngIf="mobilenumber.touched && mobilenumber.invalid" class="help-block">mobile number can't be blank</span>
-             <label class="form-input" for="dept">Dept</label>
-             <input type="text" class="form-control" id="dept" value="{{dept}}" name="dept" [(ngModel)]="model.dept"
-             required 
-             #dept="ngModel">
-             <span *ngIf="dept.touched && dept.invalid" class="help-block">dept can't be blank</span>
-             <label class="form-input" for="Location">Location</label>
-             <input type="text" class="form-control" id="location" value="{{location}}" name="location" [(ngModel)]="model.location"
-             required 
-             #location="ngModel">
-             <span *ngIf="location.touched && location.invalid" class="help-block">location can't be blank</span>
+             #receiver_phone1="ngModel"><br>
+
+           
+             <label class="form-input" for="receiver_phone2">Receiver Phone2</label>
+             <input type="text" class="form-control" id="receiver_phone2" value="{{receiverphone2}}" name="receiver_phone2"  [(ngModel)]="model.receiver_phone2"
+              required 
+              #receiver_phone2="ngModel"><br>
+           
+            <label class="form-input" for="receiver_dept">Receiver Dept</label>
+            <input type="text" class="form-control" id="receiver_dept" name="receiver_dept" value="{{receiverdept}}" [(ngModel)]="model.receiver_dept"
+            required 
+            #receiver_dept="ngModel"><br>
+          
          </div>
-            <hr>
-          <button routerLink="#" type="button" class="btn btn-success">Submit</button>&nbsp;
-          <button type="button" class="btn btn-danger">Cancel</button>
-     </form>
+           <hr>
+           <button type="button" class="btn btn-success" (click)="submit_reciver_info(event)" >Submit</button>&nbsp;
+
+            
+ </form>
  <div>
 </div>
 </div>

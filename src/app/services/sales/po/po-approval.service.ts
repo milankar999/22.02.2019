@@ -57,7 +57,7 @@ export class PoApprovalService {
 }
 
 postRejectionlist(rejection_reason,sal_id){
-  console.log(rejection_reason);
+  
  return this.http.post<SalesPoApprovalSupport[]>("/api/po_from_customer/approval/"+sal_id+"/reject/",
  {
 
@@ -66,6 +66,13 @@ postRejectionlist(rejection_reason,sal_id){
   {
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
   });
+}
+getSales_VPo_Approval_Preview(sal_vpo_id,sal_po_id):Observable< []>{
+  return this.http.get<[]>('/api/po_to_vendor/vpo/'+sal_vpo_id+'/'+sal_po_id+'/preview/',
+  
+  {
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+ });   
 }
 
 }

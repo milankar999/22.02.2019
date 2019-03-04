@@ -4,53 +4,66 @@
     <div class="well">
       <h2 align="center">  Delivery Instruction</h2>
       <hr>
-         <form>
-              <div class="form-group">
-                   <!--Only contain text fields with validation in  delivery instruction-->
-                  
-                   <label class="form-input" for=""></label>
-                   <input type="text" class="form-control" id="name" value="{{name}}" name="name" [(ngModel)]="model.name"
+      <form>
+        <div class="form-group">
+           
+           <label class="form-input" for="di1">Delivery 1</label>
+           <input type="text" class="form-control" id="di1" value="{{di_1}}" name="di1" [(ngModel)]="model.di1"
+            required 
+            #di1="ngModel"><br>
+         
+           <label class="form-input" for="di2">Delivery 2</label>
+            <input type="text" class="form-control" id="di2" value="{{di_2}}" name="di2" [(ngModel)]="model.di2"
+             required 
+             #di2="ngModel"><br>
+            
+
+           <label class="form-input" for="di3">Delivery 3</label>
+           <input type="text" class="form-control" id="di3" value="{{di_3}}"  name="di3" [(ngModel)]="model.di3"
+             required 
+           #di3="ngModel"><br>
+         
+           <label class="form-input" for="di4">Delivery 4</label>
+           <input type="text" class="form-control" id="di4" value="{{di_4}}" name="di4" [(ngModel)]="model.di4"
+            required 
+            #di4="ngModel"><br>
+           
+            <label class="form-input" for="di5">Delivery 5</label>
+            <input type="text" class="form-control" id="di5" value="{{di_5}}" name="di5" [(ngModel)]="model.di5"
+             required 
+             #di5="ngModel"><br>
+           
+           <label class="form-input" for="di6">Delivery 6</label>
+            <input type="text" class="form-control" id="di6" value="{{di_6}}" name="di6" [(ngModel)]="model.di6"
+             required 
+             #di6="ngModel"><br>
+         
+           <label class="form-input" for="di7">Delivery 7</label>
+           <input type="text" class="form-control" id="di7" value="{{di_7}}" name="di7" [(ngModel)]="model.di7"
+             required 
+             #di7="ngModel"><br>
+            
+             <label class="form-input" for="di8">Delivery 8</label>
+             <input type="text" class="form-control" id="di8" value="{{di_8}}" name="di8" [(ngModel)]="model.di8"
+               required 
+               #di8="ngModel"><br>
+              
+               <label class="form-input" for="di9">Delivery 9</label>
+               <input type="text" class="form-control" id="di9" value="{{di_9}}" name="di9" [(ngModel)]="model.di9"
+                 required 
+                 #di9="ngModel"><br>
+                
+                 <label class="form-input" for="di10">Delivery 10</label>
+                 <input type="text" class="form-control" id=" di10" value="{{di_10}}" name="di10" [(ngModel)]="model.di10"
                    required 
-                   #name="ngModel">
-                   <span *ngIf="name.touched && name.invalid" class="help-block">text  can't be blank</span> <br>
-
-                   <label class="form-input" for=" "></label>
-                   <input type="text" class="form-control" id="" value="{{mobile_number}}" name="mobilenumber" [(ngModel)]="model.mobilenumber"
-                   required 
-                   #mobilenumber="ngModel">
-                    <span *ngIf="mobilenumber.touched && mobilenumber.invalid" class="help-block"> text can't be blank</span>  <br>
-
-                   <label class="form-input" for="dept"></label>
-                   <input type="text" class="form-control" id="dept" value="{{dept}}" name="dept" [(ngModel)]="model.dept"
-                   required 
-                  #dept="ngModel">
-                    <span *ngIf="dept.touched && dept.invalid" class="help-block">txt can't be blank</span>  <br>
-
-                    <label class="form-input" for="Location"></label>
-                    <input type="text" class="form-control" id="location" value="{{location}}" name="location" [(ngModel)]="model.location"
-                    required 
-                    #location="ngModel">
-                    <span *ngIf="location.touched && location.invalid" class="help-block">text can't be blank</span>  <br>
-
-                    <label class="form-input" for="address"></label>
-                  <input type="text" class="form-control" id="address" value="{{address}}" name="address" [(ngModel)]="model.address"
-                    required 
-                  #address="ngModel">
-                  <span *ngIf="address.touched && address.invalid" class="help-block">text  can't be blank</span> <br> <br>
-
-
-
-                   <!---empty text box with out validation-->
-                  <input type="text" class="form-control" ><br> <br>
-                  <input type="text" class="form-control" ><br> <br>
-                  <input type="text" class="form-control" ><br> <br>
-                  <input type="text" class="form-control" ><br> <br>
-                  <input type="text" class="form-control" ><br> <br>
-               </div>
-            <hr>
-            <button routerLink="#" type="button" class="btn btn-success">Submit</button>&nbsp;<!--Submit button and cancel button-->
-            <button type="button" class="btn btn-danger">Cancel</button>
-         </form>
+                   #di10="ngModel"><br>
+                 
+                 
+        </div>
+         <hr>
+         <button  type="button" class="btn btn-success" (click)="submit_delivery_info(event)">Submit</button>&nbsp;
+  
+    </form>
      </div>
      </div>
      
