@@ -255,8 +255,14 @@ PutSourcingVpoCheckInfo(name,location,address,city,state,pin,country,office_emai
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
    });       
 }
+Postassignvendor_po_list(id,vpo_id){
+  return this.http.post<[]>('http://192.168.0.105:8086/api/po_to_vendor/pending_cpo/'+id+'/vpo/'+vpo_id+'/launch/',
+ {
+
+
+ },
+ {
+  headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
+});
 }
-
-
-
-
+}

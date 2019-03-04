@@ -7,7 +7,8 @@
                Vendor : {{offer.vendor.name}} &nbsp; || &nbsp; Vendor Contact Person : {{offer.vendor_contact_person.name}}&nbsp; || &nbsp; Offer reference : {{offer.offer_reference}} &nbsp; || &nbsp; Offer date {{offer.offer_date}}
             </div> 
             <div class="panel-body">
-                  <button class="btn btn-primary btn-sm">Generate PO</button>&nbsp;&nbsp;
+                  <button class="btn btn-primary btn-sm" (click)="submitassignvendor_po_list($event)">Generate PO</button>&nbsp;&nbsp;
+
                 <a href="sourcing/po_to_vendo/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/basic-info"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking Approval To Release PO">Prepare PO</button></a>&nbsp;&nbsp;
                   <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking for Direct Buying">Direct Buying PO</button>
             

@@ -106,6 +106,20 @@ export class SourcingCpoVendorProductComponent implements OnInit {
       console.log(this.selected_unassignitem_list);
     }
   }
+
+  submitassignvendor_po_list(event){
+    //console.log(event.target.name);
+    //let vpo_id = this.route.snapshot.paramMap.get('vpo_id');
+    let vpo_id = "031d73a5ea70456c9c7be461c9022ce4";
+    this.vpo_id=vpo_id;
+    let id=this.route.snapshot.paramMap.get('cpo_id');  
+    this.cpo_id = id;  
+  //console.log(this.item_list);
+    this.PoVendorService.Postassignvendor_po_list(id,vpo_id).subscribe((data)=>{ 
+      console.log(data);
+      //window.location.reload();
+    })
+  }
   
 }
 

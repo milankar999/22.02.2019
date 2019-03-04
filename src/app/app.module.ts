@@ -97,6 +97,7 @@ import { SourcingNewVpoComponent } from './components/sourcing/sourcing-po/sourc
 import { SourcingVpoVendorSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-vendor-selection/sourcing-vpo-vendor-selection.component';
 import { SourcingVpoContactpersonSelectionComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-contactperson-selection/sourcing-vpo-contactperson-selection.component';
 import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/sourcing-new-vpo/sourcing-vpo-confirmation/sourcing-vpo-confirmation.component';
+import { PreviewComponent } from './components/sourcing/sourcing-po/sourcing-cpo-vendor-product/preview/preview.component';
 
 
 @NgModule({
@@ -184,6 +185,7 @@ import { SourcingVpoConfirmationComponent } from './components/sourcing/sourcing
     SourcingVpoVendorSelectionComponent,
     SourcingVpoContactpersonSelectionComponent,
     SourcingVpoConfirmationComponent,
+    PreviewComponent,
   ],
   imports: [
     BrowserModule,

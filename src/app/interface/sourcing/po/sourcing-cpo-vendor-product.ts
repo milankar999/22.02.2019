@@ -1,4 +1,5 @@
-export interface SourcingVendorProductVPOLineitem {
+export interface SourcingCpoVendorProduct {
+
     id: string,
     product_title: string,
     description: string,
@@ -6,13 +7,15 @@ export interface SourcingVendorProductVPOLineitem {
     brand: string,
     product_code: string,
     hsn_code: string,
-    pack_size: string,
     gst: number,
+    quantity: number,
     uom: string,
-    quantity: number
+    unit_price: number
+    
+
+
+
 }
-
-
 
 
 
