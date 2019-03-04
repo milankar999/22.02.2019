@@ -13,12 +13,14 @@ import{ HttpResponse} from '@angular/common/http';
 export class PoEntryReceiverSelectionComponent implements OnInit {
  query:string='';
  model:any={};
+
  person_name;
  mobileNo1;
  mobileNo2;
  email1;
  email2;
  department_name;
+ 
  public reciverId;
  customer_id="";
  requester_id=""; 

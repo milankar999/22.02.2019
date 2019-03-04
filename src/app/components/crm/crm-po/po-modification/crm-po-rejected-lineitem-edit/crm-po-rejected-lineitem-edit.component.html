@@ -6,6 +6,7 @@
         <h2 align="center"> Po-Entry Product Line Item Edit</h2>
             <hr>
               <form #submitrejectedlineitemForm="ngForm" (ngSubmit)="submitrejectedlineitemlist(event)" class="form-sigin">
+                
             <div class="form-group">
                 <label class="form-input" for="producttitle"> Product Title</label>
                 <input type="text" class="form-control" id=" producttitle" value="{{producttitle}}" name="producttitle" [(ngModel)]="Model.product_title" required #product_title="ngModel" > <br>

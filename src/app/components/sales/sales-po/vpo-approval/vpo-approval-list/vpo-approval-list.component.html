@@ -13,54 +13,27 @@
                    <thead>
                      <tr>
                         <th></th>
-                        <th>PO NO</th>
+                        <th>Po Number</th>
                         <th>PO DATE</th>
-                        <th>BUYER</th>
                         <th>Vendor Name</th>
+                        <th>Vendor Contact Person</th>
                         <th>Location</th>
                        </tr >
                                          
-                     <tr>
+                     <tr  *ngFor="let data of poapprovallist">
                           <td>
-                             <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                              <a href="sales/sales-po/vpo-approval/:cpo_id/:vend_id/vpo-approval-details" ><span class="glyphicon glyphicon-forward" style="color: blue"></span> </a>          <!--sales/sales-po/vpo-approval/vpo-approval-details-->
                              </td>
                         
-                              <td>1985</td>
-                              <td>2/2/2019</td>
-                              <td>Shauvik</td>
-                              <td>BOSCH</td>
-                              <td>karnataka</td>
+                              <td>{{data.po_number}}</td>
+                              <td>{{data.po_date}}</td>
+                              <td>{{data.vpo.vendor.name}}</td>
+                              <td>{{data.vpo.vendor_contact_person.id}}</td>
+                              <td>{{data.vpo.vendor.location}}</td>                                              
                             
                               
                     
-                         </tr>
-
-                         <tr>
-                                 <td>
-                                    <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                                 </td>
-                           
-                                 <td>983637</td>
-                                 <td>4/5/2019</td>
-                                 <td>Shauvik</td>
-                                 <td>Mandya</td>
-                                 <td>karnataka</td>
-                                
-                                
-                          </tr>
-
-                           <tr>
-                                    <td>
-                                      <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                                    </td>
-                               
-                                     <td>3658</td>
-                                     <td>4/6/2019</td>
-                                     <td>jay</td>
-                                     <td>Bangluru</td>
-                                     <td>karnataka</td>
-                                    
-                            </tr>
+                         </tr>                         
                    </thead>
                </table> <br>
        </div>

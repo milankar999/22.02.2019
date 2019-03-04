@@ -1,46 +1,50 @@
 <br><br>
 <h2 align="center">VPO Approval Details List </h2>
 <hr>
- <div class="col-md-offset-2 col-md-8">
+ <div class="col-md-offset-0 col-md-10">
         <div class="panel panel-default">
             <div class="panel-heading text-center">VPO Approval Details List </div>
                  <div class="panel-body">
-                     
+                        <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
+                               </div>  
                  </div>
     
      <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
          <thead>
              <tr>
               <th></th>
-              <th>Product Name</th>
+              <th>Product Title</th>
               <th>Description</th>
               <th>Model</th>
               <th>Brand</th>
-              <th>Part No</th>
-              <th>Product No</th>
+              <th>Product Code</th>
               <th>HSN Code</th>
-              <th>Quantity</th>
-              <th>UOM</th>
-              <th>Price</th>
-              <th>GST</th>
-              <th></th>
+              <th>pack size</th>
+              <th>gst</th>
+              <th>uom</th>
+              <th>quantity</th>
+              <th>unit price</th>
+              <th>discount</th>
+               
             </tr >
-            <tr>
+            <tr *ngFor="let data of vpoapprovallist">
                  <td>
-                    <span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                        <a href="#"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td> 
+                <td>{{data.product_title}}</td>
+                <td>{{data.description}}</td>
+                <td>{{data.model}}</td>
+                <td>{{data.brand}}</td>
+                <td>{{data.product_code}}</td>
+                <td>{{data.hsn_code}}</td>
+                <td>{{data.pack_size}}</td>
+                <td>{{data.gst}}</td>
+                <td>{{data.uom}}</td>
+                <td>{{data.quantity}}</td>
+                <td>{{data.unit_price}}</td>
+                <td>{{data.discount}}</td>
+                
              </tr><br>&nbsp;
              <button class="btn btn-success">submit</button>
             

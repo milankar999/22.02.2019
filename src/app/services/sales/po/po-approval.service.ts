@@ -8,7 +8,8 @@ import { PoApprovalSupportInfo } from '../../../interface/sales/po/po-approval-s
 import { PostPoApprovalSupportInfo } from '../../../interface/sales/po/post-po-approval-support-info';
 import  {SalesPoApprovalSupport}from '../../../interface/sales/po/sales-po-approval-support';
 import  {SalesApprovalDetails} from '../../../interface/sales/po/sales-approval-details';
-
+import {SalesVpoApprovalList} from '../../../interface/sales/po/sales-vpo-approval-list';
+import { SalesVpoApprovalDetails}from '../../../interface/sales/po/sales-vpo-approval-details';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,25 @@ export class PoApprovalService {
         headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
      });   
   }
+
+  getVpo_Approval_List():Observable<SalesVpoApprovalList[]>{
+    return this.http.get<SalesVpoApprovalList[]>("/api/po_to_vendor/vpo/approval_list/",
+    
+    {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });   
+}
+
+ //get method Vpo_Approval_details
+getVpo_Approval_details(sal_id, vend_id):Observable<SalesVpoApprovalDetails[]>{
+  return this.http.get<SalesVpoApprovalDetails[]>("/api/po_to_vendor/vpo/e173793e-9a25-441d-8a4d-5a9addc4740d/ASPL-K-18190001/lineitems/", // database API LInk    /api/po_to_vendor/vpo/"+sal_id+"/"+vend_id+"/lineitems/
+  
+  {
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+ });   
+}
+
+
   getSalesPoApprovalDetails(sal_id):Observable<SalesApprovalDetails[]>{
     return this.http.get<SalesApprovalDetails[]>("/api/po_from_customer/approval/"+ sal_id +"/lineitems/", //PoEntrySelectedProduct database API LInk
      {
@@ -67,5 +87,14 @@ postRejectionlist(rejection_reason,sal_id){
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
   });
 }
+
+
+
+
+
+
+
+
+
 
 }
