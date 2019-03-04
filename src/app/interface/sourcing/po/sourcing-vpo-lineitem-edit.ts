@@ -12,6 +12,7 @@ export interface SourcingVpoLineitemEdit {
     uom:  string,
     quantity:  string,
     unit_price: string
+    discount:number
 
 
 }

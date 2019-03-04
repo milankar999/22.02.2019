@@ -11,5 +11,5 @@ export interface BasicInfo {
     custom_duties:number,
     pf: number,
     insurance: number,
-    discount:number
+   
 }

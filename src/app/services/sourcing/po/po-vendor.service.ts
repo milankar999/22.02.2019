@@ -121,13 +121,45 @@ headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('
 
 }
 //SourcingVpoLineitemEdit GET method()...Component--(sourcing-vpo-lineitem-edit)
-getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id):Observable<SourcingVpoLineitemEdit[]>{ 
-  console.log(cust_id,requ_id,rece_id)       
-  return this.http.get<SourcingVpoLineitemEdit[]>("/api/po_to_vendor/pending_cpo/"+cust_id+"/vpo/"+ requ_id +"/lineitem/"+ rece_id +"/edit/", //SourcingVpoLineitemEdit database API LInk
+getSourcingVpoLineitemEdit(cpo_id,vpo_id,lineitem_id):Observable<SourcingVpoLineitemEdit[]>{ 
+  console.log(cpo_id,vpo_id,lineitem_id)       
+  return this.http.get<SourcingVpoLineitemEdit[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+ vpo_id +'/lineitem/'+lineitem_id +'/edit/', //SourcingVpoLineitemEdit database API LInk
    {
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
+// SourcingVpoLineitemEdit PUT method()... .Component--(Sourcing-Vpo-Lineitem-Edit)
+PostSourcingVpoLineitemedit(product_title,description, model,brand,product_code,hsn_code,pack_size,gst,uom,quantity,unit_price,discount,cpo_id,vpo_id,lineitem_id){
+  
+  return this.http.put<SourcingVpoLineitemEdit[]>('api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/lineitem/'+lineitem_id +'/edit/', //SourcingVpoLineitemEdit database API LInk
+  {
+   "id":cpo_id,
+    "product_title": product_title,
+    "description": description,
+    "model": model,
+    "brand": brand,
+    "product_code":  product_code,
+    "hsn_code": hsn_code,
+    "pack_size":  pack_size,
+    "gst":gst,
+    "uom":uom,
+    "quantity":quantity,
+    "unit_price":unit_price,
+    "discount":discount,
+    
+  },
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });        
+}
+//postdeletesourcingvpolineitemedit Delete method()....Component--(post-delete-sourcing-vpo-lineitemedit)
+postdeletesourcingvpolineitemedit(cpo_id,vpo_id,lineitem_id){
+  return this.http.delete<[]>('api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/lineitem/'+lineitem_id +'/edit/', //PoEntryrejected lineitem list database API LInk,
+  
+    {
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+  });   
+    }
 
 // Sourcing VPo Add contactperson info GET method()...Component--( Sourcing VPo Add contactperson info )
 getSourcing_Vpo_AddContact_Person_info(cpo_id,vpo_id):Observable<SourcingVpoAddContactpersonInfo[]>{ 
@@ -155,39 +187,6 @@ Post_submit_sourcing_vpo_addcontact_person_info_list(name,mobileNo1,mobileNo2,em
    });        
 }
 
-// SourcingVpoLineitemEdit PUT method()... .Component--(Sourcing-Vpo-Lineitem-Edit)
-PostSourcingVpoLineitemedit(product_title,description, model,brand,product_code,hsn_code,pack_size,gst,uom,quantity,unit_price,cust_id,requ_id,rece_id){
-  return this.http.put<SourcingVpoLineitemEdit[]>("/api/po_to_vendor/pending_cpo/"+cust_id+"/vpo/"+ requ_id+"/lineitem/"+ rece_id+"/edit/", //SourcingVpoLineitemEdit database API LInk
-  {
-   
-    "product_title": product_title,
-    "description": description,
-    "model": model,
-    "brand": brand,
-    "product_code":  product_code,
-    "hsn_code": hsn_code,
-    "pack_size":  pack_size,
-    "gst":gst,
-    "uom":uom,
-    "quantity":quantity,
-    "unit_price":unit_price,
-    cust_id,
-    requ_id,
-    rece_id
-  },
-  {
-      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
-   });        
-}
-
-//postdeletesourcingvpolineitemedit Delete method()....Component--(post-delete-sourcing-vpo-lineitemedit)
-postdeletesourcingvpolineitemedit(cust_id,requ_id,rece_id){
-  return this.http.delete<[]>("api/po_to_vendor/pending_cpo/"+ cust_id+"/vpo/"+requ_id+"/lineitem/"+ rece_id+"/edit/", //PoEntryrejected lineitem list database API LInk,
-  
-    {
-    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
-  });   
-    }
 Postsubmitvpoconfirmlist(cpo_id,vpocontact_id, vpoconfirm_id){
   return this.http.post<[]>('api/po_to_vendor/pending_cpo/'+cpo_id+'/vendor/'+vpocontact_id+'/contact_person/'+vpoconfirm_id+'/create_vpo/',
   {
@@ -204,7 +203,7 @@ getSourcingVpoBasicInfo(cpo_id,vpo_id):Observable<BasicInfo[]>{
        headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
     });       
 }
-PutSourcingVpoBasicInfo(billing_address,shipping_address,delivery_date,offer_reference,offer_date,payment_term,advance_percentage,freight_charges,custom_duties,pf,insurance,discount,cpo_id,vpo_id){
+PutSourcingVpoBasicInfo(billing_address,shipping_address,delivery_date,offer_reference,offer_date,payment_term,advance_percentage,freight_charges,custom_duties,pf,insurance,cpo_id,vpo_id){
   return this.http.put<BasicInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/basic_info_checking/', //SourcingVpoLineitemEdit database API LInk
  {
   "billing_address": billing_address,
@@ -218,7 +217,7 @@ PutSourcingVpoBasicInfo(billing_address,shipping_address,delivery_date,offer_ref
   "custom_duties" : custom_duties,
   "pf" :  pf,
   "insurance" : insurance,
-  "discount":discount,
+
  },
   {
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header

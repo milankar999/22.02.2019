@@ -77,7 +77,7 @@ submitbasicinfo(event){
     this.model.freight_charges,
     this.model.custom_duties,
     this.model.pf,
-    this.model.insurance,this.model.discount,
+    this.model.insurance,
     cpo_id,vpo_id).subscribe((data)=>{ 
       this.sourcingvpobasicinfo=data;
       console.log(data);

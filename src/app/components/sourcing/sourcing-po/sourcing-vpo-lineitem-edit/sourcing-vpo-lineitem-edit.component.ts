@@ -20,9 +20,9 @@ export class SourcingVpoLineitemEditComponent implements OnInit {
   Model:any={}
   lineitem_object:object[]=[];   //object creating
 
-  customer_id="";
-  requester_id=""; 
-  receiver_id="";
+  cpo_id="";
+  vpo_id=""; 
+  lineitem_id="";
    
 
   id = "";
@@ -37,6 +37,7 @@ export class SourcingVpoLineitemEditComponent implements OnInit {
   uom = "";
   quantity = 0;
   unit_price = 0;
+  discount = 0;
 
 
   constructor(private   PoVendorServic:PoVendorService,
@@ -44,17 +45,17 @@ export class SourcingVpoLineitemEditComponent implements OnInit {
 
   ngOnInit() {
  
-    let cust_id=this.route.snapshot.paramMap.get('cpo_id');
-    let requ_id=this.route.snapshot.paramMap.get('vpo_id');
-    let rece_id=this.route.snapshot.paramMap.get('lineitem_id');
-    this.customer_id = cust_id;
-    this.requester_id = requ_id;
-    this.receiver_id=rece_id;
-    this.SourcingVpoLineitemEdit(cust_id,requ_id,rece_id);
+    let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
+    let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
+    let lineitem_id=this.route.snapshot.paramMap.get('lineitem_id');
+    this.cpo_id = cpo_id;
+    this.vpo_id = vpo_id;
+    this.lineitem_id=lineitem_id;
+    this.SourcingVpoLineitemEdit(cpo_id,vpo_id,lineitem_id);
     console.log(this.description);
 }
-SourcingVpoLineitemEdit(cust_id,requ_id,rece_id){
-this.PoVendorServic.getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id).subscribe((data)=>{
+SourcingVpoLineitemEdit(cpo_id,vpo_id,lineitem_id){
+this.PoVendorServic.getSourcingVpoLineitemEdit(cpo_id,vpo_id,lineitem_id).subscribe((data)=>{
   
   this.lineitem_object = data;   //object
   
@@ -70,6 +71,7 @@ this.PoVendorServic.getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id).subscrib
   this.uom=data['uom'];
   this.quantity=data['quantity'];
   this.unit_price=data['unit_price'];
+  this.discount=data['discount'];
   console.log(data);
   console.log(this.description);
   console.log(this.product_title);
@@ -77,15 +79,15 @@ this.PoVendorServic.getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id).subscrib
  }
 
  submitvpolineitemeditlist(event){
-  let cust_id=this.route.snapshot.paramMap.get('cpo_id');
-  this.customer_id = cust_id;
-  let requ_id=this.route.snapshot.paramMap.get('vpo_id');
-  this.requester_id = requ_id;
-  let rece_id=this.route.snapshot.paramMap.get('lineitem_id');
-  this.receiver_id=rece_id;
+  let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
+    let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
+    let lineitem_id=this.route.snapshot.paramMap.get('lineitem_id');
+    this.cpo_id = cpo_id;
+    this.vpo_id = vpo_id;
+    this.lineitem_id=lineitem_id;
 
   this.PoVendorServic.PostSourcingVpoLineitemedit(
-   
+  
     this.Model.product_title,
     this.Model.description,
     this.Model.model,
@@ -97,25 +99,30 @@ this.PoVendorServic.getSourcingVpoLineitemEdit(cust_id,requ_id,rece_id).subscrib
     this.Model.uom,
     this.Model.quantity,
     this.Model.unit_price,
-    cust_id,requ_id,rece_id, 
+    this.Model.discount,
+    cpo_id,vpo_id,lineitem_id,
+ 
   ).subscribe(data=>{
       this.lineitem_object=data;
       console.log(data);
-      this.router.navigate(['sourcing/sourcing-po/'+ cust_id +'/souring-cpo-vendor-product']);  //go back to souring-cpo-vendor-product component
+      console.log(cpo_id);
+      console.log(vpo_id);
+      console.log(lineitem_id);
+      this.router.navigate(['sourcing/sourcing-po/'+ cpo_id +'/souring-cpo-vendor-product']);  //go back to souring-cpo-vendor-product component
     })
      
 }
 
 deletesourcingvpolineitemlist(event){
-  let cust_id=this.route.snapshot.paramMap.get('cpo_id');
-  this.customer_id = cust_id;
-  let requ_id=this.route.snapshot.paramMap.get('vpo_id');
-  this.requester_id = requ_id;
-  let rece_id=this.route.snapshot.paramMap.get('lineitem_id');
-  this.receiver_id=rece_id;
-  this.PoVendorServic.postdeletesourcingvpolineitemedit(cust_id,requ_id,rece_id ).subscribe(data=>{
+  let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
+    let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
+    let lineitem_id=this.route.snapshot.paramMap.get('lineitem_id');
+    this.cpo_id = cpo_id;
+    this.vpo_id = vpo_id;
+    this.lineitem_id=lineitem_id;
+  this.PoVendorServic.postdeletesourcingvpolineitemedit( cpo_id,vpo_id,lineitem_id ).subscribe(data=>{
     console.log(data);
-  this.router.navigate(['sourcing/sourcing-po/'+ cust_id +'/souring-cpo-vendor-product']);
+  this.router.navigate(['sourcing/sourcing-po/'+ cpo_id +'/souring-cpo-vendor-product']);
 })
 
 }
