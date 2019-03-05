@@ -83,7 +83,7 @@ const routes:Routes=[
   { path:'crm/po-entry/:cpo_id/quotation-selection', component:PoEntryQuotationSelectionComponent,},
   
   { path:'crm/po-entry/:cpo_id/quotation-selection/production-selection', component:PoEntryProductSelectionComponent,canActivate:[AuthGuard] },
-  { path:'crm/po-entry/:quotation_no/quotation-selection-details',component:QuotationSelectionDetailsComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/:quotation_no/quotation-selection-detailsdetails',component:QuotationSelectionDetailsComponent,canActivate:[AuthGuard] },
   { path:'crm/po-entry/cpo/:cpo_id/selected-product',component:PoEntrySelectedProductComponent},
   { path:'crm/po-entry/cpo/:cpo_id/selected-product/:selected-product/edit-selected-product',component:PoEntryEditSelectedProductComponent },
 //PO Approval sales
@@ -94,6 +94,8 @@ const routes:Routes=[
   //VPO Approval Sales
   { path:'sales/sales-po/vpo-approval/vpo-approval-details',component:VpoApprovalDetailsComponent},
   { path:'sales/sales-po/vpo-approval/vpo-approval-preview',component:SalesPreviewComponent},
+  //{ path:'sales/sales-po/vpo-approval/vpo-approval-details',component:VpoApprovalDetailsComponent},
+  { path:'sales/sales-po/vpo-approval/:cpo_id/:vend_id/vpo-approval-details',component:VpoApprovalDetailsComponent},
 //Rejected PO Modification
   { path:'crm/crm-po/po-modification/crm-po-rejected-list',component:CrmPoRejectedListComponent },
   { path:'crm/crm-po/po-mdification/:cpo_id/crm-po-rejected-details', component:CrmPoRejectedDetailsComponent,canActivate:[AuthGuard] },
@@ -143,7 +145,6 @@ const routes:Routes=[
   { path:'grn/goods-recive/grn-without-po-list', component:GrnWithoutPoListComponent},
   { path:'grn/good-recive/immediate/cash-purchase-vendor-selection', component:CashPurchaseVendorSelectionComponent},
   { path:'grn/good-recive/immediate/cash-purchase-contact-product-entry', component:CashPurchaseContactProductEntryComponent},
-
   { path:'sales/sales-po/vpo-approval/vpo-approval-list/vpo-approval-list', component:VpoApprovalListComponent},
   { path:'sourcing/sourcing-po/sourcing-vpo/sourcing-vpo-details/sourcing-vpo-details', component:SourcingVpoDetailsComponent},
   { path:'grn/goods-receive/grn-traditional-po-list/grn-traditional-po-list', component:GrnTraditionalPoListComponent}   
@@ -154,3 +155,5 @@ const routes:Routes=[
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
