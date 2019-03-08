@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //import interface data Type
+import {SourcingCpoPending} from '../../../interface/sourcing/po/sourcing-cpo-pending';
 import { CpoPendingDetails } from '../../../interface/sourcing/po/cpo-pending-details';
 import { SourcingVendorProduct} from '../../../interface/sourcing/po/sourcing-vendor-product';
 import { SourcingVendorProductVPOLineitem} from '../../../interface/sourcing/po/sourcing-vendor-product-vpolineitem';
@@ -20,6 +21,10 @@ import { SourcingTermsCondition } from '../../../interface/sourcing/po/sourcing-
 import { SourcingReceiverInfo } from '../../../interface/sourcing/po/sourcing-receiver-info';
 import { SourcingDeliveryInfo } from '../../../interface/sourcing/po/sourcing-delivery-info';
 import { SourcingPreview } from '../../../interface/sourcing/po/sourcing-preview';
+import { SourcingPreviewLineitems } from '../../../interface/sourcing/po/sourcing-preview-lineitems';
+import { VpoList } from '../../../interface/sourcing/po/vpo-list';
+import { SourcingVpoDetails } from '../../../interface/sourcing/po/sourcing-vpo-details';
+
 
 
 @Injectable({
@@ -28,6 +33,13 @@ import { SourcingPreview } from '../../../interface/sourcing/po/sourcing-preview
 export class PoVendorService {
 
   constructor(private http: HttpClient) { }
+
+  getCPOPendingList():Observable<SourcingCpoPending[]>{
+    return this.http.get<SourcingCpoPending[]>("/api/po_to_vendor/pending_list/", //getSourcingCpoPendingList database API LInk
+      {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+      });       
+      }
 
 //Sourcing CPO Pending Details GET Method()..
   getCPOPendingDetailsList(id):Observable<CpoPendingDetails[]>{
@@ -233,7 +245,7 @@ getSourcingVpoCheckInfo(cpo_id,vpo_id):Observable<SupplierCheckInfo[]>{
 
 PutSourcingVpoCheckInfo(name,location,address,city,state,pin,country,office_email1,office_email2,office_phone1,office_phone2,gst_number, payment_term, advance_persentage,inco_term,cpo_id,vpo_id,supplier_check_cp_id){
   supplier_check_cp_id= supplier_check_cp_id['vendor']['id'];
-console.log( supplier_check_cp_id );
+console.log(name);
 
   return this.http.put<SupplierCheckInfo[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier/'+ supplier_check_cp_id +'/update/', //SourcingVpoLineitemEdit database API LInk
  {
@@ -327,7 +339,57 @@ getSourcingVpo_Preview(cpo_id,vpo_id):Observable<SourcingPreview[]>{
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
    });       
 }
+getSourcing_Vpo_Preview_lineitems(cpo_id,vpo_id):Observable<SourcingPreviewLineitems[]>{ 
+  console.log(cpo_id);
+  return this.http.get<SourcingPreviewLineitems[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/preview_lineitems/', //SourcingVpoLineitemEdit database API LInk
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
 }
+PostSourcing_Cpo_Market_ReadyPO(cpo_id,vpo_id){
+  console.log(cpo_id);
+  return this.http.post('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/launch/', //SourcingVpoLineitemEdit database API LInk
+  {
+    
+  },
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+
+getSourcingVpoList():Observable<VpoList[]>{ 
+  return this.http.get<VpoList[]>('/api/po_to_vendor/vpo/ready_list/', //SourcingVpoLineitemEdit database API LInk
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+getSourcing_VPO_Details(po_no):Observable<SourcingVpoDetails[]>{
+  return this.http.get<SourcingVpoDetails[]>('/api/po_to_vendor/vpo/ready_list/'+po_no+'/details/', //SourcingVpoLineitemEdit database API LInk
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+postvpo_details_change_info(po_no){
+  return this.http.post('/api/po_to_vendor/vpo/ready_list/'+po_no+'/change_info/', //SourcingVpoLineitemEdit database API LInk
+  {
+    
+  },
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+getSourcing_VPO_Details_pdf(po_no):Observable<[]>{
+  return this.http.get<[]>('/api/po_to_vendor/vpo/ready_list/'+po_no+'/generate/po/', //SourcingVpoLineitemEdit database API LInk
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   });       
+}
+
+}
+
+
+
+
 
 
 

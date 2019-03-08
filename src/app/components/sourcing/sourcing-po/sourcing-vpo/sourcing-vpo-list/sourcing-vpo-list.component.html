@@ -1,61 +1,39 @@
-<app-crm-header></app-crm-header>
 <br>
 <br>
- <h2>  VPO List </h2>
-   <div class="col-md-offset-0 col-md-12">
+ <h2>Sourcing Vendor Po List </h2>
+  
      <div class="panel panel-default">
-         <div class="panel-heading text-center"> Sourcing vPo Approval List</div>
-                 <div class="panel-body">
-                     <div class="col-md-4">
-                      <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
-                     </div>
+         <div class="panel-heading text-center">Sourcing Vendor Po List</div>
+                 <div class="panel-body">  
                  </div>
-               <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+                <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
                    <thead>
                      <tr>
                         <th></th>
-                       
-                        <th>Po No </th>
-                        <th>Date</th>
+                        <th>Po Number</th>
+                        <th>PO DATE</th>
                         <th>Vendor Name</th>
-                        <th>status</th>
-                       </tr>                                         
-                       <tr>
+                        <th>Vendor Contact Person</th>
+                        <th>Location</th>
+                       </tr >
+                                         
+                     <tr  *ngFor="let data of vpo_list">
                           <td>
-                             <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                             </td>                        
-                              <td>1</td>
-                              <td>vinay</td>
-                              <td>C00124</td>
-                              <td>mysuru</td>                   
-                       </tr>
-                       <tr>
-                                 <td>
-                                    <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                                 </td>
-                           
-                                 <td>2</td>
-                                 <td>Sarika</td>
-                                 <td>C00134</td>
-                                 <td>Mandya</td>                               
-                         </tr>
-                         <tr>
-                                    <td>
-                                      <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                                    </td>                               
-                                     <td>3</td>
-                                     <td>vinayrao</td>
-                                     <td>C00132</td>
-                                     <td>Bangluru</td>                                     
-                         </tr>
+                             <a href="sourcing/sourcing-po/vpo/ready_list/{{data.po_number}}/details" ><span class="glyphicon glyphicon-forward" style="color: blue"></span> </a>   <!--sales/sales-po/vpo-approval/vpo-approval-details-->
+                             </td>
+                        
+                              <td>{{data.po_number}}</td>
+                              <td>{{data.po_date}}</td>
+                              <td>{{data.vpo__vendor__name}}</td>
+                              <td>{{data.vpo__vendor_contact_person__name}}</td>
+                              <td>{{data.vpo__vendor__location}}</td>                                              
+                            
+                              
+                    
+                         </tr>                         
                    </thead>
                </table> <br>
        </div>
-   </div>
-<app-crm-footer></app-crm-footer>
-  
-    
    
-
-    
-  
+   <app-sourcing-header></app-sourcing-header>
+   <app-sourcing-footer></app-sourcing-footer>

@@ -2,144 +2,156 @@
 <app-sales-header></app-sales-header>
 <app-sales-footer></app-sales-footer>
 <div class="div1">
-<h2 align="center" style="color:DodgerBlue;"><strong>AEPROCUREX SOURCING PRIVATE LIMITED</strong></h2>
-<div class="row">
-  <div class="col-md-6">
-    <address>
-   <h3><strong>Regd. Office:</strong></h3>
-    <label>{{sales_VPoApproval_preview.billing_address}}</label> 
-    </address>
-  </div>
-  <div class="col-xs-5 text-right">
-    <address>
-      <h3><strong>Delivery Address:</strong></h3>
-      <label>{{sales_VPoApproval_preview.billing_address}}</label> 
-    </address>
-  </div>
-</div>
-<h2 align="center"><strong><u>PURCHASE ORDER</u></strong></h2>
-<div class="row">
-  <div class="col-xs-6">
-    <address>
-   <strong>Supplier Name:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor.name}}<br>
-   <strong>Address:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor.address}}<br>
-   <strong>Location:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor.location}}<br>
-   <strong>State & Pin :</strong> &nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor.state}}{{sales_VPoApproval_preview.vendor.pin}}<br>
-   <strong>Phone :</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor.office_phone1}}<br>
-   <strong>Email:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor.office_email1}}<br>
-   <strong>Gst Number:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor.gst_number}}<br>
-    </address>
-  </div>
-  <div class="col-md-offset-1 col-md-4">
+  <h2 align="center" style="color:DodgerBlue;"><strong>AEPROCUREX SOURCING PRIVATE LIMITED</strong></h2>
+  <div class="row">
+    <div class="col-md-6">
       <address>
-          <strong>PO No:</strong>&nbsp;&nbsp;&nbsp;{{sal_po_id}}<br><br><br>
-          <strong>Offer Ref:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.offer_reference}}<br>
-          <strong>Offer Date:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.offer_date}}<br>
-          <strong>Contact Person:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor_contact_person.name}}<br>
-          <strong>Contact NO:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor_contact_person.mobileNo1}}<br>
-          <strong>Delivery Date:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.delivery_date}}<br>
+     <h3><strong>Regd. Office:</strong></h3>
+      <label>{{ sales_VPoApproval_preview.vpo__billing_address}}</label> 
       </address>
     </div>
-</div>
-<br><br>
-<p><strong>Kind Attention</strong>:&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor_contact_person.name}}</p>
-<p>Dear Sir/s,<br>
-    Please supply the under noted goods subject to the instructions herein below and terms and conditions set out overleaf. All supplies
-    must be effected at our site address as mentioned below. If nothing contrary is heard within 48 hours of the receipt to this order, it will
-    be understood that the order has been accepted in full. Our Order No.& date should be mentioned clearly in your challan(s) and
-    invoice(s).</p><br><br>
-<table id="sourcing1" class="table table-hover table-bordered table-sm" width="100%" >
-  <tr>
-      <th></th>
-      <th>Product Name</th>
-      <th>Description</th>
-      <th>Model</th>
-      <th>Brand</th>
-      <th>Product Code</th>
-      <th>HSN Code</th>
-      <th>Pack Size</th>
-      <th>GST</th>
-      <th>UOM</th>
-      <th>Quantity</th>
-      <th>Price</th> 
-      <th>Discount</th> 
-      <th></th>
+    <div class="col-xs-5 text-right">
+      <address>
+        <h3><strong>Delivery Address:</strong></h3>
+        <label>{{sales_VPoApproval_preview.vpo__shipping_address}}</label> 
+      </address>
+    </div>
+  </div>
+  <h2 align="center"><strong><u>PURCHASE ORDER</u></strong></h2>
+  <div class="row">
+    <div class="col-xs-6">
+      <address>
+     <strong>Supplier Name:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__vendor__name}}<br>
+     <strong>Address:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__vendor__address}}<br>
+     <strong>Location:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__vendor__location}}<br>
+   <strong>State & Pin :</strong> &nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__vendor__state}}<br>
+      <!---- <strong>Phone :</strong>&nbsp;&nbsp;&nbsp;{{ sales_VPoApproval_preview.office_phone1}}<br>
+     <strong>Email:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.office_email1}}<br>-->
+     <strong>Gst Number:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__vendor__gst_number}}<br>
+      </address>
+    </div>
+    <div class="col-md-offset-2 col-md-2">
+        <address>
+            <strong>PO NO:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.po_number}}<br>
+            <strong>PO Date:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.po_date}}<br>
+            <strong>Order Ref:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__offer_reference}}<br>
 
-  </tr>
-  
-  <tr *ngFor="let data of sales_VPoApproval_preview.vpo_lineitems">
-    <td></td>
-            <td>{{data.product_title}}</td>
-            <td>{{data.description}}</td>
-            <td>{{data.model}}</td>
-            <td>{{data.brand}}</td>
-            <td>{{data.product_code}}</td>
-            <td>{{data.hsn_code}}</td>
-            <td>{{data.pack_size}}</td>
-            <td>{{data.gst}}</td>
-            <td>{{data.uom}}</td>
-            <td>{{data.quantity}}</td>
-            <td>{{data.unit_price}}</td>
-            <td>{{data.discount}}</td>
-            <td></td>
-   </tr>
-   
-</table><br><br><br>
-<table id="sourcing1" class="table-bordered table-sm"  width="25%" height="50%" >
-      <tr>
-           <h4 align="center"> <strong>Terms Condition</strong></h4>
-            <th></th>
-      </tr>
-      <tr>
-          <tr>
-              <th scope="col">P & F</th>
-              <td>{{sales_VPoApproval_preview.pf}}</td>
-             </tr>
-             <tr>
-                <th scope="col">GST</th>
-                <td>{{sales_VPoApproval_preview.vendor.gst_number}}</td>
+            <strong>Offer Ref:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__offer_reference}}<br>
+            <strong>Offer Date:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__offer_date}}<br>
+            <strong>Contact Person:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__vendor_contact_person__name}}<br>
+          <!----  <strong>Contact NO:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vendor_contact_person.mobileNo1}}<br>-->
+            <strong>Delivery Date:</strong>&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__delivery_date}}<br>
+        </address>
+      </div>
+  </div>
+  <br><br>
+  <p><strong>Kind Attention</strong>:&nbsp;&nbsp;&nbsp;{{sales_VPoApproval_preview.vpo__vendor_contact_person__name}}</p>
+  <p>Dear Sir/s,<br>
+      Please supply the under noted goods subject to the instructions herein below and terms and conditions set out overleaf. All supplies
+      must be effected at our site address as mentioned below. If nothing contrary is heard within 48 hours of the receipt to this order, it will
+      be understood that the order has been accepted in full. Our Order No.& date should be mentioned clearly in your challan(s) and
+      invoice(s).</p><br><br>
+      <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+        <thead>
+            <tr>
+             <th></th>
+             <th>Product Title</th>
+             <th>Description</th>
+             <th>Model</th>
+             <th>Brand</th>
+             <th>Product Code</th>
+             <th>HSN Code</th>
+             <th>Pack Size</th>
+             <th>UOM</th>
+             <th>Quantity</th>
+             <th>Unit Price</th>
+             <th>Discount %</th>
+             <th>Discounted-Price %</th>
+             <th>GST %</th>
+             <th>Total</th>
+              
+           </tr >
+           <tr *ngFor="let data of vpoapprovallist">
+               <td></td>
+               <td>{{data.product_title}}</td>
+               <td>{{data.description}}</td>
+               <td>{{data.model}}</td>
+               <td>{{data.brand}}</td>
+               <td>{{data.product_code}}</td>
+               <td>{{data.hsn_code}}</td>
+               <td>{{data.pack_size}}</td>
+               <td>{{data.uom}}</td>
+               <td>{{data.quantity}}</td>
+               <td>{{data.unit_price}}</td>
+               <td>{{data.discount}}</td>
+               <td>{{data.unit_price-(data.unit_price*data.discount/100)}}</td>
+               <td>{{data.gst}}</td>
+               <td>{{(data.unit_price-(data.unit_price*data.discount/100))+((data.unit_price-(data.unit_price*data.discount/100))*data.gst/100)}}</td>  
+               
+            </tr>
+            <tr>  
+              <th colspan="14" style="text-align: right">Grand Total</th>
+              <td>{{total_amount}}</td>
+           </tr> <br>&nbsp;
+           
+       </thead>
+   </table> <br>
+<br><br><br>
+  <table id="sourcing1" class="table-bordered table-sm"  width="25%" height="50%" >
+        <tr>
+             <h4 align="center"> <strong>Terms Condition</strong></h4>
+              <th></th>
+        </tr>
+        <tr>
+            <tr>
+                <th scope="col">P & F</th>
+                <td>{{sales_VPoApproval_preview.vpo__pf}}</td>
                </tr>
                <tr>
-                  <th scope="col">Delivery Period</th>
-                  <td>{{sales_VPoApproval_preview.delivery_date}}</td>
+                  <th scope="col">GST</th>
+                  <td>{{sales_VPoApproval_preview.vpo__vendor__gst_number}}</td>
                  </tr>
                  <tr>
-                    <th scope="col">Freight Charges</th>
-                    <td>{{sales_VPoApproval_preview.freight_charges}}</td>
-                   </tr>
-                  <tr>
-                     <th scope="col">Mode Of Transport</th>
-                      <td>{{sales_VPoApproval_preview.mode_of_transport}}</td>
+                    <th scope="col">Delivery Period</th>
+                    <td>{{sales_VPoApproval_preview.vpo__delivery_date}}</td>
                    </tr>
                    <tr>
-                      <th scope="col">Insurance</th>
-                       <td>{{sales_VPoApproval_preview.insurance}}</td>
-                    </tr>
-                  <tr>
-                     <th scope="row">Payment Terms</th>
-                    <td>{{sales_VPoApproval_preview.payment_term}}</td>
-                 </tr>
-                 <tr>
-                     <th scope="row">Installation</th>
-                     <td>{{sales_VPoApproval_preview.installation}}</td>
-                </tr>
-                 <tr>
-                   <th scope="row">Comments</th>
-                   <td>{{sales_VPoApproval_preview.comments}}</td>
-                 </tr> 
-  </table><br><br><br>
-<div class="Delivery">
-        <p><strong><u>Delivery Instruction</u>:</strong></p>
-          <ul>1. &nbsp;{{sales_VPoApproval_preview.di1}}</ul>
-          <ul>2. &nbsp;{{sales_VPoApproval_preview.di2}}</ul>
-          <ul>3. &nbsp;{{sales_VPoApproval_preview.di3}}</ul>
-          <ul>4. &nbsp;{{sales_VPoApproval_preview.di4}}</ul>
-          <ul>5. &nbsp;{{sales_VPoApproval_preview.di5}}</ul>
-          <ul>6. &nbsp;{{sales_VPoApproval_preview.di6}}</ul>
-          <ul>7. &nbsp;{{sales_VPoApproval_preview.di7}}</ul>
-          <ul>8. &nbsp;{{sales_VPoApproval_preview.di8}}</ul>
-          <ul>9. &nbsp;{{sales_VPoApproval_preview.di9}}</ul>
-          <ul>10. &nbsp;{{sales_VPoApproval_preview.di10}}</ul>
-      </div>
-
-</div>
+                      <th scope="col">Freight Charges</th>
+                      <td>{{sales_VPoApproval_preview.vpo__freight_charges}}</td>
+                     </tr>
+                    <tr>
+                       <th scope="col">Mode Of Transport</th>
+                        <td>{{sales_VPoApproval_preview.vpo__mode_of_transport}}</td>
+                     </tr>
+                     <tr>
+                        <th scope="col">Insurance</th>
+                         <td>{{sales_VPoApproval_preview.vpo__insurance}}</td>
+                      </tr>
+                    <tr>
+                       <th scope="row">Payment Terms</th>
+                      <td>{{sales_VPoApproval_preview.vpo__vendor__payment_term}}</td>
+                   </tr>
+                   <tr>
+                       <th scope="row">Installation</th>
+                       <td>{{sales_VPoApproval_preview.vpo__installation}}</td>
+                  </tr>
+                   <tr>
+                     <th scope="row">Comments</th>
+                     <td>{{sales_VPoApproval_preview.vpo__comments}}</td>
+                   </tr> 
+    </table><br><br><br>
+  <div class="Delivery">
+          <p><strong>Delivery Instruction :</strong></p>
+            <ul>1. &nbsp;{{sales_VPoApproval_preview.vpo__di1}}</ul>
+            <ul>2. &nbsp;{{sales_VPoApproval_preview.vpo__di2}}</ul>
+            <ul>3. &nbsp;{{sales_VPoApproval_preview.vpo__di3}}</ul>
+            <ul>4. &nbsp;{{sales_VPoApproval_preview.vpo__di4}}</ul>
+            <ul>5. &nbsp;{{sales_VPoApproval_preview.vpo__di5}}</ul>
+            <ul>6. &nbsp;{{sales_VPoApproval_preview.vpo__di6}}</ul>
+            <ul>7. &nbsp;{{sales_VPoApproval_preview.vpo__di7}}</ul>
+            <ul>8. &nbsp;{{sales_VPoApproval_preview.vpo__di8}}</ul>
+            <ul>9. &nbsp;{{sales_VPoApproval_preview.vpo__di9}}</ul>
+            <ul>10. &nbsp;{{sales_VPoApproval_preview.vpo__di10}}</ul>
+        </div>
+  
+  </div>

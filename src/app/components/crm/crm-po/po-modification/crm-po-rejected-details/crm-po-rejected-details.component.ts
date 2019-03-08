@@ -30,6 +30,7 @@ export class CrmPoRejectedDetailsComponent implements OnInit {
     let reject_id=this.route.snapshot.paramMap.get('cpo_id');
     this.PoEntryServicesService.PostPoRejectPODetails(reject_id).subscribe(data=>{
       console.log(data);
+      this.router.navigate(['/crm/crm-po/po-modification/crm-po-rejected-list'])
      
     })
   }

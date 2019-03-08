@@ -10,6 +10,7 @@ import  {SalesPoApprovalSupport}from '../../../interface/sales/po/sales-po-appro
 import  {SalesApprovalDetails} from '../../../interface/sales/po/sales-approval-details';
 import {SalesVpoApprovalList} from '../../../interface/sales/po/sales-vpo-approval-list';
 import { SalesVpoApprovalDetails}from '../../../interface/sales/po/sales-vpo-approval-details';
+import { SalesPreview } from '../../../interface/sales/po/sales-preview';
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +37,8 @@ export class PoApprovalService {
 }
 
  //get method Vpo_Approval_details
-getVpo_Approval_details(sal_id, vend_id):Observable<SalesVpoApprovalDetails[]>{
-  return this.http.get<SalesVpoApprovalDetails[]>("/api/po_to_vendor/vpo/e173793e-9a25-441d-8a4d-5a9addc4740d/ASPL-K-18190001/lineitems/", // database API LInk    /api/po_to_vendor/vpo/"+sal_id+"/"+vend_id+"/lineitems/
+getVpo_Approval_details(vpo_id,po_no):Observable<SalesVpoApprovalDetails[]>{
+  return this.http.get<SalesVpoApprovalDetails[]>('/api/po_to_vendor/vpo/'+vpo_id+'/'+po_no+'/lineitems/', // database API LInk    /api/po_to_vendor/vpo/"+sal_id+"/"+vend_id+"/lineitems/
   
   {
     headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
@@ -87,10 +88,28 @@ postRejectionlist(rejection_reason,sal_id){
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
   });
 }
-getSales_VPo_Approval_Preview(sal_vpo_id,sal_po_id):Observable< []>{
-  return this.http.get<[]>('/api/po_to_vendor/vpo/'+sal_vpo_id+'/'+sal_po_id+'/preview/',
+getSales_VPo_Approval_Preview(vpo_id,po_no):Observable<SalesPreview  []>{
+  return this.http.get<SalesPreview []>('/api/po_to_vendor/vpo/'+vpo_id+'/'+po_no+'/preview/',
   
   {
     headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
  });   
-}}
+}
+PostVpo_details_approval(vpo_id,po_no){
+  return this.http.post('/api/po_to_vendor/vpo/'+vpo_id+'/'+po_no+'/lineitems/approve/',
+  {
+
+  },{
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
+  })
+}
+PostVpo_details_reject(vpo_id,po_no){
+  return this.http.post('/api/po_to_vendor/vpo/'+vpo_id+'/'+po_no+'/lineitems/reject/',
+  {
+
+  },{
+    headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))
+  })
+
+}
+}

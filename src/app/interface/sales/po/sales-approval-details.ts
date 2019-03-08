@@ -12,4 +12,5 @@ export interface SalesApprovalDetails {
     quantity: number,
     uom: number,
     unit_price:number,
+   
 }

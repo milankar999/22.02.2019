@@ -13,7 +13,7 @@
   <div class="col-xs-5 text-right">
     <address>
       <h3><strong>Delivery Address:</strong></h3>
-      <label>{{sourcing_vpo_preview.billing_address}}</label> 
+      <label>{{sourcing_vpo_preview.shipping_address}}</label> 
     </address>
   </div>
 </div>
@@ -21,27 +21,27 @@
 <div class="row">
   <div class="col-xs-6">
     <address>
-   <strong>Supplier Name:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor.name}}<br>
-   <strong>Address:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor.address}}<br>
-   <strong>Location:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor.location}}<br>
-   <strong>State & Pin :</strong> &nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor.state}}{{sourcing_vpo_preview.vendor.pin}}<br>
-   <strong>Phone :</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor.office_phone1}}<br>
-   <strong>Email:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor.office_email1}}<br>
-   <strong>Gst Number:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor.gst_number}}<br>
+   <strong>Supplier Name:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor__name}}<br>
+   <strong>Address:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor__address}}<br>
+   <strong>Location:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor__location}}<br>
+   <strong>State & Pin :</strong> &nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor__state}}<br>
+  <!---- <strong>Phone :</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor.office_phone1}}<br>
+   <strong>Email:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor.office_email1}}<br>-->
+   <strong>Gst Number:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor__gst_number}}<br>
     </address>
   </div>
-  <div class="col-md-offset-2 col-md-2">
+  <div class="col-md-offset-2 col-md-3">
       <address>
           <strong>Offer Ref:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.offer_reference}}<br>
           <strong>Offer Date:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.offer_date}}<br>
-          <strong>Contact Person:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor_contact_person.name}}<br>
-          <strong>Contact NO:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor_contact_person.mobileNo1}}<br>
+          <strong>Contact Person:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor_contact_person__name}}<br>
+        <!----  <strong>Contact NO:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor_contact_person.mobileNo1}}<br>-->
           <strong>Delivery Date:</strong>&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.delivery_date}}<br>
       </address>
     </div>
 </div>
 <br><br>
-<p><strong>Kind Attention</strong>:&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor_contact_person.name}}</p>
+<p><strong>Kind Attention</strong>:&nbsp;&nbsp;&nbsp;{{sourcing_vpo_preview.vendor_contact_person__name}}</p>
 <p>Dear Sir/s,<br>
     Please supply the under noted goods subject to the instructions herein below and terms and conditions set out overleaf. All supplies
     must be effected at our site address as mentioned below. If nothing contrary is heard within 48 hours of the receipt to this order, it will
@@ -57,16 +57,18 @@
       <th>Product Code</th>
       <th>HSN Code</th>
       <th>Pack Size</th>
-      <th>GST</th>
       <th>UOM</th>
       <th>Quantity</th>
       <th>Price</th> 
-      <th>Discount</th> 
-      <th></th>
+      <th>Discount%</th> 
+      <th>Discounted-Price %</th>
+      <th>GST %</th>
+      <th>Total</th>
+    
 
   </tr>
   
-  <tr *ngFor="let data of sourcing_vpo_preview.vpo_lineitems">
+  <tr *ngFor="let data of  sourcing_preview_lineitems">
     <td></td>
             <td>{{data.product_title}}</td>
             <td>{{data.description}}</td>
@@ -75,15 +77,25 @@
             <td>{{data.product_code}}</td>
             <td>{{data.hsn_code}}</td>
             <td>{{data.pack_size}}</td>
-            <td>{{data.gst}}</td>
             <td>{{data.uom}}</td>
             <td>{{data.quantity}}</td>
             <td>{{data.unit_price}}</td>
             <td>{{data.discount}}</td>
-            <td></td>
-   </tr>
-   
-</table><br><br><br>
+            <td>{{data.unit_price-(data.unit_price*data.discount/100)}}</td>
+            <td>{{data.gst}}</td>
+            <td>{{(data.unit_price-(data.unit_price*data.discount/100))+((data.unit_price-(data.unit_price*data.discount/100))*data.gst/100)}}</td>  
+                  
+       </tr>  
+     
+       <tr>  
+          <th colspan="14" style="text-align: right">Grand Total</th>
+          <td>{{total_amount}}</td>
+       </tr> 
+  
+ 
+</table>
+ <br><br><br>
+
 <table id="sourcing1" class="table-bordered table-sm"  width="25%" height="50%" >
       <tr>
            <h4 align="center"> <strong>Terms Condition</strong></h4>
@@ -96,7 +108,7 @@
              </tr>
              <tr>
                 <th scope="col">GST</th>
-                <td>{{sourcing_vpo_preview.vendor.gst_number}}</td>
+                <td>{{sourcing_vpo_preview.vendor__gst_number}}</td>
                </tr>
                <tr>
                   <th scope="col">Delivery Period</th>
@@ -116,7 +128,7 @@
                     </tr>
                   <tr>
                      <th scope="row">Payment Terms</th>
-                    <td>{{sourcing_vpo_preview.payment_term}}</td>
+                    <td>{{sourcing_vpo_preview.vendor__payment_term}}</td>
                  </tr>
                  <tr>
                      <th scope="row">Installation</th>

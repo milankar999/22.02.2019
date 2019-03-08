@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
 import{ Router,ActivatedRoute } from '@angular/router';
-import{ HttpResponse} from '@angular/common/http';
-import { PoVenderService } from 'src/app/services/sourcing/po/po-vender.service'; //services name import
+import{ HttpResponse} from '@angular/common/http'; //services name import
+import { PoVendorService } from 'src/app/services/sourcing/po/po-vendor.service';
 
 @Component({
   selector: 'app-sourcing-cpo-pending-list',
@@ -13,7 +13,7 @@ export class SourcingCpoPendingListComponent implements OnInit {
   query:string='';
     pendinglist:Object[]=[];
     display='none';
-  constructor(private PoVenderService:PoVenderService,
+  constructor(private PoVendorService:PoVendorService,
     private router:Router) {
    
    }
@@ -23,7 +23,7 @@ export class SourcingCpoPendingListComponent implements OnInit {
 
   CpoPendingList(){
 
-  this.PoVenderService.getCPOPendingList().subscribe((data)=>{  
+  this.PoVendorService.getCPOPendingList().subscribe((data)=>{  
     this.pendinglist=data;  
     console.log(data);
 })

@@ -14,9 +14,13 @@ import { PoVendorService} from 'src/app/services/sourcing/po/po-vendor.service';
 export class SourcingVpoReviewComponent implements OnInit {
   cpo_id="";
   vpo_id="";
+  
  
   sourcing_vpo_preview:object[]=[];
-  vpo_lineitems:object[]=[];
+ 
+  sourcing_preview_lineitems:object[]=[];
+  
+  total_amount = 0;
   product_title="";
   billing_address="";
   name="";
@@ -36,15 +40,32 @@ export class SourcingVpoReviewComponent implements OnInit {
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
     this.vpo_id=vpo_id;
     this. SourcingVpo_Preview(cpo_id,vpo_id)
+    this. SourcingVpo_Preview_lineitems(cpo_id,vpo_id)
   }
  
   SourcingVpo_Preview(cpo_id,vpo_id){
     this.PoVendorService.getSourcingVpo_Preview(cpo_id,vpo_id).subscribe((data)=>{
-      this.sourcing_vpo_preview=data;
-     
-      console.log(data);
+      this.sourcing_vpo_preview=data["0"];
+      console.log(data["0"]);
     });
     }
+    SourcingVpo_Preview_lineitems(cpo_id,vpo_id){
+      this.PoVendorService.getSourcing_Vpo_Preview_lineitems(cpo_id,vpo_id).subscribe((data)=>{
+        this.sourcing_preview_lineitems=data;
+       
+        console.log(data);
+       
+          for(var item in data){
+            let discounted_price = data[item]["unit_price"] - ((data[item]["unit_price"])*(data[item]["discount"])/100);
+            let with_gst_price = discounted_price + (discounted_price * (data[item]["gst"]) / 100);
+            this.total_amount = this.total_amount + with_gst_price; 
+          }
+            console.log();
+    
+       
+        
+      });
+      }
   }
 
 

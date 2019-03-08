@@ -93,9 +93,9 @@ export class SourcingCpoVendorProductComponent implements OnInit {
     this.display='block';
   }
   closeModalDialog(){
-    this.display='none';
-    
+    this.display='none'; 
   }
+  
   checkUnassignitem(event,id) {
     if(event.target.checked) {
         this.selected_unassignitem_list.push({id:event.target.name});

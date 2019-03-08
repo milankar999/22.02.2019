@@ -6,7 +6,7 @@
            <div class="panel-body">
             <div>
             <!---Rejected PO Model start-->
-       <button class="btn btn-danger" style="float:right" data-toggle="tooltip" title="Deleted Reject PO" (click)="openAcceptedModalDialog()">Rejecte PO</button>
+       <button class="btn btn-danger" style="float:right" data-toggle="tooltip" title="Deleted Reject PO" (click)="openAcceptedModalDialog()">Delete PO</button>
           <div class="backdrop" [ngStyle]="{'display' :accepted_display}"></div>
               <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':accepted_display}">
                           <!--modal-dialog-->
@@ -23,7 +23,7 @@
                             </div>
                        
                                 <div class="modal-footer">
-                                   <button routerLink="/crm/crm-po/po-modification/crm-po-rejected-list" class="btn btn-success" (click)="submitrejectedpolist(event)">Confirm</button>&nbsp;
+                                   <button  class="btn btn-success" (click)="submitrejectedpolist(event)">Confirm</button>&nbsp;
                                     <button type="button" class="btn btn-danger" (click)="closeAcceptedModalDialog()">Cancel</button>
                               </div>
                        </div>

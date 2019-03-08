@@ -1,70 +1,79 @@
 <br>
 <br>
- <br><br><h2> Vendor Po Details </h2>
-   <div class="col-md-offset-0 col-md-12">
+ <br>
      <div class="panel panel-default">
          <div class="panel-heading text-center"> Vendor Po Details</div>
                  <div class="panel-body">
-                     <div class="col-md-4">
-                      <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
-                     </div>
+                    <a href="{{get_pdf.po_url}}" target="_blank">  <button class="btn btn-primary btn-sm">Get PDF</button></a>&nbsp;&nbsp;
+
+                    <button class="btn btn-success btn-sm" style="float:right" (click)="openModalDialog()">Changing Information <span class="glyphicon glyphicon-forward"></span></button>
+                   <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
+                    <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+                        <!--modal-dialog-->
+                         <div class="modal-dialog" role="document">
+                         <!--modal-conent-->
+                              <div class="modal-content">
+                        <!--modal-header-->
+                    <div class="panel panel-default">
+                     <div class="panel-heading text-center">Changing Information
+                         <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+                    </div>
+                    <!--modal-body-->
+                    <div class="modal-body">
+                        <p>Successfully Changed</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" (click)="vpo_details_change_info(event)">Submit</button>&nbsp;&nbsp;&nbsp;
+                      
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div><br><br><!--model-->
+                  
                  </div>
                 <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
                    <thead>
                      <tr>
-                        
-                        <th>Product Title</th>
-                        <th>Product Description</th>
-                        <th>Model</th>
-                        <th>Brand</th>
-                        <th>Catagory</th>
-                        <th>Quantity</th>
-                        <th>UOM</th>
-                        <th>HSN Code</th>
-                        <th>Price</th>
+                             <th></th>
+                             <th>Product Name</th>
+                             <th>Description</th>
+                             <th>Model</th>
+                             <th>Brand</th>
+                             <th>Product Code</th>
+                             <th>HSN Code</th>
+                             <th>GST %</th>
+                             <th>Quantity</th>
+                             <th>UOM</th>
+                             <th>Price</th> 
+                             <th>Discount%</th> 
+                             <th></th>
                        </tr >
                                          
-                     <tr>
-                          <!----<td>
+                     <tr *ngFor="let data of  vpo_details">
+                        <td>
                              <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                             </td>-->
-                        
-                              <td>qwerth</td>
-                              <td>jhgfdfgh</td>
-                              <td>qwerg</td>
-                              <td>asdfgh</td>
-                              <td>asdfgh</td>
-                              <td>345</td>
-                              <td>nos</td>
-                              <td>6735</td>
-                              <td>456789</td>
-                            
-                              
-                    
+                             </td>
+                             <td>{{data.product_title}}</td>
+                             <td>{{data.description}}</td>
+                             <td>{{data.model}}</td>
+                             <td>{{data.brand}}</td>
+                             <td>{{data.product_code}}</td>
+                             <td>{{data.hsn_code}}</td>
+                             <td>{{data.gst}}</td>
+                             <td>{{data.quantity}}</td>
+                             <td>{{data.uom}}</td>
+                             <td>{{data.unit_price}}</td>
+                             <td>{{data.discount}}</td>
+                             <td></td>
                          </tr>
 
-                         <tr>
-                                 <!----<td>
-                                    <span class="glyphicon glyphicon-forward" style="color: blue"></span>
-                                 </td>-->
-                           
-                                 <td>werty</td>
-                                 <td>dfghj</td>
-                                 <td>asdfgfg</td>
-                                 <td>zxcvbnvbn</td>
-                                 <td>cvbncvb</td>
-                                 <td>876</td>
-                                 <td>nos</td>
-                                 <td>83637</td>
-                                 <td>6534567</td>
-                                
-                                
-                          </tr>
+
                             <hr>
                             <button class="btn btn-primary" style="float:left">Mark As In-transit</button>
                    </thead>
                </table> <br>
        </div>
-   </div>
-   <app-sales-header></app-sales-header>
-   <app-sales-footer></app-sales-footer>
+ 
+   <app-sourcing-header></app-sourcing-header>
+   <app-sourcing-footer></app-sourcing-footer>

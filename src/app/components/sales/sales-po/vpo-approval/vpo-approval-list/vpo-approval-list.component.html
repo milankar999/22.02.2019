@@ -4,10 +4,7 @@
    <div class="col-md-offset-0 col-md-12">
      <div class="panel panel-default">
          <div class="panel-heading text-center"> Vendor Po Approval List</div>
-                 <div class="panel-body">
-                     <div class="col-md-4">
-                      <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
-                     </div>
+                 <div class="panel-body">  
                  </div>
                 <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
                    <thead>
@@ -22,14 +19,14 @@
                                          
                      <tr  *ngFor="let data of poapprovallist">
                           <td>
-                              <a href="sales/sales-po/vpo-approval/:cpo_id/:vend_id/vpo-approval-details" ><span class="glyphicon glyphicon-forward" style="color: blue"></span> </a>          <!--sales/sales-po/vpo-approval/vpo-approval-details-->
+                              <a href="sales/sales-po/vpo-approval/{{data.vpo__id}}/po_number/{{data.po_number}}/vpo-approval-details" ><span class="glyphicon glyphicon-forward" style="color: blue"></span> </a>          <!--sales/sales-po/vpo-approval/vpo-approval-details-->
                              </td>
                         
                               <td>{{data.po_number}}</td>
                               <td>{{data.po_date}}</td>
-                              <td>{{data.vpo.vendor.name}}</td>
-                              <td>{{data.vpo.vendor_contact_person.id}}</td>
-                              <td>{{data.vpo.vendor.location}}</td>                                              
+                              <td>{{data.vpo__vendor__name}}</td>
+                              <td>{{data.vpo__vendor_contact_person__name}}</td>
+                              <td>{{data.vpo__vendor__location}}</td>                                              
                             
                               
                     

@@ -14,9 +14,8 @@ import { PoVendorService} from 'src/app/services/sourcing/po/po-vendor.service';
 export class SourcingVpoCheckVendorInfoComponent implements OnInit {
   model:any={}
   sourcingvpocheckinfo:object[]=[];
-  vpo_id="";
-  cpo_id="";
-  name="";
+  
+  name = "";
   location="";
   address="";
   city="";
@@ -30,6 +29,8 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
   gst_number="";
   supplier_id="";
  vendor_supplier_id="";
+ vpo_id="";
+  cpo_id="";
 
 
 
@@ -47,9 +48,6 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
       console.log(data);
       this.sourcingvpocheckinfo = data; 
       this.vendor_supplier_id= data['vendor']['id']; 
-      console.log(this.vendor_supplier_id); 
-  
-   
     });
   }
   submit_supplier_check_info(event){
@@ -58,7 +56,8 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
     this.vpo_id=vpo_id;
     this.PoVendorService.PutSourcingVpoCheckInfo(
-      this.model.name,this.model.location,
+      this.model.name,
+      this.model.location,
       this.model.address,this.model.city,
       this.model.state,
       this.model.pin,

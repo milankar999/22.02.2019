@@ -7,12 +7,9 @@
                Vendor : {{offer.vendor.name}} &nbsp; || &nbsp; Vendor Contact Person : {{offer.vendor_contact_person.name}}&nbsp; || &nbsp; Offer reference : {{offer.offer_reference}} &nbsp; || &nbsp; Offer date {{offer.offer_date}}
             </div> 
             <div class="panel-body">
-                  <button class="btn btn-primary btn-sm">Generate PO</button>&nbsp;&nbsp;
                 <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/basic-info"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking Approval To Release PO">Prepare PO</button></a>&nbsp;&nbsp;
-                  <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking for Direct Buying">Direct Buying PO</button>&nbsp;&nbsp;&nbsp;&nbsp;
                   <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/preview"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Preview PO">Preview PO</button></a>&nbsp;&nbsp;
                   
-                  <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"> <button class="btn btn-danger btn-sm" style="float: right">Change</button></a>
                   <input type="button" class="btn btn-success btn-sm" style="float: right" (click)="submitassignvendorlist($event)" data-toggle="tooltip" data-placement="top" name="{{offer.id}}" value="Abserve Unassigned selected lineitems" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                      
                   <br><br>
@@ -27,18 +24,18 @@
                              <th>Brand</th>
                              <th>Product Code</th>
                              <th>HSN Code</th>
-                             <th>GST</th>
+                             <th>GST %</th>
                              <th>Quantity</th>
                              <th>UOM</th>
                              <th>Price</th> 
-                             <th>Discount</th> 
+                             <th>Discount%</th> 
                              <th></th>
                            </tr>
                         </thead>
                         <tbody>
                            <tr *ngFor="let data of  offer.vpo_lineitems">
                               <td><a href="sourcing/sourcing-po/{{cpo_id}}/vpo/{{offer.id}}/lineitem/{{data.id}}/edit" data-toggle="tooltip" data-placement="top" title="Edit Product Details"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a>&nbsp;&nbsp;&nbsp;
-                                 <a name="{{offer.id}}" id="{{offer.id}}" (click)=" deletelineitem($event,this.name)"><span class="glyphicon glyphicon-trash"></span></a>
+                               
                                </td>
                               <td>{{data.product_title}}</td>
                               <td>{{data.description}}</td>
@@ -57,7 +54,7 @@
                   </table> 
                           
                               <hr>
-                                <button class="btn btn-success" style="float: right">Proceed</button>
+                           <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/proceed"><button class="btn btn-danger" style="float: right">Proceed</button></a>
                         
                     
                   <!--ENd of Table-->
@@ -73,7 +70,7 @@
                </div> 
                <div class="panel-body">
                      <a href="sourcing/sourcing-po/souring-cpo-vendor-product/{{cpo_id}}/vpo-vendor-selection"> <button class="btn btn-success btn-sm" style="float: left">Sourcing New PO</button></a>      
-                     <a href="sourcing/sourcing-po/sourcing-cpo-vendor-selection"> <button class="btn btn-danger btn-sm" style="float: right">Direce Buy From Market</button></a>      
+                    
                      <br><br>
                      <!--Table-->
                      <table id="sourcing1" class="table table-hover table-bordered table-sm" width="100%" >
@@ -86,16 +83,15 @@
                                 <th>Brand</th>
                                 <th>Product Code</th>
                                 <th>HSN Code</th>
-                                <th>GST</th>
+                                <th>GST %</th>
                                 <th>Quantity</th>
                                 <th>UOM</th>
-                                <th>Discount</th>
                                 <th></th>
                               </tr>
                            </thead>
                            <tbody>
                                  <tr *ngFor="let product of  unassigned_product">
-                                       <td><a href="" data-toggle="tooltip" data-placement="top" title="Edit Product Details"> <span class="glyphicon glyphicon-edit" style="color: blue"></span></a>
+                                    <td>
                                           <input type="checkbox" name="{{product.id}}" id="{{product.id}}" (change)="checkUnassignitem($event,this.name)"/></td>
 
                                        <td>{{product.product_title}}</td>
@@ -107,8 +103,6 @@
                                        <td>{{product.gst}}</td>
                                        <td>{{product.quantity}}</td>
                                        <td>{{product.uom}}</td>
-                                       <td>{{product.discount}}</td>
-                                       
                                        <td></td>
                                  </tr>
                            </tbody>
