@@ -1,11 +1,11 @@
 
 <br><br><br>
-<div class="col-md-offset-4 col-md-4">  <!--table fields-->
+<div class="col-md-offset-2 col-md-8">  <!--table fields-->
     <div class="well">
-      <h2 align="center">Basic VPO info </h2>
+      <h5 align="center">Basic Informations of this Order </h5>
       <hr>
      <form>
-         <div class="form-group">
+        <div class="form-group">
             
             <label class="form-input" for="billingaddress"> Billingaddress</label>
             <input type="text" class="form-control" id="billingaddress" value="{{billingaddress}}" name="billingaddress" [(ngModel)]="model.billing_address"
@@ -17,58 +17,75 @@
               required 
               #shipping_address="ngModel"><br>
              
-
-            <label class="form-input" for="deliverydate">Delivery date</label>
-            <input type="date" class="form-control" id="deliverydate" value="{{deliverydate}}"  name="deliverydate" [(ngModel)]="model.delivery_date"
+            <div class="row">
+              <div class="col-sm-3">
+                <label class="form-input" for="deliverydate">Delivery date</label>
+                <input type="date" class="form-control" id="deliverydate" value="{{deliverydate}}"  name="deliverydate" [(ngModel)]="model.delivery_date"
                   required 
-            #delivery_date="ngModel"><br>
-          
-            <label class="form-input" for=" offerreference">Offfer Reference</label>
-            <input type="text" class="form-control" id=" offerreference" value="{{offerreference}}" name="offerreference" [(ngModel)]="model.offer_reference"
-             required 
-             #offer_reference="ngModel"><br>
+                  #delivery_date="ngModel"><br>
+              </div>
+              
+              <div class="col-sm-3">
+                <label class="form-input" for=" offerreference">Offfer Reference</label>
+                <input type="text" class="form-control" id=" offerreference" value="{{offerreference}}" name="offerreference" [(ngModel)]="model.offer_reference"
+                  required 
+                  #offer_reference="ngModel"><br>
+              </div>
             
-             <label class="form-input" for="offerdate">Offer Date</label>
-             <input type="date" class="form-control" id=" offerdate" value="{{offerdate}}" name="offerdate" [(ngModel)]="model.offer_date"
-              required 
-              #offer_date="ngModel"><br>
-            
-            <label class="form-input" for="paymentterm">Payment Term</label>
-             <input type="text" class="form-control" id="paymentterm" value="{{paymentterm}}" name="paymentterm" [(ngModel)]="model.payment_term"
-              required 
-              #payment_term="ngModel"><br>
-          
-            <label class="form-input" for="advancepercentage">Advance Percentage</label>
-            <input type="text" class="form-control" id="advancepercentage" value="{{advancepercentage}}" name="advancepercentage" [(ngModel)]="model.advance_percentage"
-              required 
-              #advance_percentage="ngModel"><br>
+              <div class="col-sm-3">
+                <label class="form-input" for="offerdate">Offer Date</label>
+                <input type="date" class="form-control" id=" offerdate" value="{{offerdate}}" name="offerdate" [(ngModel)]="model.offer_date"
+                required 
+                #offer_date="ngModel"><br>
+              </div>
              
-              <label class="form-input" for="freightcharges">Freight Charges</label>
-              <input type="text" class="form-control" id="freightcharges" value="{{freightcharges}}" name="freightcharges" [(ngModel)]="model.freight_charges"
+
+              <div class="col-sm-3">
+                <label class="form-input" for="paymentterm">Payment Term (In Days)</label>
+                <input type="text" class="form-control" id="paymentterm" value="{{paymentterm}}" name="paymentterm" [(ngModel)]="model.payment_term"
+                 required 
+                 #payment_term="ngModel"><br>
+              </div>
+          
+              <div class="col-sm-3">
+                <label class="form-input" for="advancepercentage">Advance (%)</label>
+                <input type="text" class="form-control" id="advancepercentage" value="{{advancepercentage}}" name="advancepercentage" [(ngModel)]="model.advance_percentage"
+                required 
+                #advance_percentage="ngModel"><br>
+              </div>
+
+              <div class="col-sm-3">
+                <label class="form-input" for="freightcharges">Freight Charges (In INR)</label>
+                <input type="text" class="form-control" id="freightcharges" value="{{freightcharges}}" name="freightcharges" [(ngModel)]="model.freight_charges"
                 required 
                 #freight_charges="ngModel"><br>
+              </div>
                
-                <label class="form-input" for="customduties">Custom Duties</label>
+              <div class="col-sm-3">
+                <label class="form-input" for="customduties">Custom Duties (In INR)</label>
                 <input type="text" class="form-control" id="customduties" value="{{customduties}}" name="customduties" [(ngModel)]="model.custom_duties"
                   required 
                   #custom_duties="ngModel"><br>
-                 
-                  <label class="form-input" for="p_f">PF</label>
+              </div>
+
+              <div class="col-sm-3">
+                  <label class="form-input" for="p_f">PF (In INR)</label>
                   <input type="text" class="form-control" id=" p_f" value="{{p_f}}" name="p_f" [(ngModel)]="model.pf"
                     required 
                     #pf="ngModel"><br>
-                  
-                    <label class="form-input" for="insurances">Insurance</label>
+              </div>
+                 
+              <div class="col-sm-3">
+                    <label class="form-input" for="insurances">Insurance (IN INR)</label>
                     <input type="text" class="form-control" id="insurances" value="{{insurances}}" name="insurances" [(ngModel)]="model.insurance"
                       required 
                       #insurance="ngModel"><br>
-
-      
-     
-         </div>
-          <hr>
-          <button  type="button" class="btn btn-success" (click)="submitbasicinfo(event)">Submit</button>&nbsp;
-   
+              </div>
+            </div>
+            <div class="row">
+              <button  type="button" class="btn btn-success pull-right" (click)="submitbasicinfo(event)">Submit</button>
+            </div> 
+          </div>   
      </form>
  <div>
 </div>

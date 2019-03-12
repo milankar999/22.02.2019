@@ -4,7 +4,7 @@
     
 
      <!--After clicking the buttons open the model dialog using open/close event biniding methods-->
-     <button  class="block" type="btn btn-primary btn-block btn-lg" (click)="openModalDialog()">Markets Ready For PO</button><br>
+     <button  class="block" type="btn btn-primary btn-block btn-lg" (click)="openModalDialog()">Mark as Ready For Releasing Order</button><br>
         <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
         <!--modal-->
      <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
@@ -14,14 +14,14 @@
              <div class="modal-content">
                  <!--modal-header-->
                 <div class="panel panel-default">
-             <div class="panel-heading text-center">Markets Ready For PO
+             <div class="panel-heading text-center">Do You Really Want to Mark as Ready For Releasing Order ?
      <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
 </div>
 <!--modal-body-->
     <div class="modal-body">
     </div>
 <div class="modal-footer">
-    <button class="btn btn-success" (click)="market_ready_po(event)">Submit</button>&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-success" (click)="market_ready_po(event)">Confirm</button>&nbsp;&nbsp;&nbsp;
   
 </div>
 </div>

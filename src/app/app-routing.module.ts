@@ -71,19 +71,17 @@ const routes:Routes=[
   { path:'login',component:LoginComponent },
   { path:'',redirectTo:'/login',pathMatch:'full'}, 
    
-
 //Po Creation/Entry
   { path:'crm/crm-home', component:CrmHomeComponent,canActivate:[AuthGuard]},
   { path:'crm/po-entry/customer-selection', component:PoEntryCustomerSelectionComponent ,canActivate:[AuthGuard]},
-  
   { path:'crm/po-entry/:customer/requester-selection',component: PoEntryRequesterSelectionComponent,canActivate:[AuthGuard]  },
   
   { path:'crm/po-entry/:customer/:requester/receiver-selection',component: PoEntryReceiverSelectionComponent,canActivate:[AuthGuard]  },
   { path:'crm/po-entry/:customer/:requester/:receiver/supportinginfo',component: PoEntrySupportingInfoComponent ,canActivate:[AuthGuard] },
   { path:'crm/po-entry/:cpo_id/quotation-selection', component:PoEntryQuotationSelectionComponent,},
   
-  { path:'crm/po-entry/:cpo_id/quotation-selection/production-selection', component:PoEntryProductSelectionComponent,canActivate:[AuthGuard] },
-  { path:'crm/po-entry/:quotation_no/quotation-selection-detailsdetails',component:QuotationSelectionDetailsComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/:cpo_id/quotation-selection/product-selection', component:PoEntryProductSelectionComponent,canActivate:[AuthGuard] },
+  { path:'crm/po-entry/:quotation_no/quotation-selection-details',component:QuotationSelectionDetailsComponent,canActivate:[AuthGuard] },
   { path:'crm/po-entry/cpo/:cpo_id/selected-product',component:PoEntrySelectedProductComponent},
   { path:'crm/po-entry/cpo/:cpo_id/selected-product/:selected-product/edit-selected-product',component:PoEntryEditSelectedProductComponent },
 //PO Approval sales
@@ -108,8 +106,8 @@ const routes:Routes=[
   
   { path:'sourcing/sourcing-po/:cpo_id/souring-cpo-vendor-product',component:SourcingCpoVendorProductComponent },
   { path:'sourcing/sourcing-po/:cpo_id/vpo/:vpo_id/lineitem/:lineitem_id/edit',component:SourcingVpoLineitemEditComponent },
-  { path :'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/preview', component:SourcingVpoReviewComponent},
-  { path : 'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/proceed',component:SourcingCpoVendorProductProceedComponent},
+  { path:'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/preview', component:SourcingVpoReviewComponent},
+  { path:'sourcing/po_to_vendor/pending_cpo/:cpo_id/vpo/:vpo_id/proceed',component:SourcingCpoVendorProductProceedComponent},
 
   { path:'sourcing/sourcing-po/sourcing-cpo-lineitem-edit', component:SourcingCpoLineitemEditComponent },
 

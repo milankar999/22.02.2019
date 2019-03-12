@@ -1,130 +1,98 @@
+<app-sourcing-header></app-sourcing-header>
+<app-sourcing-footer></app-sourcing-footer>
 <br><br><br>
 <div class="col-md-offset-4 col-md-4">  <!--table fields-->
-    <div class="well">
-      <h2 align="center"> Vpo LineItem Edit </h2>
-      <hr>
-     <form #submitvpolineitemeditForm="ngForm" (ngSubmit)="submitvpolineitemeditlist(event)" class="form-sigin">
-         <div class="form-group">
-            <label class="form-input" for="producttitle"> Product Title</label>
-            <input type="text" class="form-control" id="producttitle" value="{{lineitem_object.product_title}}" name="producttitle" [(ngModel)]="Model.producttitles"
-             required 
-             #producttitle="ngModel">
-             <span *ngIf="producttitle.touched && producttitle.invalid" class="help-block">Product Title can't be blank</span>
+  <div class="well">
+    <label>Edit Lineitem</label>
+    <hr>
+    <form #submitvpolineitemeditForm="ngForm" (ngSubmit)="submitvpolineitemeditlist(event)" class="form-sigin">
+        <div class="form-group">
+          <label class="form-input" for="producttitle"> Product Title</label>
+          <input type="text" class="form-control" id="producttitle" value="{{lineitem_object.product_title}}" name="producttitle" [(ngModel)]="Model.product_title"
+            required #product_title="ngModel">
+          <span *ngIf="product_title.touched && product_title.invalid" class="help-block">Product Title can't be blank</span>
 
-              <label class="form-input" for="description"> description</label>
-              <input type="text" class="form-control" id="description" value="{{lineitem_object.description}}" name="description" [(ngModel)]="Model.description"
-               required 
-               #description="ngModel">
-               <span *ngIf="description.touched && description.invalid" class="help-block">description can't be blank</span>
+          <label class="form-input" for="description"> description</label>
+          <input type="text" class="form-control" id="description" value="{{lineitem_object.description}}" name="description" [(ngModel)]="Model.description"
+              required #description="ngModel">
+          <span *ngIf="description.touched && description.invalid" class="help-block">description can't be blank</span>
 
+          <label class="form-input" for="model">Model</label>
+          <input type="text" class="form-control" id="model" value="{{lineitem_object.model}}" name="model" [(ngModel)]="Model.model"
+              required #model="ngModel">
+          <span *ngIf="model.touched && model.invalid" class="help-block">Model can't be blank</span>
 
-              <label class="form-input" for="model">Model</label>
-              <input type="text" class="form-control" id="model" value="{{lineitem_object.model}}" name="model" [(ngModel)]="Model.model"
-               required 
-               #model="ngModel">
-               <span *ngIf="model.touched && model.invalid" class="help-block">Model can't be blank</span>
-
-               <label class="form-input" for="brand">Brand</label>
-               <input type="text" class="form-control" id="brand" value="{{lineitem_object.brand}}" name="brand" [(ngModel)]="Model.brand"
-                required 
-                #brand="ngModel">
-                <span *ngIf="brand.touched && brand.invalid" class="help-block">Brand can't be blank</span>
-
-                
-                <label class="form-input" for="productcode"> Product Code</label>
-                <input type="text" class="form-control" id="productcode" value="{{lineitem_object.product_code}}" name="productcode" [(ngModel)]="Model.productcode"
-                 required 
-                 #productcode="ngModel">
-                 <span *ngIf="productcode.touched && productcode.invalid" class="help-block">Product code can't be blank</span>
-              
-                
-               <label class="form-input" for="hsncode">Hsn code</label>
-               <input type="text" class="form-control" id="hsncode" value="{{lineitem_object.hsn_code}}" name="hsncode" [(ngModel)]="Model.hsncode"
-                required 
-                #hsncode="ngModel">
-                <span *ngIf=" hsncode.touched && hsncode.invalid" class="help-block">Hsn code can't be blank</span>
-
-               <label class="form-input" for="packsize">Pack Size</label>
-               <input type="text" class="form-control" id="packsize" value="{{lineitem_object.pack_size}}" name="packsize" [(ngModel)]="Model.packsize"
-               required 
-               #packsize="ngModel">
-               <span *ngIf=" packsize.touched && packsize.invalid" class="help-block">Pack Size can't be blank</span>
-
-                 
-               <label class="form-input" for="gst">Gst</label>
-               <input type="text" class="form-control" id="gst" value="{{lineitem_object.gst}}" name="gst" [(ngModel)]="Model.gst"
-               required 
-               #gst="ngModel">
-               <span *ngIf=" gst.touched && gst.invalid" class="help-block">gst can't be blank</span>
-
-               <label class="form-input" for="uom">UOM</label>
-               <input type="text" class="form-control" id="uom" value="{{lineitem_object.uom}}" name="uom" [(ngModel)]="Model.uom"
-               required 
-               #uom="ngModel">
-               <span *ngIf=" uom.touched && uom.invalid" class="help-block">uom can't be blank</span>
-             
+          <label class="form-input" for="brand">Brand</label>
+          <input type="text" class="form-control" id="brand" value="{{lineitem_object.brand}}" name="brand" [(ngModel)]="Model.brand"
+               required #brand="ngModel">
+          <span *ngIf="brand.touched && brand.invalid" class="help-block">Brand can't be blank</span>
+     
+          <label class="form-input" for="productcode"> Product Code</label>
+          <input type="text" class="form-control" id="productcode" value="{{lineitem_object.product_code}}" name="productcode" [(ngModel)]="Model.product_code"
+            required #product_code="ngModel">
                   
-               <label class="form-input" for="quantity">Quantity</label>
-               <input type="text" class="form-control" id="quantity" value="{{lineitem_object.quantity}}" name="quantity" [(ngModel)]="Model.quantity"
-               required 
-               #quantity="ngModel">
-               <span *ngIf=" quantity.touched && quantity.invalid" class="help-block">Quantity can't be blank</span>
+          <label class="form-input" for="hsncode">Hsn code</label>
+          <input type="text" class="form-control" id="hsncode" value="{{lineitem_object.hsn_code}}" name="hsncode" [(ngModel)]="Model.hsn_code"
+            required #hsn_code="ngModel">
+          <span *ngIf="hsn_code.touched && hsn_code.invalid" class="help-block">Hsn code can't be blank</span>
 
-               <label class="form-input" for="unitprice">Unit Price</label>
-               <input type="text" class="form-control" id="unitprice" value="{{lineitem_object.unit_price}}" name="unitprice" [(ngModel)]="Model.unitprice"
-               required 
-               #unitprice="ngModel">
-               <span *ngIf=" unitprice.touched && unitprice.invalid" class="help-block">Unit Price can't be blank</span>
-             
-               <label class="form-input" for="discount">Discount</label>
-               <input type="text" class="form-control" id="discount" value="{{lineitem_object.discount}}" name="discount" [(ngModel)]="Model.discount"
-               required 
-               #discount="ngModel">
-              
+          <label class="form-input" for="packsize">Pack Size</label>
+          <input type="text" class="form-control" id="packsize" value="{{lineitem_object.pack_size}}" name="packsize" [(ngModel)]="Model.packsize"
+            required #packsize="ngModel">
+          <span *ngIf=" packsize.touched && packsize.invalid" class="help-block">Pack Size can't be blank</span>
+     
+          <label class="form-input" for="gst">Gst</label>
+          <input type="text" class="form-control" id="gst" value="{{lineitem_object.gst}}" name="gst" [(ngModel)]="Model.gst"
+            required #gst="ngModel">
+          <span *ngIf=" gst.touched && gst.invalid" class="help-block">gst can't be blank</span>
 
-                        <hr>
-                        
-                        <button  type="submitvpolineitemeditForm.invalid" class="btn btn-success">Submit</button>&nbsp;
-         </div>
-       </form>
-         <button type="deleterejectlineitemForm.invalid" class="btn btn-danger" (click)="openModalDialog()" style="float:left">Delete</button> 
-                    
-                      
-                    <hr>
-                            
-                              <br>
-                 <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
-                    <!--modal-->
-                  <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
-                     <!--modal-dialog-->
-                       <div class="modal-dialog" role="document">
-                          <!--modal-conent-->
-                            <div class="modal-content">
-                              <!--modal-header-->
-                            
-                                <br>
-                              <div class="panel-heading text-center"> Sourcing Vpo lineitem edit 
-                              <button type="button" class="close" (click)="closeModalDialog()">&times;</button></div>
-                              <!--modal-footer-->
-                            <h3 align="center">IF you Really want to Delete ??... </h3>
-                              <br> 
-                              <!--  <label class="form-input" for="rejectionreason">Comment here ...! <a style="color: red">*</a></label>                  -->  
-                              <!--<input type="text" class="form-control" id="rejectionreason" name="rejectionreason" placeholder="Comment here ...!" [(ngModel)]="Model.rejection_reason"> -->
-                                <div class="modal-footer"> 
-                                      <!-- <button [disabled]="submitsalesApprovalForm.invalid" class="btn btn-primary">submit</button>&nbsp;-->
-                                     <!-- <button type="button" class="btn btn-success" (click)="RejectRequest()">yes</button> -->
-                                     
-                                     
-                                       <!-- <button type="deleterejectlineitemForm.invalid" class="btn btn-danger" (click)="openModalDialog()" style="float:left">Delete</button> -->
-                                      <form #deletesourcingvpolineitemForm="ngForm" (ngSubmit)="deletesourcingvpolineitemlist(event)" class="form-signin"> 
-                                       <button type="deletesourcingvpolineitemForm.invalid" class="btn btn-success" (click)="deletesourcingvpolineitemlist(event)">yes</button>
+          <label class="form-input" for="uom">UOM</label>
+          <input type="text" class="form-control" id="uom" value="{{lineitem_object.uom}}" name="uom" [(ngModel)]="Model.uom"
+            required #uom="ngModel">
+          <span *ngIf=" uom.touched && uom.invalid" class="help-block">uom can't be blank</span>
+            
+          <label class="form-input" for="quantity">Quantity</label>
+          <input type="text" class="form-control" id="quantity" value="{{lineitem_object.quantity}}" name="quantity" [(ngModel)]="Model.quantity"
+            required #quantity="ngModel">
+          <span *ngIf=" quantity.touched && quantity.invalid" class="help-block">Quantity can't be blank</span>
 
-                                      <button type="button" class="btn btn-danger" (click)="closeModalDialog()">No</button>
-                            
+          <label class="form-input" for="unitprice">Unit Price</label>
+          <input type="text" class="form-control" id="unitprice" value="{{lineitem_object.unit_price}}" name="unitprice" [(ngModel)]="Model.unit_price"
+            required #unit_price="ngModel">
+          <span *ngIf=" unit_price.touched && unit_price.invalid" class="help-block">Unit Price can't be blank</span>
+            
+          <label class="form-input" for="discount">Discount</label>
+          <input type="text" class="form-control" id="discount" value="{{lineitem_object.discount}}" name="discount" [(ngModel)]="Model.discount"
+            required #discount="ngModel">                      
+          <br>
+         
+         
+         
+          <button  type="submitvpolineitemeditForm.invalid" class="btn btn-success pull-left">Save Changes</button>&nbsp;
+          
+         
+        </div>
+      </form> 
+      <button class="btn btn-danger pull-left" (click)="openModalDialog()" >Remove This Item</button> 
+      <div class="backdrop" [ngStyle]="{'display' :display}"></div>
+      <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <br>
+              <div class="panel-heading text-center"> Sourcing Vpo lineitem edit 
+                <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+              </div>
+                <!--modal-footer-->
+                <h3 align="center">DO you Really want to Delete ?? </h3>
+                <br> 
+                <div class="modal-footer"> 
+                  <button class="btn btn-success" (click)="deletesourcingvpolineitemlist(event)">yes</button>
+                  <button type="button" class="btn btn-danger" (click)="closeModalDialog()">No</button>
+                </div>
+            </div>
+      </div>
+      </div>           
 <br>
 <br>   
- <div>
-
+  </div>
 </div>
- <app-sourcing-header></app-sourcing-header>
-<app-sourcing-footer></app-sourcing-footer> 

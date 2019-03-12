@@ -1,11 +1,12 @@
 <app-sales-header></app-sales-header>
+<app-sales-footer></app-sales-footer>
 <br><br><br>
-<div class="col-md-offset-2 col-md-6">  <!--table fields-->
+<div class="col-md-offset-2 col-md-8">  <!--table fields-->
   <div class="well">
-    <h2 align="center"> Sales PO Approval Supporting info</h2>
+    <h2 align="center">Supporting Information For This PO</h2>
     <hr>
   
-      <div class="form-group">
+    <div class="form-group">
           <label class="form-input" for="po-no">Customer Contact Person:&nbsp;&nbsp;{{customer_contact_person.name}} </label><br>
           <br>
           <label class="form-input" for="po-no">Customer Po No:&nbsp;&nbsp;{{customer_po_no}} </label><br>
@@ -24,62 +25,53 @@
            <br>
           <label class="form-input" for="requestor">Delivery Contact Person:&nbsp;&nbsp;{{delivery_contact_person.person_name}}</label><br>
         <br>
-      </div>
-      <!--Approval Model-->
-
-      <div>
-      <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openAcceptedModalDialog()">Approval</button>&nbsp;&nbsp;&nbsp;
-      
-      <div class="backdrop" [ngStyle]="{'display' :accepted_display}"></div>
-      <!--modal-->
+    </div>
+    <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openAcceptedModalDialog()">Approval</button>
+    <button type="button" class="btn btn-danger btn-sm" style="float:left" (click)="openRejectedModalDialog()">Reject</button>
+    <br><br><br>
+    <div class="backdrop" [ngStyle]="{'display' :accepted_display}"></div>
+      <!--Approve modal-->
       <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':accepted_display}">
           <!--modal-dialog-->
           <div class="modal-dialog" role="document">
            <!--modal-conent-->
                 <div class="modal-content">
                   <!--modal-header-->
-                 <div class="panel panel-default">
-                  <div class="panel-heading text-center">Assign to approval list</div>
-                  <div class="panel-body">
-                      <button type="button" class="close" (click)="closeAcceptedModalDialog()">&times;</button>
-                      <form #submitapprovalsupportinginfoForm="ngForm" (ngSubmit)="submitapprovalsupportinginfolist(event)" class="form-signin" >
+                  <div class="panel panel-default">
+                    <div class="panel-heading text-center">Assign to approval list</div>
+                      <div class="panel-body">
+                        <button type="button" class="close" (click)="closeAcceptedModalDialog()">&times;</button>
+                        <form #submitapprovalsupportinginfoForm="ngForm" (ngSubmit)="submitapprovalsupportinginfolist(event)" class="form-signin" >
                           <div class="form-group" >
-                                     <label for="username" class="control-label">Assign-TO*</label>
-                                     <select type="text" id="username" class="form-control" name="username" [(ngModel)]="model.username">
-                                       <option></option>
-                                       <option *ngFor="let user of buyer">{{user.username}}</option>
-                                      
-                                       </select>
-                              <hr>
+                            <label for="username" class="control-label">Assign-TO*</label>
+                            <select type="text" id="username" class="form-control" name="username" [(ngModel)]="model.username">
+                              <option></option>
+                              <option *ngFor="let user of buyer">{{user.username}}</option>         
+                            </select>
+                            <hr>
                             <button type="submitapprovalsupportinginfoForm.invalid" class="btn-success">submit</button>
                            </div>
-                      </form>
+                        </form>
+                      </div>
                   </div>
-                 </div>
                 </div>
           </div>
       </div>
-    
-        <!--modal-body-->
-
-      <!-- End of Approval Model-->
-
+      <!--End of Approve Model-->
+      
+      
       <!--Rejected Model-->
-
-    
-      <button type="button" class="btn btn-danger btn-sm" style="float:left" (click)="openRejectedModalDialog()">Reject</button> 
-      <br><br><br>
       <div class="backdrop" [ngStyle]="{'display' :rejected_display}"></div>
-      <!--modal-->
-      <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':rejected_display}">
+        <!--modal-->
+        <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':rejected_display}">
           <!--modal-dialog-->
           <div class="modal-dialog" role="document">
            <!--modal-conent-->
-                <div class="modal-content">
-                  <!--modal-header-->
-                 <div class="panel panel-default">
+              <div class="modal-content">
+                <!--modal-header-->
+                <div class="panel panel-default">
                   <div class="panel-heading text-center">Please Mention The Rejection Reason</div>
-                  <div class="panel-body">
+                    <div class="panel-body">
                       <button type="button" class="close" (click)="closeRejectedModalDialog()">&times;</button>
                      
                       <form #submitrejectrequestinfoForm="ngForm" (ngSubmit)="submitrejectrequest(event)" class="form-signin" [formGroup]="poForm" >
@@ -89,20 +81,13 @@
                               <span *ngIf="poForm.get('rejectionreason').touched && poForm.get('rejectionreason').invalid" class="help-block">Rejection Reason can't be blank.</span>
                              <br>
                              <button [disabled]="submitrejectrequestinfoForm.invalid" class=" btn btn-success">Submit</button>
-                    
                         </div>
-                    </form>
-                  </div>
-                 </div>
+                      </form>
+                    </div>
                 </div>
+              </div>
           </div>
-      </div>
+        </div>
+      <!--End of Rejected Model-->  
     </div>
-        <!--modal-body-->
-    <!-- End of Rejected Model-->
-
-
-
-  </div>
-</div>
-<app-sales-footer></app-sales-footer>
+</div>  

@@ -1,14 +1,10 @@
 
-<br><br>
-<hr>
-        <div class="panel panel-default">
-            <div class="panel-heading text-center">Product Selection List</div>
-                 <div class="panel-body">
-        
-                 </div>
-                <form  #productsubmitForm="ngForm"  (ngSubmit)="productsubmit(event)">
-     <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
-           <tr>
+<br><br><br><br>
+<div class="container">
+    <label>Please Mark The Selected Products</label>
+    <form  #productsubmitForm="ngForm"  (ngSubmit)="productsubmit(event)">
+        <table id="dcustomer" class="table table-hover table-bordered table-sm">
+            <tr>
 
                <th></th>
                 <th>Product Title</th>
@@ -24,12 +20,10 @@
                 <th>Quantity</th>
                 <th>UOM</th>
                 <th>Lead Time</th>
-                <th></th>
-               
             </tr >
             <tr  *ngFor="let data of products">
                
-                    <td><span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                    <td>
                         <input type="checkbox" name="{{data.id}}" id="{{data.id}}" (change)="checkLineitem($event,this.name)"/>
                     </td>
 
@@ -46,15 +40,11 @@
                  <td>{{data.quantity}}</td>
                  <td>{{data.uom}}</td>
                  <td>{{data.lead_time}}</td>
-                 <td></td>
-                </tr>
-          
-             
-             <hr>
-            &nbsp;  <button class="btn btn-danger">Proceed</button>
-       </table> <br>
-</form>
- </div>
+            </tr>  
+        </table>
+        <button class="btn btn-success pull-right">Proceed</button> <br>
+    </form>
+</div>
 
     <app-crm-footer></app-crm-footer>
     <app-crm-header></app-crm-header>

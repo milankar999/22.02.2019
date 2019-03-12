@@ -1,19 +1,14 @@
 <app-crm-header></app-crm-header>
 <br>
 <br><hr>
-     <div class="col-md-offset-0 col-md-12">
-         <div class="panel panel-default">
-            <div class="panel-heading text-center"> Quotation Selection details</div>
-                 <div class="panel-body">
-                     <div class="col-md-4">
-                         <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
-                     </div>
-                 </div>
+    <div class="container">
+        <label>Quotation Details for - {{quotation_id}}</label>
+    </div>
     
-             <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+    <div class="col-md-offset-0 col-md-12">    
+             <table id="dcustomer" class="table table-hover table-bordered table-sm">
                 <thead>
                     <tr>
-                        <th></th>
                         <th>Product Title</th>
                         <th>Description</th>
                         <th>Model</th>
@@ -31,7 +26,6 @@
                      </tr >
 
                <tr *ngFor="let item of  quotationdetails">
-                                <td><span class="glyphicon glyphicon-forward" style="color: blue"></span></td>
                                <td>{{item.product_title}}</td>
                                <td>{{item.description}}</td>
                                <td>{{item.model}}</td>
@@ -51,7 +45,6 @@
                     
                  </thead>
               </table> <br>
-         </div>
     </div>
 <app-crm-footer></app-crm-footer>
   

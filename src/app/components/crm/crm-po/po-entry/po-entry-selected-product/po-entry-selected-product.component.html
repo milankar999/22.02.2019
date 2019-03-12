@@ -1,183 +1,169 @@
 <app-crm-header></app-crm-header>
+<app-crm-footer></app-crm-footer>
 <br>
-<br><br><hr>
-<button type="button" class="btn btn-primary btn-sm" (click)="openModalDialog()" style="float:left"> <span class="glyphicon glyphicon-forward"></span>ADD LineItem</button> 
-<!--After clicking the buttons open the model dialog using open/close event biniding methods-->
-<div class="backdrop" [ngStyle]="{'display' :display}"></div>  
-<!--modal-->
-<div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
-    <!--modal-dialog-->
-    <div class="modal-dialog" role="document">
-        <!--modal-conent-->
-        <div class="modal-content">
-            <!--modal-header-->
-            <div class="panel panel-default">
-                <div class="panel-heading text-center">New product Line Item
-                <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+<br>
+<br>
+<br>
+<div class="container">
+      <label>Please Check the Selected PO Lineitems</label>
+      <button type="button" class="btn btn-info btn-sm pull-right" (click)="openModalDialog()" style="float:left"> <span class="glyphicon glyphicon-plus"></span>Add New LineItem</button> 
+      <!--After clicking the buttons open the model dialog using open/close event biniding methods-->
+      <div class="backdrop" [ngStyle]="{'display' :display}"></div>  
+            <!--modal-->
+            <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
+                  <!--modal-dialog-->
+                  <div class="modal-dialog" role="document">
+                        <!--modal-conent-->
+                        <div class="modal-content">
+                              <!--modal-header-->
+                              <div class="panel panel-default">
+                                    <div class="panel-heading text-center">New product Line Item
+                                          <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
+                                    </div>
+                                    <!--modal-body-->
 
-         </div>
-            <!--modal-body-->
-
-            <div class="modal-body">
-                <form #submitselectproductForm="ngForm" (ngSubmit)="submitselectproductlist(event)" class="form-sigin">
-                 
-                  <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('product_title').touched && poForm.get('product_title').invalid}">
-                       
-                        <label for="product_title" class="control-label">Product Title*</label>
-                        <input type="text" id="product_title" class="form-control" name="product_title" formControlName="product_title" [(ngModel)]="Model.product_title">
-                        <span *ngIf="poForm.get('product_title').touched && poForm.get('product_title').invalid" class="help-block">product_title can't be blank.</span>
-                  </div>
+                                    <div class="modal-body">
+                                          <form #submitselectproductForm="ngForm" (ngSubmit)="submitselectproductlist(event)" class="form-sigin">    
+                                                <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('product_title').touched && poForm.get('product_title').invalid}">
+                                                      <label for="product_title" class="control-label">Product Title*</label>
+                                                      <input type="text" id="product_title" class="form-control" name="product_title" formControlName="product_title" [(ngModel)]="Model.product_title">
+                                                      <span *ngIf="poForm.get('product_title').touched && poForm.get('product_title').invalid" class="help-block">product_title can't be blank.</span>
+                                                </div>
                   
 
-                  <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('description').touched && poForm.get('product_title').invalid}">
-                        <label for="description" class="control-label">Description*</label>
-                        <input type="text" id="description" class="form-control" name="description" formControlName="description" [(ngModel)]="Model.description">
-                        <span *ngIf="poForm.get('description').touched && poForm.get('description').invalid" class="help-block">description can't be blank.</span>
-                  </div>
+                                                <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('description').touched && poForm.get('product_title').invalid}">
+                                                      <label for="description" class="control-label">Description*</label>
+                                                      <input type="text" id="description" class="form-control" name="description" formControlName="description" [(ngModel)]="Model.description">
+                                                      <span *ngIf="poForm.get('description').touched && poForm.get('description').invalid" class="help-block">description can't be blank.</span>
+                                                </div>
                    
-                       <div class="form-group">
-                                <label for="model" class="control-label">Model</label>
-                                <input type="text" class="form-control" id="model" name="model" [(ngModel)]="Model.model" required #model="ngModel">
-                          </div>
-                          <div class="form-group">
-                                <label for="brand" class="control-label">Brand</label>
-                                <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="Model.brand" required #brand="ngModel">
-                          </div>
-                          <div class="form-group">
-                                <label for="product_code" class="control-label">Product Code</label>
-                                <input type="text" class="form-control" id="product_code" name="product_code" [(ngModel)]="Model.product_code" required #product_code="ngModel"><br>
-                          </div>
+                                                <div class="form-group">
+                                                      <label for="model" class="control-label">Model</label>
+                                                      <input type="text" class="form-control" id="model" name="model" [(ngModel)]="Model.model" required #model="ngModel">
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                      <label for="brand" class="control-label">Brand</label>
+                                                      <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="Model.brand" required #brand="ngModel">
+                                                </div>
+                          
+                                                <div class="form-group">
+                                                      <label for="product_code" class="control-label">Product Code</label>
+                                                      <input type="text" class="form-control" id="product_code" name="product_code" [(ngModel)]="Model.product_code" required #product_code="ngModel"><br>
+                                                </div>
                      
-                          <div class="form-group">
-                                <label for="part_no" class="control-label">Product No</label>
-                                <input type="text" class="form-control" id="part_no" name="part_no" [(ngModel)]="Model.part_no" required #part_no="ngModel" required #part_no="ngModel"><br>
-                          </div>
+                                                <div class="form-group">
+                                                      <label for="part_no" class="control-label">Product No</label>
+                                                      <input type="text" class="form-control" id="part_no" name="part_no" [(ngModel)]="Model.part_no" required #part_no="ngModel" required #part_no="ngModel"><br>
+                                                </div>
                        
-                          <div class="form-group">
-                                <label for="pack_size" class="control-label">Pack Size</label>
-                                <input type="text" class="form-control" id="pack_size" name="pack_size" [(ngModel)]="Model.pack_size" required #pack_size="ngModel">
-                          </div>
+                                                <div class="form-group">
+                                                      <label for="pack_size" class="control-label">Pack Size</label>
+                                                      <input type="text" class="form-control" id="pack_size" name="pack_size" [(ngModel)]="Model.pack_size" required #pack_size="ngModel">
+                                                </div>
                        
-                          <div class="form-group">
-                                <label for="hsn_code" class="control-label">Hsn Code</label>
-                                <input type="text" class="form-control" id="hsn_code" name="hsn_code" [(ngModel)]="Model.hsn_code" required #hsn_code="ngModel">
-                          </div>
+                                                <div class="form-group">
+                                                      <label for="hsn_code" class="control-label">Hsn Code</label>
+                                                      <input type="text" class="form-control" id="hsn_code" name="hsn_code" [(ngModel)]="Model.hsn_code" required #hsn_code="ngModel">
+                                                </div>
 
-                          <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('gst').touched && poForm.get('gst').invalid}">
+                                                <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('gst').touched && poForm.get('gst').invalid}">
                        
-                                    <label for="gst" class="control-label">GST*</label>
-                                    <input type="text" id="gst" class="form-control" name="gst" formControlName="gst" [(ngModel)]="Model.gst">
-                                    <span *ngIf="poForm.get('gst').touched && poForm.get('gst').invalid" class="help-block">gst can't be blank.</span>
-                              </div>
+                                                      <label for="gst" class="control-label">GST*</label>
+                                                      <input type="text" id="gst" class="form-control" name="gst" formControlName="gst" [(ngModel)]="Model.gst">
+                                                      <span *ngIf="poForm.get('gst').touched && poForm.get('gst').invalid" class="help-block">gst can't be blank.</span>
+                                                </div>
 
-                              <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('quantity').touched && poForm.get('quantity').invalid}">
+                                                <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('quantity').touched && poForm.get('quantity').invalid}">
                        
-                                          <label for="quantity" class="control-label">Quantity*</label>
-                                          <input type="text" id="quantity" class="form-control" name="quantity" formControlName="quantity" [(ngModel)]="Model.quantity">
-                                          <span *ngIf="poForm.get('quantity').touched && poForm.get('quantity').invalid" class="help-block">Quantity can't be blank.</span>
-                                    </div>
+                                                      <label for="quantity" class="control-label">Quantity*</label>
+                                                      <input type="text" id="quantity" class="form-control" name="quantity" formControlName="quantity" [(ngModel)]="Model.quantity">
+                                                      <span *ngIf="poForm.get('quantity').touched && poForm.get('quantity').invalid" class="help-block">Quantity can't be blank.</span>
+                                                </div>
       
-                                    <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('uom').touched && poForm.get('uom').invalid}">
+                                                <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('uom').touched && poForm.get('uom').invalid}">
                        
-                                                <label for="uom" class="control-label">UOM*</label>
-                                                <input type="text" id="uom" class="form-control" name="uom" formControlName="uom" [(ngModel)]="Model.uom">
-                                                <span *ngIf="poForm.get('uom').touched && poForm.get('uom').invalid" class="help-block">UOM can't be blank.</span>
-                                          </div>
+                                                      <label for="uom" class="control-label">UOM*</label>
+                                                      <input type="text" id="uom" class="form-control" name="uom" formControlName="uom" [(ngModel)]="Model.uom">
+                                                      <span *ngIf="poForm.get('uom').touched && poForm.get('uom').invalid" class="help-block">UOM can't be blank.</span>
+                                                </div>
             
-                                          <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('unit_price').touched && poForm.get('unit_price').invalid}">
+                                                <div class="form-group"  [formGroup]="poForm" [ngClass]="{'has-error':poForm.get('unit_price').touched && poForm.get('unit_price').invalid}">
                        
                                                       <label for="unit_price" class="control-label">Unit Price*</label>
                                                       <input type="text" id="unit_price" class="form-control" name="unit_price" formControlName="unit_price" [(ngModel)]="Model.unit_price">
                                                       <span *ngIf="poForm.get('unit_price').touched && poForm.get('unit_price').invalid" class="help-block">unit_price can't be blank.</span>
                                                 </div>
                   
-                       <hr>
-                        <button  type="submitselectproductForm.invalid" class="btn btn-success">Submit</button>&nbsp;
-                       
-             </form>
-         </div>
+                                                <hr>
+                                                <button  type="submitselectproductForm.invalid" class="btn btn-success">Submit</button>&nbsp;
+                                          </form>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
             </div>
-        </div>
-    </div>
 </div>
-
-<br><br>
- 
-        <div class="panel panel-default">
+<div class="container">
+      <br>
+      <table id="dcustomer" class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                 <th>Product Title</th>
+                 <th>Description</th>
+                 <th>Model</th>
+                 <th>Brand</th>
+                 <th>Product Code</th>
+                 <th>Part Number</th>
+                 <th>Pack Size</th>
+                 <th>Hsn Code</th>
+                 <th>GST</th>
+                 <th>Quantity</th>
+                 <th>UOM</th>
+                 <th>Unit Price</th>
+                 <th>Edit</th>
+                </tr >
+           </thead>
+                                  
+              <tr *ngFor="let item of  productdetailpagelist">                            
+                       <td>{{item.product_title}}</td>
+                       <td>{{item.description}}</td>
+                       <td>{{item.model}}</td>
+                       <td>{{item.brand}}</td>
+                       <td>{{item.product_code}}</td>
+                       <td>{{item.part_no}} </td>
+                       <td>{{item.pack_size }}</td>
+                       <td>{{item.hsn_code}}</td>
+                       <td>{{item.gst}}</td>
+                       <td>{{item.quantity}}</td>
+                       <td>{{item.uom}}</td>
+                       <td>{{item.unit_price}}</td>
+                        <td> <a href="crm/po-entry/cpo/{{quotation_id}}/selected-product/{{item.id}}/edit-selected-product"><span class="glyphicon glyphicon-pencil"></span></a>
+                        </tr>   
+            
+      </table>
+      <button class="btn btn-success"  (click)=" LaunchopenModalDialog()" style="float:right">Launch</button>
+      <div class="backdrop" [ngStyle]="{'display' :launch_display}"></div>  
+            <!--modal-->
+            <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':launch_display}">
+                  <!--modal-dialog-->
+                  <div class="modal-dialog" role="document">
+                        <!--modal-conent-->
+                        <div class="modal-content">
+                              <!--modal-header-->
+                              <div class="modal-header">
+                                    <button type="button" class="close" (click)=" LaunchcloseModalDialog()">&times;</button>
+                                    <h4 class="modal-title">Warning <span class="glyphicon glyphicon-fire"></span></h4>
+                              </div>
+                              <div class="modal-body">
+                                    <p>Do you really want to Launch ?</p>
+                              </div>
         
-            <div class="panel-heading text-center">PO-Entry Selection  Product List</div>
-                 <div class="panel-body">
-                 <br>
-                <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
-                   <thead>
-                     <tr>
-                        <th></th>
-                        <th>Product Title</th>
-                        <th>Description</th>
-                        <th>Model</th>
-                        <th>Brand</th>
-                        <th>Product Code</th>
-                        <th>Part Number</th>
-                        <th>Pack Size</th>
-                        <th>Hsn Code</th>
-                        <th>GST</th>
-                        <th>Quantity</th>
-                        <th>UOM</th>
-                        <th>Unit Price</th>
-                        <th></th>
-                       </tr >
-                                         
-                     <tr *ngFor="let item of  productdetailpagelist">
-                          <td><span class="glyphicon glyphicon-forward" style="color: blue"></span> </td>
-                            
-                              <td>{{item.product_title}}</td>
-                              <td>{{item.description}}</td>
-                              <td>{{item.model}}</td>
-                              <td>{{item.brand}}</td>
-                              <td>{{item.product_code}}</td>
-                              <td>{{item.part_no}} </td>
-                              <td>{{item.pack_size }}</td>
-                              <td>{{item.hsn_code}}</td>
-                              <td>{{item.gst}}</td>
-                              <td>{{item.quantity}}</td>
-                              <td>{{item.uom}}</td>
-                              <td>{{item.unit_price}}</td>
-                               <td> <a href="crm/po-entry/cpo/{{quotation_id}}/selected-product/{{item.id}}/edit-selected-product"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="#"><span class="glyphicon glyphicon-trash"></span></a></td>
-                               </tr>   
-                   </thead>
-               </table> <br>
-                <button class="btn btn-success"  (click)=" LaunchopenModalDialog()" style="float:right">Launch</button>
-                <div class="backdrop" [ngStyle]="{'display' :launch_display}"></div>  
-                   <!--modal-->
-               <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':launch_display}">
-                   <!--modal-dialog-->
-               <div class="modal-dialog" role="document">
-                     <!--modal-conent-->
-                 <div class="modal-content">
-                       <!--modal-header-->
-                 <div class="modal-header">
-                      <button type="button" class="close" (click)=" LaunchcloseModalDialog()">&times;</button>
-                       <h4 class="modal-title">Warning <span class="glyphicon glyphicon-fire"></span></h4>
-                 </div>
-                 <div class="modal-body">
-                    <p>Do you really want to Launch ?</p>
-             </div>
-        
-                 <div class="modal-footer">
-                    <button routerLink="/crm/crm-home" class="btn btn-success" (click)="lunchselectedlist(event)">Confirm</button>&nbsp;
-                     <button type="button" class="btn btn-danger" (click)=" LaunchcloseModalDialog()">Cancel</button>
-               </div>
-        </div>
-     </div>
-  </div>
-    </div>
-       </div>
-
-<app-crm-footer></app-crm-footer>
-     
-    
-      
-      
-
-
+                              <div class="modal-footer">
+                                    <button routerLink="/crm/crm-home" class="btn btn-success" (click)="lunchselectedlist(event)">Confirm</button>&nbsp;
+                              <button type="button" class="btn btn-danger" (click)=" LaunchcloseModalDialog()">Cancel</button>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>

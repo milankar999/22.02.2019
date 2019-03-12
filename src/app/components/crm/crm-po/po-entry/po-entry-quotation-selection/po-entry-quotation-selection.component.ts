@@ -55,7 +55,7 @@ dragid(event){
   this.poEntryServicesService.PostQuotationlist(this.item_list,quot_id).
   subscribe(data => {
     console.log(data);
-   this.router.navigate(['crm/po-entry/'+quot_id+'/quotation-selection/production-selection']);
+   this.router.navigate(['crm/po-entry/'+quot_id+'/quotation-selection/product-selection']);
    
 });
 }

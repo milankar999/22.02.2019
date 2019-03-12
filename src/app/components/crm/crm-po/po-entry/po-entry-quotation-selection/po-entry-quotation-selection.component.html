@@ -1,11 +1,11 @@
 <br><br><br><hr>
-    <div class="panel panel-default">
+    <div class="container">
         <div class="panel-heading text-center">Quotation Selection List</div>
-             <div class="panel-body">
+          <div>
                 <div class="col-md-4">
                     <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
                   </div><br><br>
-            <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+            <table id="dcustomer" class="table table-hover table-bordered table-sm">
               <thead><!--table header-->
                   <tr>
                      <th></th>
@@ -13,16 +13,14 @@
                      <th>Quotation date</th>
                      <th>RFP Customer contact Name</th>
                      <th>RFP NO</th>
-                     <th>enquiry reference</th>  
-                     <th></th>          
-                    
+                     <th>Enquiry Reference</th>  
+                     <th>Quotation Details</th>            
                  </tr >
               </thead>
                  <tr *ngFor="let data of  quotationselectionlist|quotationSearch:query">
-                      <td><span class="glyphicon glyphicon-forward" style="color: blue"></span>
+                      <td>
                         <input type="checkbox" name="{{data.quotation_no}}" id="{{data.quotation_no}}" (change)="checkQuotationitem($event,this.name)"/>
-                     </td>
-                     
+                      </td>
                       <td>{{data.quotation_no}}</td>
                       <td>{{data.quotation_date}}</td>
                       <td>{{data.rfp.customer_contact_person.name}}</td>
@@ -34,7 +32,7 @@
                   </tr>
                  
             
-         </table> <br>
+            </table> <br>
          <button type="button" class="btn btn-danger" (click)=" dragid(event)" style="float:right">Proceed &nbsp;<span class="glyphicon glyphicon-forward"></span></button><br><br>
       
           </div>

@@ -38,14 +38,13 @@ export class SourcingCpoVendorProductComponent implements OnInit {
    let id=this.route.snapshot.paramMap.get('cpo_id');  
    this.cpo_id = id;                  //display singel api id --  app routemodel we mention the id as :cpo_id/
    this.SourcingCpoVenderProduct(id);
-   this.GetUnassignedVenderProduct(id);
   }
 
   SourcingCpoVenderProduct(id){
     this.PoVendorService.getSourcingCpoVenderProduct(id).subscribe((data)=>{  // get method
       this.cpo_vendor_list=data;
       console.log(data);
-   
+      this.GetUnassignedVenderProduct(id);
     })
   }
 
@@ -55,6 +54,7 @@ export class SourcingCpoVendorProductComponent implements OnInit {
       console.log(data);
     })
   }
+ 
   submitassignvendorlist(event){
     console.log(event.target.name);
     let vpo_id = event.target.name;

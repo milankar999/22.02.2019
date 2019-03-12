@@ -1,14 +1,13 @@
 <app-crm-header></app-crm-header>
 <br><br>
 <hr>
-        <div class="panel panel-default">
-            <div class="panel-heading text-center">Customer Selection List</div>
-                 <div class="panel-body">
-                     <div class="col-md-4">
-                         <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
-                     </div>
-                 </div>
-    <!--Table data-->
+    <div class="container">
+        <h4>Please Select a Customer From This List</h4>
+        <div class="col-md-4 pull-right">
+            <input type="text" class="form-control" placeholder="search..." [(ngModel)]="query">
+        </div><br>
+        <div>
+        <!--Table data-->
      <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
          <thead><!--table header-->
              <tr>
@@ -37,8 +36,9 @@
             
        
     </table> <br>
-
     </div>
+</div>
+   
   
     <app-crm-footer></app-crm-footer>
    

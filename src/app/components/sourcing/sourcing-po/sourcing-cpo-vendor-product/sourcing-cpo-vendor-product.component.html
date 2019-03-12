@@ -1,12 +1,13 @@
 <br><br>
-<h3 align="center"> Sourcing Vendor Product List </h3>
+<h3 align="center"> Segmented Vendor Product List </h3>
    <div class="col-md-offset-0 col-md-12">
       <div  *ngFor="let offer of cpo_vendor_list">
-         <div class="panel panel-default">
-            <div class="panel-heading text-center">
-               Vendor : {{offer.vendor.name}} &nbsp; || &nbsp; Vendor Contact Person : {{offer.vendor_contact_person.name}}&nbsp; || &nbsp; Offer reference : {{offer.offer_reference}} &nbsp; || &nbsp; Offer date {{offer.offer_date}}
-            </div> 
-            <div class="panel-body">
+         <div>
+            <hr>
+            <div class="container">
+               <label>
+                  Vendor : {{offer.vendor.name}} &nbsp; || &nbsp; Vendor Contact Person : {{offer.vendor_contact_person.name}}&nbsp; || &nbsp; Offer reference : {{offer.offer_reference}} &nbsp; || &nbsp; Offer date {{offer.offer_date}}
+               </label><br>
                 <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/basic-info"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Asking Approval To Release PO">Prepare PO</button></a>&nbsp;&nbsp;
                   <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/preview"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Preview PO">Preview PO</button></a>&nbsp;&nbsp;
                   
@@ -29,7 +30,6 @@
                              <th>UOM</th>
                              <th>Price</th> 
                              <th>Discount%</th> 
-                             <th></th>
                            </tr>
                         </thead>
                         <tbody>
@@ -48,13 +48,12 @@
                               <td>{{data.uom}}</td>
                               <td>{{data.unit_price}}</td>
                               <td>{{data.discount}}</td>
-                              <td></td>
                            </tr>
                         </tbody>
                   </table> 
                           
                               <hr>
-                           <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/proceed"><button class="btn btn-danger" style="float: right">Proceed</button></a>
+                           <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/proceed"><button class="btn btn-danger" style="float: right">Proceed to Release Order</button></a>
                         
                     
                   <!--ENd of Table-->
