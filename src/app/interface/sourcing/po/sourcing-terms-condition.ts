@@ -4,4 +4,5 @@ export interface SourcingTermsCondition {
     inco_terms: string,
     installation: string,
     comments: string
+    terms_of_payment:string
 }

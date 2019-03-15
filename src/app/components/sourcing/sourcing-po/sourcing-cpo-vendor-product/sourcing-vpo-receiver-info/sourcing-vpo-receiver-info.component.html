@@ -1,37 +1,43 @@
 
 <br><br><br>
- <div class="col-md-offset-4 col-md-4">  <!--table fields-->
+ <div class="col-md-offset-2 col-md-8">  <!--table fields-->
     <div class="well">
       <h2 align="center">Our Reciver info</h2>
       <hr>
-      <form>
-        <div class="form-group">
-            <label class="form-input" for="receiver_name">Receiver Name</label>
-            <input type="text"  class="form-control" id="receiver_name" value="{{receivername}}" name="receiver_name" [(ngModel)]="model.receiver_name"
-            required 
-            #receiver_name="ngModel"><br>
+      <form #submit_reciver_infoForm="ngForm" (ngSubmit)="submit_reciver_info(event)" class="form-signin"  [formGroup]="poForm" >
+        <div class="row">
+          <div class="col-sm-5">
+          <div class="form-group" [ngClass]="{'has-error':poForm.get('receiver_name').touched && poForm.get('receiver_name').invalid}">
+              <label for="receiver_name" class="control-label">Receiver Name*</label>
+              <input type="text" id="receiver_name" class="form-control" value="{{receivername}}" formControlName="receiver_name" [(ngModel)]="model.receiver_name">
+              <span *ngIf="poForm.get('receiver_name').touched && poForm.get('receiver_name').invalid" class="help-block">receiver_name can't be blank.</span>
+          </div>
+          </div>
 
-            <label class="form-input" for="receiver_phone1">Receiver Phone1</label>
-            <input type="text"  class="form-control" id="receiver_phone1" value="{{receiverphone1}}" name="receiver_phone1"  [(ngModel)]="model.receiver_phone1"
-             required 
-             #receiver_phone1="ngModel"><br>
+          <div class="col-sm-4">
+          <div class="form-group"  [ngClass]="{'has-error':poForm.get('receiver_phone1').touched && poForm.get('receiver_phone1').invalid}">
+            <label for="receiver_phone1" class="control-label">Receiver Phone1*</label>
+            <input type="text" id="receiver_phone1" class="form-control" value="{{receiverphone1}}" formControlName="receiver_phone1" [(ngModel)]="model.receiver_phone1">
+            <span *ngIf="poForm.get('receiver_phone1').touched && poForm.get('receiver_phone1').invalid" class="help-block">receiver_phone1 can't be blank.</span>
+        </div>
+        </div>
+    
+        <div class="col-sm-3">
+             <div class="form-group">   
+             <label  for="receiver_phone2" class="control-label">Receiver Phone2</label>
+             <input type="text" class="form-control" id="receiver_phone2" value="{{receiverphone2}}" formControlName="receiver_phone2" [(ngModel)]="model.receiver_phone2"><br>
+          </div>
+       </div>
 
-           
-             <label class="form-input" for="receiver_phone2">Receiver Phone2</label>
-             <input type="text" class="form-control" id="receiver_phone2" value="{{receiverphone2}}" name="receiver_phone2"  [(ngModel)]="model.receiver_phone2"
-              required 
-              #receiver_phone2="ngModel"><br>
-           
-            <label class="form-input" for="receiver_dept">Receiver Dept</label>
-            <input type="text" class="form-control" id="receiver_dept" name="receiver_dept" value="{{receiverdept}}" [(ngModel)]="model.receiver_dept"
-            required 
-            #receiver_dept="ngModel"><br>
-          
-         </div>
-           <hr>
-           <button type="button" class="btn btn-success" (click)="submit_reciver_info(event)" >Submit</button>&nbsp;
-
-            
+       <div class="col-sm-4">
+          <div class="form-group">   
+            <label  for="receiver_dept" class="control-label">Receiver Dept</label>
+            <input type="text" class="form-control" id="receiver_dept" formControlName="receiver_dept" value="{{receiverdept}}" [(ngModel)]="model.receiver_dept"><br>
+          </div>
+         </div> 
+     </div>
+           <button [disabled]="submit_reciver_infoForm.invalid" type="button" (click)="submit_reciver_info(event)" class="btn btn-success  pull-right">Submit</button>&nbsp;
+               
  </form>
  <div>
 </div>

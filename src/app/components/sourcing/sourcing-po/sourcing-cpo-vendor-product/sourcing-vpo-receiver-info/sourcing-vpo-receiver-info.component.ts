@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
+import { symbolValidator,passwordMatch} from 'src/app/helpers/validation';
+import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
+import{ Router, ActivatedRoute } from '@angular/router';
 
-import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
-
-
-import{ Router,ActivatedRoute } from '@angular/router';
 import{ HttpResponse} from '@angular/common/http';
 import { PoVendorService} from 'src/app/services/sourcing/po/po-vendor.service';
 
@@ -14,6 +14,7 @@ import { PoVendorService} from 'src/app/services/sourcing/po/po-vendor.service';
 })
 export class SourcingVpoReceiverInfoComponent implements OnInit {
   model:any={}
+  poForm :FormGroup;
   sourcing_reciver_info:object[]=[];
   cpo_id="";
   vpo_id="";
@@ -22,9 +23,10 @@ export class SourcingVpoReceiverInfoComponent implements OnInit {
   receiverphone2= "";
   receiverdept= "";
 
-  constructor(private formBuilder: FormBuilder,private PoVendorService:PoVendorService,private router:Router,private route:ActivatedRoute) {} 
+  constructor(private formBuilder: FormBuilder,private PoVendorService:PoVendorService,private router:Router,private route:ActivatedRoute,private builder:FormBuilder) {} 
 
   ngOnInit() {
+    this.buildForm();
     let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
     this.cpo_id=cpo_id;
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
@@ -54,6 +56,15 @@ submit_reciver_info(event){
        this.router.navigate(['sourcing/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/terms_conditions']); 
 });
 }
-  }
+buildForm(){
+  this.poForm=this.builder.group({
+    receiver_name:['',Validators.required],
+    receiver_phone1:['',Validators.required],
+    receiver_phone2:[''],
+    receiver_dept:['']
 
+   
+  })
+}
 
+}

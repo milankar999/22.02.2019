@@ -1,38 +1,54 @@
 
 <br><br><br>
-<div class="col-md-offset-4 col-md-4">  <!--table fields-->
+<div class="col-md-offset-2 col-md-8">  <!--table fields-->
      <div class="well">
         <h3 align="center"> Terms and Conditions </h3>
             <hr>
-         <form>
-                <div class="form-group">
-                    <label class="form-input" for="mode_of_transport">Mode Of Transport</label>
-                    <input type="text"  class="form-control" id="mode_of_transport" value="{{modeoftransport}}" name="mode_of_transport" [(ngModel)]="model.mode_of_transport"
-                    required 
-                    #mode_of_transport="ngModel"><br>
+         <form #submit_terms_conditionForm="ngForm" (ngSubmit)="submit_terms_condition(event)" class="form-signin"  [formGroup]="poForm" >
 
-                    <label class="form-input" for="inco_terms">Inco Terms</label>
-                    <input type="text"  class="form-control" id="inco_terms" value="{{incoterms}}" name="inco_terms"  [(ngModel)]="model.inco_terms"
-                     required 
-                     #inco_terms="ngModel"><br>
+          <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group" [ngClass]="{'has-error':poForm.get('mode_of_transport').touched && poForm.get('mode_of_transport').invalid}">
+                <label for="mode_of_transport" class="control-label">Mode Of Transport*</label>
+                <input type="text" id="mode_of_transport" class="form-control" value="{{modeoftransport}}" formControlName="mode_of_transport" [(ngModel)]="model.mode_of_transport">
+                <span *ngIf="poForm.get('mode_of_transport').touched && poForm.get('mode_of_transport').invalid" class="help-block">mode_of_transport can't be blank.</span>
+            </div>
+            </div>
+  
+            <div class="col-sm-4">
+            <div class="form-group" [ngClass]="{'has-error':poForm.get('inco_terms').touched && poForm.get('inco_terms').invalid}">
+                <label for="inco_terms" class="control-label">Inco Terms*</label>
+                <input type="text" id="inco_terms" class="form-control" value="{{incoterms}}" formControlName="inco_terms" [(ngModel)]="model.inco_terms">
+                <span *ngIf="poForm.get('inco_terms').touched && poForm.get('inco_terms').invalid" class="help-block">inco_terms can't be blank.</span>
+            </div>
+            </div>
 
-                   
-                     <label class="form-input" for="installation">Installation</label>
-                     <input type="text" class="form-control" id="installation" value="{{installations}}" name="installation"  [(ngModel)]="model.installation"
-                      required 
-                      #installation="ngModel"><br>
-                   
-                    <label class="form-input" for="comments">Comments</label>
-                    <input type="text" class="form-control" id="comments" name="comments" value="{{comment}}" [(ngModel)]="model.comments"
-                    required 
-                    #comments="ngModel"><br>
-                  
-                 </div>
-                   <hr>
-                   <button type="button" class="btn btn-success" (click)="submit_terms_condition(event)" >Submit</button>&nbsp;
- 
-                    
+            <div class="col-sm-4">
+            <div class="form-group" [ngClass]="{'has-error':poForm.get('installation').touched && poForm.get('installation').invalid}">
+                <label for="installation" class="control-label">Installation*</label>
+                <input type="text" id="installation" class="form-control" value="{{installations}}" formControlName="installation" [(ngModel)]="model.installation">
+                <span *ngIf="poForm.get('installation').touched && poForm.get('installation').invalid" class="help-block">installation can't be blank.</span>
+            </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group" [ngClass]="{'has-error':poForm.get('terms_of_payment').touched && poForm.get('terms_of_payment').invalid}">
+                <label for="terms_of_payment" class="control-label">Payment Terms*</label>
+                <input type="text" id="terms_of_payment" class="form-control" value="{{terms_of_payments}}" formControlName="terms_of_payment" [(ngModel)]="model.terms_of_payment">
+                <span *ngIf="poForm.get('terms_of_payment').touched && poForm.get('terms_of_payment').invalid" class="help-block">terms_of_payment can't be blank.</span>
+            </div>
+          </div>
+
+          <div class="col-sm-5">
+            <div class="form-group">   
+                <label  for="comments" class="control-label">Comments</label>
+                <textarea rows="4" cols="50" class="form-control" id="comments" formControlName="comments" value="{{comment}}" [(ngModel)]="model.comments"></textarea><br>
+            </div>
+          </div>
+          </div>
+                   <button  [disabled]="submit_terms_conditionForm.invalid" type="button" class="btn btn-success" (click)="submit_terms_condition(event)" >Submit</button>&nbsp;
          </form>
+       
      </div>
 <app-sourcing-header></app-sourcing-header>
 <app-sourcing-footer></app-sourcing-footer>

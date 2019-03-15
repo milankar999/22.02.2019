@@ -276,7 +276,7 @@ getSourcingVpoTermsCondition(cpo_id,vpo_id):Observable<SourcingTermsCondition[]>
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
    });       
 }
-Putsubmit_terms_condition(mode_of_transport,inco_terms,installation,comments,cpo_id,vpo_id){
+Putsubmit_terms_condition(mode_of_transport,inco_terms,installation,comments,terms_of_payment,cpo_id,vpo_id){
   return this.http.put<SourcingTermsCondition[]>('/api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/terms_conditions/', //SourcingVpoLineitemEdit database API LInk
  {
    "id":vpo_id,
@@ -284,6 +284,7 @@ Putsubmit_terms_condition(mode_of_transport,inco_terms,installation,comments,cpo
   "inco_terms":inco_terms,
   "installation":installation,
   "comments":comments,
+  "terms_of_payment":terms_of_payment
  },
   {
       headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header

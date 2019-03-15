@@ -1,48 +1,55 @@
 <br><br><br>
-<div class="col-md-offset-4 col-md-4">  <!--table fields-->
+<div class="col-md-offset-2 col-md-7">  <!--table fields-->
      <div class="well">
         <label align="center">Supplier Contact Person Information </label>
             <hr>
-
-            <form #submitsourcingvpoaddcontactpersoninfoForm="ngForm" (ngSubmit)="submitsourcingvpoaddcontactpersoninfolist(event)" class="form-sigin">
-                
+            <form> 
               <div class="form-group">
-                   
+              <div class="row">
+                <div class="col-sm-3">
                     <label class="form-input" for="name"> Name</label>
                     <input type="text" class="form-control" id="name" value="{{po_contact_info['vendor_contact_person']['name']}}" name="name" [(ngModel)]="model.name"
                      required 
                      #name="ngModel">
                      <span *ngIf="name.touched && name.invalid" class="help-block">name can't be blank</span>
-                   
+                 </div>
+
+                 <div class="col-sm-3">
                     <label class="form-input" for="mobilenumber1">Mobile Number 1<a style="color: red">*</a></label>
                     <input type="text" class="form-control" id="mobilenumber1" name="mobilenumber1" value="{{po_contact_info['vendor_contact_person']['mobileNo1']}}" placeholder="mobile number" [(ngModel)]="model.mobileNo1"
                      required 
                      #mobilenumber1="ngModel">
-                    
+                   </div>
+                   
+                   <div class="col-sm-3">
                      <label class="form-input" for="mobilenumber2">Mobile Number 2</label>
                      <input type="text" class="form-control" id="mobilenumber2" name="mobilenumber2" value="{{po_contact_info['vendor_contact_person']['mobileNo2']}}" placeholder="mobile number" [(ngModel)]="model.mobileNo2"
                       required 
                       #mobilenumber2="ngModel">
-                       
-                 
+                    </div>
+
+                  <div class="col-sm-4">
                     <label class="form-input" for="email1"> Email 1<a style="color: red">*</a></label>
                     <input type="text" class="form-control" id="email1" name="email1" value="{{po_contact_info['vendor_contact_person']['email1']}}" placeholder="email 1" [(ngModel)]="model.email1"
                     required 
                     #email1="ngModel">
-                    
+                  </div>
 
+                  <div class="col-sm-4">
                     <label class="form-input" for="email2"> Email 2</label>
                     <input type="text" class="form-control" id="email2" name="email2" value="{{po_contact_info['vendor_contact_person']['email2']}}" placeholder="email2" [(ngModel)]="model.email2"
                     required 
                     #email2="ngModel">
-
-                 </div>
-                   <hr>
-                  <!--  <button type="button" class="btn btn-success">Submit</button>&nbsp;-->
-                    <button  type="submitsourcingvpoaddcontactpersoninfoForm.invalid" class="btn btn-success pull-right">Save and Continue</button>&nbsp;
-              
-         </form>
+                  </div>
+              </div>
+              <br>
+             <div class="row">
+                    <button  type="button" class="btn btn-success pull-right" (click)="submitsourcingvpoaddcontactpersoninfolist(event)">Save and Continue</button>
+              </div>
+         </div>
+          </form>
      </div>
+    </div>
  <app-sourcing-header></app-sourcing-header>
 <app-sourcing-footer></app-sourcing-footer>
    
