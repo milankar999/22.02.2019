@@ -4,98 +4,106 @@
     <div class="well">
       <h2 align="center">Supplier Vendor info</h2>
       <hr>
-     <form>
-         <div class="form-group"> 
-         <div class="row">
-         <div class="col-sm-5">
-             <label class="form-input" for="name"> Name</label>
-            <input type="text" class="form-control" id="name" value="{{sourcingvpocheckinfo['vendor']['name']}}" name="name" [(ngModel)]="model.name"
-             required 
-             #name="ngModel"><br>
-          </div>
+      <form #submit_supplier_check_infoForm="ngForm" (ngSubmit)="submit_supplier_check_info(event)" class="form-signin" [formGroup]="poForm" >
+          <div class="row">
+             <div class="col-sm-4">
+               <div class="form-group" [ngClass]="{'has-error':poForm.get('name').touched && poForm.get('name').invalid}">
+                   <label for="name" class="control-label">Name*</label>
+                   <input type="text" id="name" class="form-control" value="{{sourcingvpocheckinfo['vendor']['name']}}"formControlName="name" [(ngModel)]="model.name">
+                   <span *ngIf="poForm.get('name').touched && poForm.get('name').invalid" class="help-block">Name can't be blank.</span>
+               </div>
+               </div>
 
-          <div class="col-sm-3">
-             <label class="form-input" for="location">Location</label>
-             <input type="text" class="form-control" id="location" value="{{sourcingvpocheckinfo['vendor']['location']}}" name="location" [(ngModel)]="model.location"
-             required 
-             #location="ngModel"><br>
-          </div>
+               <div class="col-sm-4">
+                  <div class="form-group" [ngClass]="{'has-error':poForm.get('location').touched && poForm.get('location').invalid}">
+                      <label for="location" class="control-label">Location*</label>
+                      <input type="text" id="location" class="form-control" value="{{sourcingvpocheckinfo['vendor']['location']}}"formControlName="location" [(ngModel)]="model.location">
+                      <span *ngIf="poForm.get('location').touched && poForm.get('location').invalid" class="help-block">Location can't be blank.</span>
+                  </div>
+                  </div>
+                      <div class="col-sm-4">
+                          <div class="form-group" [ngClass]="{'has-error':poForm.get('city').touched && poForm.get('city').invalid}">
+                              <label for="city" class="control-label">City*</label>
+                              <input type="text" id="city" class="form-control" value="{{sourcingvpocheckinfo['vendor']['city']}}"formControlName="city" [(ngModel)]="model.city">
+                              <span *ngIf="poForm.get('city').touched && poForm.get('city').invalid" class="help-block">City can't be blank.</span>
+                          </div>
+                          </div>
 
-            <div class="col-sm-10">   
-               <label class="form-input" for="address">Address</label>
-               <input type="text" class="form-control" id="address" value="{{sourcingvpocheckinfo['vendor']['address']}}" name="address" [(ngModel)]="model.address"
-               required 
-               #address="ngModel"><br>
-            </div>
+                              <div class="col-sm-4">
+                                  <div class="form-group" [ngClass]="{'has-error':poForm.get('state').touched && poForm.get('state').invalid}">
+                                      <label for="city" class="control-label">State*</label>
+                                      <select class="form-control" id="state" value="{{sourcingvpocheckinfo['vendor']['state']}}"formControlName="state" [(ngModel)]="model.state">
+                                          <option></option>
+                                          <option>Karnataka</option>
+                                          <option>Andhara Predesh</option>
+                                          <option>Punjab</option>
+                                          <option>Tamilnadu</option>
+                                          <option>Telangena</option>
+                                          <option>Arunachal Pradesh</option>
+                                          <option>Assam</option>
+                                          <option> Bihar</option>
+                                          <option> Chhattisgarh</option>
+                                          <option> Goa</option>
+                                          <option>Gujarat</option>
+                                          <option>Haryana</option>
+                                          <option>Himachal Pradesh </option>
+                                          <option>Jammu and Kashmir</option> 
+                                          <option>Jharkhand</option>
+                                          <option> Kerala</option>
+                                          <option>Madhya Pradesh</option>
+                                          <option> Maharashtra </option>
+                                          <option>Manipur</option>
+                                          <option>Meghalaya</option>
+                                          <option>Mizoram</option>
+                                          <option>Nagaland</option>
+                                          <option>Orissa</option>
+                                          <option>Punjab </option>
+                                          <option>Sikkim</option>
+                                          <option>Tripura</option>
+                                          <option>Uttar Pradesh</option>
+                                          <option>Uttarakhand</option>
+                                          <option>West Bengal</option>
+                                  </select>
+                                      <span *ngIf="poForm.get('state').touched && poForm.get('state').invalid" class="help-block">state can't be blank.</span>
+                                  </div>
+                              </div>
 
-            <div class="col-sm-3">
-               <label class="form-input" for="city">City</label>
-               <input type="text" class="form-control" id="city" value="{{sourcingvpocheckinfo['vendor']['city']}}" name="city" [(ngModel)]="model.city"
-              required 
-               #city="ngModel"><br>
-            </div>
-
-             <div class="col-sm-3">
-              <label class="form-input" for="state">State <a style="color: red">*</a></label>
-              <select class="form-control" id="state" value="{{sourcingvpocheckinfo['vendor']['state']}}" name="state" required>
-                    <option></option>
-                    <option>Karnataka</option>
-                    <option>Andhara Predesh</option>
-                    <option>Punjab</option>
-                    <option>Tamilnadu</option>
-                    <option>Telangena</option>
-                    <option>Arunachal Pradesh</option>
-                    <option>Assam</option>
-                    <option> Bihar</option>
-                    <option> Chhattisgarh</option>
-                    <option> Goa</option>
-                    <option>Gujarat</option>
-                    <option>Haryana</option>
-                    <option>Himachal Pradesh </option>
-                    <option>Jammu and Kashmir</option> 
-                    <option>Jharkhand</option>
-                    <option> Kerala</option>
-                    <option>Madhya Pradesh</option>
-                    <option> Maharashtra </option>
-                    <option>Manipur</option>
-                    <option>Meghalaya</option>
-                    <option>Mizoram</option>
-                    <option>Nagaland</option>
-                    <option>Orissa</option>
-                    <option>Punjab </option>
-                    <option>Sikkim</option>
-                    <option>Tripura</option>
-                    <option>Uttar Pradesh</option>
-                    <option>Uttarakhand</option>
-                    <option>West Bengal</option>
-            </select> <br>
-          </div>
-
-          <div class="col-sm-3">
-            <label class="form-input" for="pin">Pin</label>
-            <input type="text" class="form-control" id="pin" value="{{sourcingvpocheckinfo['vendor']['pin']}}" name="pin" [(ngModel)]="model.pin"
-            required 
-            #pin="ngModel"><br>
-          </div>
-
-          <div class="col-sm-3">
-            <label class="form-input" for="country">Country</label>
-            <input type="text" class="form-control" id="country" value="{{sourcingvpocheckinfo['vendor']['country']}}" name="country" [(ngModel)]="model.country"
-            required 
-            #country="ngModel"><br>
-          </div>
-        <div class="col-sm-3">
-            <label class="form-input" for="gst_number">GST %</label>
-            <input type="text" class="form-control" id="gst_number" value="{{sourcingvpocheckinfo['vendor']['gst_number']}}" name="gst_number" [(ngModel)]="model.gst_number"
-            required 
-            #gst_number="ngModel"><br>
-        </div>
-
-         </div>
-         </div>
-          <hr>
-          <button type="button" class="btn btn-success" (click)="submit_supplier_check_info(event)" >Submit</button>&nbsp;
-    </form>
+                            <div class="col-sm-4">
+                                <div class="form-group" [ngClass]="{'has-error':poForm.get('pin').touched && poForm.get('pin').invalid}">
+                                          <label for="pin" class="control-label">Pin*</label>
+                                          <input type="text" id="pin" class="form-control" value="{{sourcingvpocheckinfo['vendor']['pin']}}"formControlName="pin" [(ngModel)]="model.pin">
+                                          <span *ngIf="poForm.get('pin').touched && poForm.get('pin').invalid" class="help-block">pin can't be blank.</span>
+                                      </div>
+                           </div>
+           
+                             <div class="col-sm-4">
+                                <div class="form-group" [ngClass]="{'has-error':poForm.get('country').touched && poForm.get('country').invalid}">
+                                   <label for="country" class="control-label">Country*</label>
+                                   <input type="text" id="country" class="form-control" value="{{sourcingvpocheckinfo['vendor']['country']}}"formControlName="country" [(ngModel)]="model.country">
+                                    <span *ngIf="poForm.get('country').touched && poForm.get('country').invalid" class="help-block">country can't be blank.</span>
+                            </div>
+                         </div>
+                         
+                         <div class="col-sm-4">
+                            <div class="form-group" [ngClass]="{'has-error':poForm.get('gst_number').touched && poForm.get('gst_number').invalid}">
+                               <label for="gst_number" class="control-label">GST Number*</label>
+                               <input type="text" id="gst_number" class="form-control" value="{{sourcingvpocheckinfo['vendor']['gst_number']}}"formControlName="gst_number" [(ngModel)]="model.gst_number">
+                                <span *ngIf="poForm.get('gst_number').touched && poForm.get('gst_number').invalid" class="help-block">gst_number can't be blank.</span>
+                        </div>
+                     </div>  
+                     <div class="row">
+                     <div class="col-sm-4">
+                        <div class="form-group" [ngClass]="{'has-error':poForm.get('address').touched && poForm.get('address').invalid}">
+                            <label for="address" class="control-label">Address*</label>
+                            <textarea rows="4" cols="20" type="text" id="address" class="form-control" value="{{sourcingvpocheckinfo['vendor']['address']}}" formControlName="address" [(ngModel)]="model.address"></textarea>
+                            <span *ngIf="poForm.get('address').touched && poForm.get('address').invalid" class="help-block">address can't be blank.</span>
+                        </div>
+                        </div>
+                        </div>
+         
+              </div>
+              <button [disabled]="submit_supplier_check_infoForm.invalid" type="button" class="btn btn-success pull-right" (click)="submit_supplier_check_info(event)" >Submit</button>&nbsp;
+      </form>
  <div>
 </div>
 </div>

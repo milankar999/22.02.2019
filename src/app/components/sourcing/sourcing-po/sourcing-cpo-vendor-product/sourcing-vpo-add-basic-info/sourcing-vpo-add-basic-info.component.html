@@ -4,87 +4,95 @@
     <div class="well">
       <h5 align="center">Basic Informations of this Order </h5>
       <hr>
-     <form>
-        <div class="form-group">
+     <form #submitbasicinfoForm="ngForm" (ngSubmit)="submitbasicinfo(event)" class="form-signin"  [formGroup]="poForm">
+
+        <div class="form-group" [ngClass]="{'has-error':poForm.get('billing_address').touched && poForm.get('billing_address').invalid}">
+            <label for="billing_address" class="control-label">Billing Address*</label>
+            <input type="text" id="billing_address" class="form-control" value="{{billingaddress}}" formControlName="billing_address" [(ngModel)]="model.billing_address">
+            <span *ngIf="poForm.get('billing_address').touched && poForm.get('billing_address').invalid" class="help-block">billingaddress can't be blank.</span>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error':poForm.get('shipping_address').touched && poForm.get('shipping_address').invalid}">
+            <label for="shipping_address" class="control-label">Shipping Address*</label>
+            <input type="text" id="shipping_address" class="form-control" value="{{shippingaddress}}" formControlName="shipping_address" [(ngModel)]="model.shipping_address">
+            <span *ngIf="poForm.get('shipping_address').touched && poForm.get('shipping_address').invalid" class="help-block">shippingaddress can't be blank.</span>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group" [ngClass]="{'has-error':poForm.get('delivery_date').touched && poForm.get('delivery_date').invalid}">
+                    <label for="delivery_date" class="control-label">Delivery date*</label>
+                    <input type="date" id="delivery_date" class="form-control" value="{{deliverydate}}" formControlName="delivery_date" [(ngModel)]="model.delivery_date">
+                    <span *ngIf="poForm.get('delivery_date').touched && poForm.get('delivery_date').invalid" class="help-block">deliverydate can't be blank.</span>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group" [ngClass]="{'has-error':poForm.get('offer_reference').touched && poForm.get('offer_reference').invalid}">
+                      <label for="offer_reference" class="control-label">Offer Reference*</label>
+                      <input type="text" id="offer_reference" class="form-control" value="{{offerreference}}" formControlName="offer_reference" [(ngModel)]="model.offer_reference">
+                      <span *ngIf="poForm.get('offer_reference').touched && poForm.get('offer_reference').invalid" class="help-block">offer_reference can't be blank.</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group" [ngClass]="{'has-error':poForm.get('offer_date').touched && poForm.get('offer_date').invalid}">
+                        <label for="offer_date" class="control-label">Offer Date*</label>
+                        <input type="date" id="offer_date" class="form-control" value="{{offerdate}}" formControlName="offer_date" [(ngModel)]="model.offer_date">
+                        <span *ngIf="poForm.get('offer_date').touched && poForm.get('offer_date').invalid" class="help-block">offerdate can't be blank.</span>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3">
+                      <div class="form-group" [ngClass]="{'has-error':poForm.get('payment_term').touched && poForm.get('payment_term').invalid}">
+                          <label for="payment_term" class="control-label">Payment Term (In Days)*</label>
+                          <input type="text" id="payment_term" class="form-control" value="{{paymentterm}}" formControlName="payment_term" [(ngModel)]="model.payment_term">
+                          <span *ngIf="poForm.get('payment_term').touched && poForm.get('payment_term').invalid" class="help-block">payment_term can't be blank.</span>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group" [ngClass]="{'has-error':poForm.get('advance_percentage').touched && poForm.get('advance_percentage').invalid}">
+                            <label for="advance_percentage" class="control-label">Advance (%)*</label>
+                            <input type="text" id="advance_percentage" class="form-control" value="{{advancepercentage}}" formControlName="advance_percentage" [(ngModel)]="model.advance_percentage">
+                            <span *ngIf="poForm.get('advance_percentage').touched && poForm.get('advance_percentage').invalid" class="help-block">advancepercentage can't be blank.</span>
+                        </div>
+                      </div>
+                      
+                      <div class="col-sm-3">
+                          <div class="form-group" [ngClass]="{'has-error':poForm.get('freight_charges').touched && poForm.get('freight_charges').invalid}">
+                              <label for="freight_charges" class="control-label">Freight Charges (In INR)*</label>
+                              <input type="text" id="freight_charges" class="form-control" value="{{freightcharges}}" formControlName="freight_charges" [(ngModel)]="model.freight_charges">
+                              <span *ngIf="poForm.get('freight_charges').touched && poForm.get('freight_charges').invalid" class="help-block">freight_charges can't be blank.</span>
+                          </div>
+                        </div>
+
+                      <div class="col-sm-3">
+                            <div class="form-group" [ngClass]="{'has-error':poForm.get('custom_duties').touched && poForm.get('custom_duties').invalid}">
+                                <label for="custom_duties" class="control-label">Custom Duties (In INR)*</label>
+                                <input type="text" id="custom_duties" class="form-control" value="{{customduties}}" formControlName="custom_duties" [(ngModel)]="model.custom_duties">
+                                <span *ngIf="poForm.get('custom_duties').touched && poForm.get('custom_duties').invalid" class="help-block">custom_duties can't be blank.</span>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                              <div class="form-group" [ngClass]="{'has-error':poForm.get('pf').touched && poForm.get('pf').invalid}">
+                                  <label for="pf" class="control-label">PF (In INR)*</label>
+                                  <input type="text" id="pf" class="form-control" value="{{p_f}}" formControlName="pf" [(ngModel)]="model.pf">
+                                  <span *ngIf="poForm.get('pf').touched && poForm.get('pf').invalid" class="help-block">pf can't be blank.</span>
+                              </div>
+                            </div>
+      
+                            <div class="col-sm-3">
+                                <div class="form-group" [ngClass]="{'has-error':poForm.get('insurance').touched && poForm.get('insurance').invalid}">
+                                    <label for="insurance" class="control-label">Insurance (IN INR)*</label>
+                                    <input type="text" id="insurance" class="form-control" value="{{insurances}}" formControlName="insurance" [(ngModel)]="model.insurance">
+                                    <span *ngIf="poForm.get('insurance').touched && poForm.get('insurance').invalid" class="help-block">insurance can't be blank.</span>
+                                </div>
+                              </div>
             
-            <label class="form-input" for="billingaddress"> Billingaddress</label>
-            <input type="text" class="form-control" id="billingaddress" value="{{billingaddress}}" name="billingaddress" [(ngModel)]="model.billing_address"
-             required 
-             #billing_address="ngModel"><br>
           
-            <label class="form-input" for="shippingaddress"> Shippingaddress</label>
-             <input type="text" class="form-control" id="shippingaddress" value="{{shippingaddress}}" name="shippingaddress" [(ngModel)]="model.shipping_address"
-              required 
-              #shipping_address="ngModel"><br>
+              <button [disabled]="submitbasicinfoForm.invalid"  type="button" class="btn btn-success pull-right" (click)="submitbasicinfo(event)">Submit</button>
              
-            <div class="row">
-              <div class="col-sm-3">
-                <label class="form-input" for="deliverydate">Delivery date</label>
-                <input type="date" class="form-control" id="deliverydate" value="{{deliverydate}}"  name="deliverydate" [(ngModel)]="model.delivery_date"
-                  required 
-                  #delivery_date="ngModel"><br>
-              </div>
-              
-              <div class="col-sm-3">
-                <label class="form-input" for=" offerreference">Offfer Reference</label>
-                <input type="text" class="form-control" id=" offerreference" value="{{offerreference}}" name="offerreference" [(ngModel)]="model.offer_reference"
-                  required 
-                  #offer_reference="ngModel"><br>
-              </div>
-            
-              <div class="col-sm-3">
-                <label class="form-input" for="offerdate">Offer Date</label>
-                <input type="date" class="form-control" id=" offerdate" value="{{offerdate}}" name="offerdate" [(ngModel)]="model.offer_date"
-                required 
-                #offer_date="ngModel"><br>
-              </div>
-             
-
-              <div class="col-sm-3">
-                <label class="form-input" for="paymentterm">Payment Term (In Days)</label>
-                <input type="text" class="form-control" id="paymentterm" value="{{paymentterm}}" name="paymentterm" [(ngModel)]="model.payment_term"
-                 required 
-                 #payment_term="ngModel"><br>
-              </div>
-          
-              <div class="col-sm-3">
-                <label class="form-input" for="advancepercentage">Advance (%)</label>
-                <input type="text" class="form-control" id="advancepercentage" value="{{advancepercentage}}" name="advancepercentage" [(ngModel)]="model.advance_percentage"
-                required 
-                #advance_percentage="ngModel"><br>
-              </div>
-
-              <div class="col-sm-3">
-                <label class="form-input" for="freightcharges">Freight Charges (In INR)</label>
-                <input type="text" class="form-control" id="freightcharges" value="{{freightcharges}}" name="freightcharges" [(ngModel)]="model.freight_charges"
-                required 
-                #freight_charges="ngModel"><br>
-              </div>
-               
-              <div class="col-sm-3">
-                <label class="form-input" for="customduties">Custom Duties (In INR)</label>
-                <input type="text" class="form-control" id="customduties" value="{{customduties}}" name="customduties" [(ngModel)]="model.custom_duties"
-                  required 
-                  #custom_duties="ngModel"><br>
-              </div>
-
-              <div class="col-sm-3">
-                  <label class="form-input" for="p_f">PF (In INR)</label>
-                  <input type="text" class="form-control" id=" p_f" value="{{p_f}}" name="p_f" [(ngModel)]="model.pf"
-                    required 
-                    #pf="ngModel"><br>
-              </div>
-                 
-              <div class="col-sm-3">
-                    <label class="form-input" for="insurances">Insurance (IN INR)</label>
-                    <input type="text" class="form-control" id="insurances" value="{{insurances}}" name="insurances" [(ngModel)]="model.insurance"
-                      required 
-                      #insurance="ngModel"><br>
-              </div>
-            </div>
-            <div class="row">
-              <button  type="button" class="btn btn-success pull-right" (click)="submitbasicinfo(event)">Submit</button>
-            </div> 
           </div>   
      </form>
  <div>

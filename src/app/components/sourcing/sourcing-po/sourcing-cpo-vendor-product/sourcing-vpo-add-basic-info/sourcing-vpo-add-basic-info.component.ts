@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+
+import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
+import { symbolValidator,passwordMatch} from 'src/app/helpers/validation';
+import {PoEntryServicesService}from '../../../../../services/crm/po/po-entry/po-entry-services.service';
+import{ Router, ActivatedRoute } from '@angular/router';
 
 
-import{ Router,ActivatedRoute } from '@angular/router';
 import{ HttpResponse} from '@angular/common/http';
 import { PoVendorService} from 'src/app/services/sourcing/po/po-vendor.service';
 
@@ -13,6 +16,7 @@ import { PoVendorService} from 'src/app/services/sourcing/po/po-vendor.service';
 })
 export class SourcingVpoAddBasicInfoComponent implements OnInit {
   model:any={}
+  poForm :FormGroup;
   sourcingvpobasicinfo:object[]=[];
   billingaddress="";
   shippingaddress="";
@@ -31,10 +35,11 @@ export class SourcingVpoAddBasicInfoComponent implements OnInit {
 
 
 
-  constructor(private formBuilder: FormBuilder,private PoVendorService:PoVendorService,private router:Router,private route:ActivatedRoute) {} 
+  constructor(private formBuilder: FormBuilder,private PoVendorService:PoVendorService,private router:Router,private route:ActivatedRoute,private builder:FormBuilder) {} 
   
 
   ngOnInit() {
+    this.buildForm();
     let cpo_id=this.route.snapshot.paramMap.get('cpo_id');  
     this.cpo_id = cpo_id; 
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');  
@@ -82,6 +87,23 @@ submitbasicinfo(event){
       this.sourcingvpobasicinfo=data;
       console.log(data);
      this.router.navigate(['sourcing/sourcing-po/sourcing-cpo-vendor-product/'+ cpo_id +'/vpo/' + vpo_id + '/sourcing-vpo-add-contactperson-info']);
+});
+}
+buildForm(){
+  this.poForm=this.builder.group({
+    billing_address:['',Validators.required],
+    shipping_address:['',Validators.required],
+    delivery_date:['',Validators.required],
+    offer_reference:['',Validators.required],
+    offer_date:['',Validators.required],
+    payment_term:['',Validators.required],
+    advance_percentage:['',Validators.required],
+    freight_charges:['',Validators.required],
+    custom_duties:['',Validators.required],
+    pf:['',Validators.required],
+    insurance:['',Validators.required],
+    
+
 });
 }
 }

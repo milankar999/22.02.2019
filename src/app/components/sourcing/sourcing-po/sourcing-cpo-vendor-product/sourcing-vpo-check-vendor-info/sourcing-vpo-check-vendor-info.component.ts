@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 
+import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
+import { symbolValidator,passwordMatch} from 'src/app/helpers/validation';
 
 import{ Router,ActivatedRoute } from '@angular/router';
 import{ HttpResponse} from '@angular/common/http';
@@ -14,7 +15,7 @@ import { PoVendorService} from 'src/app/services/sourcing/po/po-vendor.service';
 export class SourcingVpoCheckVendorInfoComponent implements OnInit {
   model:any={}
   sourcingvpocheckinfo:object[]=[];
-  
+  poForm :FormGroup;
   name = "";
   location="";
   address="";
@@ -34,8 +35,9 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
 
 
 
-  constructor(private formBuilder: FormBuilder,private PoVendorService:PoVendorService,private router:Router,private route:ActivatedRoute) {} 
+  constructor(private formBuilder: FormBuilder,private PoVendorService:PoVendorService,private router:Router,private route:ActivatedRoute,private builder:FormBuilder) {} 
   ngOnInit() {
+    this.buildForm();
     let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
     this.cpo_id=cpo_id;
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
@@ -79,7 +81,19 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
      
     });
   }
-  
+  buildForm(){
+    this.poForm=this.builder.group({
+    name:['',Validators.required],
+    location:['',Validators.required],
+    address:['',Validators.required],
+    city:['',Validators.required],
+   state:['',Validators.required],
+   pin:['',Validators.required],
+   country:['',Validators.required],
+   gst_number:['',Validators.required],
+
+    });
+  }
 }
 
 

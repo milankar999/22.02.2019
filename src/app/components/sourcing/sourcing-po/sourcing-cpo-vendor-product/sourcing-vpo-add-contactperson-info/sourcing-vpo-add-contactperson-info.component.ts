@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PoVendorService } from 'src/app/services/sourcing/po/po-vendor.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,AbstractControl } from '@angular/forms';
+import { symbolValidator,passwordMatch} from 'src/app/helpers/validation';
 import{ HttpResponse} from '@angular/common/http';
  
 
@@ -41,6 +42,7 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
   private builder:FormBuilder) { }
 
   ngOnInit() {
+    this.buildForm();
     let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
     this.cpo_id=cpo_id;
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
@@ -82,5 +84,15 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
         this.router.navigate(['sourcing/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/supplier_info_checking']);  //go back to souring-cpo-vendor-product component
 
   })
+}
+buildForm(){
+ 
+    this.poForm=this.builder.group({
+      name:['',Validators.required],
+       mobileNo1:['',Validators.required],
+       email:['',Validators.compose([Validators.required,Validators.email])],
+      mobileNo2:[''],
+      email2:['']
+});
 }
 }

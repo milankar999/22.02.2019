@@ -3,51 +3,52 @@
      <div class="well">
         <label align="center">Supplier Contact Person Information </label>
             <hr>
-            <form> 
-              <div class="form-group">
-              <div class="row">
-                <div class="col-sm-3">
-                    <label class="form-input" for="name"> Name</label>
-                    <input type="text" class="form-control" id="name" value="{{po_contact_info['vendor_contact_person']['name']}}" name="name" [(ngModel)]="model.name"
-                     required 
-                     #name="ngModel">
-                     <span *ngIf="name.touched && name.invalid" class="help-block">name can't be blank</span>
-                 </div>
+         
+            <form #submitsourcingvpoaddcontactpersoninfolistForm="ngForm" (ngSubmit)="submitsourcingvpoaddcontactpersoninfolist(event)" class="form-signin" [formGroup]="poForm" >
+           <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group" [ngClass]="{'has-error':poForm.get('name').touched && poForm.get('name').invalid}">
+                    <label for="name" class="control-label">Name*</label>
+                    <input type="text" id="name" class="form-control" value="{{po_contact_info['vendor_contact_person']['name']}}" formControlName="name" [(ngModel)]="model.name">
+                    <span *ngIf="poForm.get('name').touched && poForm.get('name').invalid" class="help-block">Name can't be blank.</span>
+                </div>
+                </div>
 
-                 <div class="col-sm-3">
-                    <label class="form-input" for="mobilenumber1">Mobile Number 1<a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="mobilenumber1" name="mobilenumber1" value="{{po_contact_info['vendor_contact_person']['mobileNo1']}}" placeholder="mobile number" [(ngModel)]="model.mobileNo1"
-                     required 
-                     #mobilenumber1="ngModel">
-                   </div>
-                   
-                   <div class="col-sm-3">
-                     <label class="form-input" for="mobilenumber2">Mobile Number 2</label>
-                     <input type="text" class="form-control" id="mobilenumber2" name="mobilenumber2" value="{{po_contact_info['vendor_contact_person']['mobileNo2']}}" placeholder="mobile number" [(ngModel)]="model.mobileNo2"
-                      required 
-                      #mobilenumber2="ngModel">
-                    </div>
+                <div class="col-sm-4">
+                <div class="form-group" [ngClass]="{'has-error':poForm.get('mobileNo1').touched && poForm.get('mobileNo1').invalid}">
+                    <label for="mobileNo1" class="control-label">Mobile No1*</label>
+                    <input type="text" id="mobileNo1" class="form-control" formControlName="mobileNo1" value="{{po_contact_info['vendor_contact_person']['mobileNo1']}}" [(ngModel)]="model.mobileNo1">
+                    <span *ngIf="poForm.get('mobileNo1').touched && poForm.get('mobileNo1').invalid" class="help-block">mobileNo1 can't be blank.</span>
+                </div>
+                </div>
 
-                  <div class="col-sm-4">
-                    <label class="form-input" for="email1"> Email 1<a style="color: red">*</a></label>
-                    <input type="text" class="form-control" id="email1" name="email1" value="{{po_contact_info['vendor_contact_person']['email1']}}" placeholder="email 1" [(ngModel)]="model.email1"
-                    required 
-                    #email1="ngModel">
-                  </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                    <label class="form-input" for="mobileNo2"> Mobil No 2 </label>
+                    <input type="text" class="form-control" id="mobileNo2" name="mobileNo2" formControlName="mobileNo2" value="{{po_contact_info['vendor_contact_person']['mobileNo2']}}"  [(ngModel)]="model.mobileNo2">
+                </div>
+               </div> 
+                     
+               <div class="col-sm-4"> 
+                <div class="form-group" [ngClass]="{'has-error':poForm.get('email').touched && poForm.get('email').invalid}">
+                    <label for="email" class="control-label">Office Email 1*</label>
+                    <input type="email1" id="email1" class="form-control" formControlName="email" value="{{po_contact_info['vendor_contact_person']['email1']}}"  [(ngModel)]="model.email1" >
+                    <span *ngIf="poForm.get('email').touched && poForm.get('email').hasError('required')" class="help-block">Office Email 1 can't be blank.</span>
+                    <span *ngIf="poForm.get('email').touched && poForm.get('email').hasError('email')"  class="help-block">Office Email 1 must be valid</span>
+                </div>
+               </div> 
 
-                  <div class="col-sm-4">
-                    <label class="form-input" for="email2"> Email 2</label>
-                    <input type="text" class="form-control" id="email2" name="email2" value="{{po_contact_info['vendor_contact_person']['email2']}}" placeholder="email2" [(ngModel)]="model.email2"
-                    required 
-                    #email2="ngModel">
-                  </div>
-              </div>
-              <br>
-             <div class="row">
-                    <button  type="button" class="btn btn-success pull-right" (click)="submitsourcingvpoaddcontactpersoninfolist(event)">Save and Continue</button>
-              </div>
-         </div>
-          </form>
+               <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="email2" class="control-label">Office Email ID 2 </label>
+                    <input type="email" class="form-control" id="email2" name="email2" formControlName="email2" value="{{po_contact_info['vendor_contact_person']['email2']}}" [(ngModel)]="model.email2">
+                </div>
+                </div>
+               </div>
+               <div class="row"> <button [disabled]="submitsourcingvpoaddcontactpersoninfolistForm.invalid" type="button" class="btn btn-success pull-right" (click)="submitsourcingvpoaddcontactpersoninfolist(event)">Save and Continue</button></div>
+                  
+                  </form>
+                
      </div>
     </div>
  <app-sourcing-header></app-sourcing-header>
