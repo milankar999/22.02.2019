@@ -1,39 +1,28 @@
-<br>
-<br>
- <h2>Sourcing Vendor Po List </h2>
-  
-     <div class="panel panel-default">
-         <div class="panel-heading text-center">Sourcing Vendor Po List</div>
-                 <div class="panel-body">  
-                 </div>
-                <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
-                   <thead>
-                     <tr>
-                        <th></th>
-                        <th>Po Number</th>
-                        <th>PO DATE</th>
-                        <th>Vendor Name</th>
-                        <th>Vendor Contact Person</th>
-                        <th>Location</th>
-                       </tr >
-                                         
-                     <tr  *ngFor="let data of vpo_list">
-                          <td>
-                             <a href="sourcing/sourcing-po/vpo/ready_list/{{data.po_number}}/details" ><span class="glyphicon glyphicon-forward" style="color: blue"></span> </a>   <!--sales/sales-po/vpo-approval/vpo-approval-details-->
-                             </td>
-                        
-                              <td>{{data.po_number}}</td>
-                              <td>{{data.po_date}}</td>
-                              <td>{{data.vpo__vendor__name}}</td>
-                              <td>{{data.vpo__vendor_contact_person__name}}</td>
-                              <td>{{data.vpo__vendor__location}}</td>                                              
-                            
-                              
-                    
-                         </tr>                         
-                   </thead>
-               </table> <br>
-       </div>
-   
-   <app-sourcing-header></app-sourcing-header>
-   <app-sourcing-footer></app-sourcing-footer>
+<app-sourcing-header></app-sourcing-header>
+<app-sourcing-footer></app-sourcing-footer>
+<br><br><br>
+<div class="container">
+    <label>Ready List For Generating Purchase Order</label>
+    <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+        <thead>
+          <tr>
+             <th></th>
+             <th>Po Number</th>
+             <th>PO DATE</th>
+             <th>Vendor Name</th>
+             <th>Vendor Contact Person</th>
+             <th>Location</th>
+            </tr >
+        </thead>                     
+              <tr  *ngFor="let data of vpo_list">
+                  <td>
+                    <a href="sourcing/sourcing-po/vpo/ready_list/{{data.po_number}}/details" ><span class="glyphicon glyphicon-forward" style="color: blue"></span> </a>   <!--sales/sales-po/vpo-approval/vpo-approval-details-->
+                  </td>
+                   <td>{{data.po_number}}</td>
+                   <td>{{data.po_date}}</td>
+                   <td>{{data.vpo__vendor__name}}</td>
+                   <td>{{data.vpo__vendor_contact_person__name}}</td>
+                   <td>{{data.vpo__vendor__location}}</td>                                              
+              </tr>                         
+    </table>
+</div>

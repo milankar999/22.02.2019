@@ -1,55 +1,44 @@
-<app-sales-header></app-sales-header><br><br>
-<hr>
- 
-        <div class="panel panel-default">
-            <div class="panel-heading text-center">VPO Approval Details List </div>
-                 <div class="panel-body">
-                        <a href="sales/sales-po/vpo-approval/{{vpo_id}}/po_number/{{po_no}}/preview"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Preview PO">Preview PO</button></a>&nbsp;&nbsp; 
-               <br><br>
-    
-     <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
-         <thead>
-             <tr>
-              <th></th>
-              <th>Product Title</th>
-              <th>Description</th>
-              <th>Model</th>
-              <th>Brand</th>
-              <th>Product Code</th>
-              <th>HSN Code</th>
-              <th>Pack Size</th>
-              <th>Gst%</th>
-              <th>UOM</th>
-              <th>Quantity</th>
-              <th>Unit Price</th>
-              <th>Discount</th>
-            
-            </tr >
-            </thead>
-            <tr *ngFor="let data of vpoapprovallist">
-                 <td>
-                        <a href="#"><span class="glyphicon glyphicon-forward" style="color: blue"></span></a>
-                </td>
-                <td>{{data.product_title}}</td>
-                <td>{{data.description}}</td>
-                <td>{{data.model}}</td>
-                <td>{{data.brand}}</td>
-                <td>{{data.product_code}}</td>
-                <td>{{data.hsn_code}}</td>
-                <td>{{data.pack_size}}</td>
-                <td>{{data.gst}}</td>
-                <td>{{data.uom}}</td>
-                <td>{{data.quantity}}</td>
-                <td>{{data.unit_price}}</td>
-                <td>{{data.discount}}</td>
-                
-             </tr>
-             </table>
-            
-             <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openAcceptedModalDialog()">Approval</button>&nbsp;&nbsp;&nbsp;
-      
-             <div class="backdrop" [ngStyle]="{'display' :accepted_display}"></div>
-             <!--modal-->
+<app-sales-header></app-sales-header>
+<app-sales-footer></app-sales-footer> 
+<br><br><br>
+<div class="container">
+    <label>Lineitems of This PO</label><br>
+    <a href="sales/sales-po/vpo-approval/{{vpo_id}}/po_number/{{po_no}}/preview"> <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Preview PO">Preview PO</button></a>
+    <table id="dcustomer" class="table table-hover table-bordered table-sm">
+        <thead>
+            <tr>
+             <th>Product Title</th>
+             <th>Description</th>
+             <th>Model</th>
+             <th>Brand</th>
+             <th>Product Code</th>
+             <th>HSN Code</th>
+             <th>Pack Size</th>
+             <th>GST (%)</th>
+             <th>UOM</th>
+             <th>Quantity</th>
+             <th>Unit Price</th>
+             <th>Discount(%)</th>
+           </tr>
+        </thead>
+           <tr *ngFor="let data of vpoapprovallist">
+               <td>{{data.product_title}}</td>
+               <td>{{data.description}}</td>
+               <td>{{data.model}}</td>
+               <td>{{data.brand}}</td>
+               <td>{{data.product_code}}</td>
+               <td>{{data.hsn_code}}</td>
+               <td>{{data.pack_size}}</td>
+               <td>{{data.gst}}</td>
+               <td>{{data.uom}}</td>
+               <td>{{data.quantity}}</td>
+               <td>{{data.unit_price}}</td>
+               <td>{{data.discount}}</td>
+            </tr>
+      </table>
+      <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openAcceptedModalDialog()">Approval</button>
+      <div class="backdrop" [ngStyle]="{'display' :accepted_display}"></div>
+          <!--accept modal-->
              <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':accepted_display}">
                  <!--modal-dialog-->
                  <div class="modal-dialog" role="document">
@@ -58,33 +47,26 @@
                          <!--modal-header-->
                         <div class="panel panel-default">
                          <div class="panel-heading text-center">VPO Approval Details</div>
-                         <div class="panel-body">
+                          <div class="panel-body">
                             
-                             <div class="modal-body">
-                                    <button type="button" class="close" (click)="closeAcceptedModalDialog()">&times;</button>
+                            <div class="modal-body">
+                                <button type="button" class="close" (click)="closeAcceptedModalDialog()">&times;</button>
                                 <p>Do you really want to VPO Approval Details?</p>
-                         </div>
+                            </div>
                     
-                             <div class="modal-footer">
+                            <div class="modal-footer">
                                 <button  class="btn btn-success" (click)="Vpo_details_approval(event)">Confirm</button>&nbsp;
-                                 <button type="button" class="btn btn-danger" (click)="closeAcceptedModalDialog()">Cancel</button>
-                           </div>
-                         </div>
+                                <button type="button" class="btn btn-danger" (click)="closeAcceptedModalDialog()">Cancel</button>
+                            </div>
+                          </div>
                         </div>
                        </div>
                  </div>
              </div>
-           
-               <!--modal-body-->
-       
-             <!-- End of Approval Model-->
-       
-             <!--Rejected Model-->
-       
-           
-             <button type="button" class="btn btn-danger btn-sm" style="float:left" (click)="openRejectedModalDialog()">Reject</button> 
-             <br><br><br>
-             <div class="backdrop" [ngStyle]="{'display' :rejected_display}"></div>
+          <!--accept modal end-->
+
+          <!--reject model-->
+          <div class="backdrop" [ngStyle]="{'display' :rejected_display}"></div>
              <!--modal-->
              <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':rejected_display}">
                  <!--modal-dialog-->
@@ -110,16 +92,6 @@
                        </div>
                  </div>
              </div>
-        
-       </div>
-    
-
-    </div>
-   
- 
-    <app-sales-footer></app-sales-footer> 
-    
-   
-
-    
-  
+          <!--reject model end-->
+      <button type="button" class="btn btn-danger btn-sm" style="float:left" (click)="openRejectedModalDialog()">Reject</button>
+</div>

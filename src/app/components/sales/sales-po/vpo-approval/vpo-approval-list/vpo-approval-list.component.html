@@ -1,39 +1,29 @@
-<br>
-<br>
- <h2> Vendor Po Approval List </h2>
-   <div class="col-md-offset-0 col-md-12">
-     <div class="panel panel-default">
-         <div class="panel-heading text-center"> Vendor Po Approval List</div>
-                 <div class="panel-body">  
-                 </div>
-                <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
-                   <thead>
-                     <tr>
-                        <th></th>
-                        <th>Po Number</th>
-                        <th>PO DATE</th>
-                        <th>Vendor Name</th>
-                        <th>Vendor Contact Person</th>
-                        <th>Location</th>
-                       </tr >
-                                         
-                     <tr  *ngFor="let data of poapprovallist">
-                          <td>
-                              <a href="sales/sales-po/vpo-approval/{{data.vpo__id}}/po_number/{{data.po_number}}/vpo-approval-details" ><span class="glyphicon glyphicon-forward" style="color: blue"></span> </a>          <!--sales/sales-po/vpo-approval/vpo-approval-details-->
-                             </td>
-                        
-                              <td>{{data.po_number}}</td>
-                              <td>{{data.po_date}}</td>
-                              <td>{{data.vpo__vendor__name}}</td>
-                              <td>{{data.vpo__vendor_contact_person__name}}</td>
-                              <td>{{data.vpo__vendor__location}}</td>                                              
-                            
-                              
-                    
-                         </tr>                         
-                   </thead>
-               </table> <br>
-       </div>
-   </div>
-   <app-sales-header></app-sales-header>
-   <app-sales-footer></app-sales-footer>
+<br><br><br>
+<div class="container">
+  <label>Vendor Purchase Order Approval List</label>
+  <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">
+    <thead>
+      <tr>
+         <th></th>
+         <th>Po Number</th>
+         <th>PO DATE</th>
+         <th>Vendor Name</th>
+         <th>Vendor Contact Person</th>
+         <th>Location</th>
+      </tr >
+    </thead>              
+      <tr  *ngFor="let data of poapprovallist">
+           <td>
+               <a href="sales/sales-po/vpo-approval/{{data.vpo__id}}/po_number/{{data.po_number}}/vpo-approval-details" ><span class="glyphicon glyphicon-forward" style="color: blue"></span> </a>          <!--sales/sales-po/vpo-approval/vpo-approval-details-->
+              </td>
+         
+               <td>{{data.po_number}}</td>
+               <td>{{data.po_date}}</td>
+               <td>{{data.vpo__vendor__name}}</td>
+               <td>{{data.vpo__vendor_contact_person__name}}</td>
+               <td>{{data.vpo__vendor__location}}</td>                                              
+      </tr>                         
+    </table>
+</div>
+<app-sales-header></app-sales-header>
+<app-sales-footer></app-sales-footer>
