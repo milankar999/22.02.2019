@@ -57,6 +57,59 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
     this.cpo_id=cpo_id;
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
     this.vpo_id=vpo_id;
+
+      //validation alert message
+    if (this.model.name=="")
+    {
+      window.alert("name should not be empty");
+      return;
+    }
+
+    if (this.model.location=="")
+    {
+      window.alert("location should not be empty");
+      return;
+    }
+
+    if (this.model.city=="")
+    {
+      window.alert("City should not be empty");
+      return;
+    }
+
+    if (this.model.state=="")
+    {
+      window.alert("state should not be empty");
+      return;
+    }
+
+    if (this.model.pin=="")
+    {
+      window.alert("pin should not be empty");
+      return;
+    }
+
+    if (this.model.country=="")
+    {
+      window.alert("country should not be empty");
+      return;
+    }
+
+    if (this.model.gst_number=="")
+    {
+      window.alert("GST Number should not be empty");
+      return;
+    }
+
+    if (this.model.address=="")
+    {
+      window.alert("Address should not be empty");
+      return;
+    }
+
+
+
+
     this.PoVendorService.PutSourcingVpoCheckInfo(
       this.model.name,
       this.model.location,
@@ -83,14 +136,14 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
   }
   buildForm(){
     this.poForm=this.builder.group({
-    name:['',Validators.required],
-    location:['',Validators.required],
-    address:['',Validators.required],
-    city:['',Validators.required],
-   state:['',Validators.required],
-   pin:['',Validators.required],
-   country:['',Validators.required],
-   gst_number:['',Validators.required],
+    name:[''],
+    location:[''],
+    city:[''],
+   state:[''],
+   pin:[''],
+   country:[''],
+   gst_number:[''],
+   address:[''],
 
     });
   }

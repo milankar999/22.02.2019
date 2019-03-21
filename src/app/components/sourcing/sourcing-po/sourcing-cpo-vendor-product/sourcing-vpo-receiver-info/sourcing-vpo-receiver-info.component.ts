@@ -47,6 +47,25 @@ submit_reciver_info(event){
   this.cpo_id=cpo_id;
   let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
   this.vpo_id=vpo_id;
+
+  //validation
+    if (this.model.receiver_name=="")
+    {
+      window.alert("Receiver Name should not be empty");
+      return;
+    }
+
+    if (this.model.receiver_phone1=="")
+    {
+      window.alert("Receiver Phone 1 should not be empty");
+      return;
+    }
+
+    if (this.model.receiver_dept=="")
+    {
+      window.alert("Receiver Dept should not be empty");
+      return;
+    }
   this.PoVendorService.Putsubmit_reciver_info(this.model.receiver_name,
     this.model.receiver_phone1,
     this.model.receiver_phone2,
@@ -58,8 +77,8 @@ submit_reciver_info(event){
 }
 buildForm(){
   this.poForm=this.builder.group({
-    receiver_name:['',Validators.required],
-    receiver_phone1:['',Validators.required],
+    receiver_name:[''],
+    receiver_phone1:[''],
     receiver_phone2:[''],
     receiver_dept:['']
 

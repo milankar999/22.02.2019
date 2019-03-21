@@ -1,10 +1,59 @@
 
 <br><br><br>
- <div class="col-md-offset-4 col-md-4">  <!--table fields-->
+ <div class="col-md-offset-2 col-md-8">  <!--table fields-->
     <div class="well">
       <h2 align="center">  Delivery Instruction</h2>
       <hr>
-      <form>
+
+      
+      <form> 
+          <div class="example-container">
+                  <mat-form-field>
+                       <input matInput placeholder="Delivery 1"  value="{{di_1}}" name="di1" [(ngModel)]="model.di1">
+                  </mat-form-field>
+
+                  <mat-form-field>
+                      <input matInput placeholder="Delivery 2"  value="{{di_2}}" name="di2" [(ngModel)]="model.di2">
+                  </mat-form-field>
+
+                 <mat-form-field>
+                    <input matInput placeholder="Delivery 3"  value="{{di_3}}" name="di3" [(ngModel)]="model.di3">
+                 </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Delivery 4"  value="{{di_4}}" name="di4" [(ngModel)]="model.di4">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Delivery 5"  value="{{di_5}}" name="di5" [(ngModel)]="model.di5">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Delivery 6"  value="{{di_6}}" name="di6" [(ngModel)]="model.di6">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Delivery 7"  value="{{di_7}}" name="di7" [(ngModel)]="model.di7">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Delivery 8"  value="{{di_8}}" name="di8" [(ngModel)]="model.di8">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Delivery 9"  value="{{di_9}}" name="di9" [(ngModel)]="model.di9">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Delivery 10"  value="{{di_10}}" name="di10" [(ngModel)]="model.di10">
+               </mat-form-field>
+
+               <mat-chip-list>
+                      <mat-chip color="primary" selected (click)="submit_delivery_info(event)">Confirm</mat-chip>
+               </mat-chip-list>
+          </div>
+      </form>
+     <!---- <form>
         <div class="form-group">
            
            <label class="form-input" for="di1">Delivery 1</label>
@@ -63,7 +112,7 @@
          <hr>
          <button  type="button" class="btn btn-success" (click)="submit_delivery_info(event)">Submit</button>&nbsp;
   
-    </form>
+    </form>-->
      </div>
      </div>
      

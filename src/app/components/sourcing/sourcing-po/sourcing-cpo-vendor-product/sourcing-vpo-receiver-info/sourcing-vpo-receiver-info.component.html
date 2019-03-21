@@ -4,7 +4,31 @@
     <div class="well">
       <h2 align="center">Our Reciver info</h2>
       <hr>
-      <form #submit_reciver_infoForm="ngForm" (ngSubmit)="submit_reciver_info(event)" class="form-signin"  [formGroup]="poForm" >
+
+      <form [formGroup]="poForm"> 
+          <div class="example-container">
+                  <mat-form-field>
+                       <input matInput placeholder="Receiver Name" value="{{receivername}}" formControlName="receiver_name" [(ngModel)]="model.receiver_name">
+                  </mat-form-field>
+
+                   <mat-form-field>
+                          <input matInput placeholder="Receiver Phone 1" value="{{receiverphone1}}" formControlName="receiver_phone1" [(ngModel)]="model.receiver_phone1">
+                   </mat-form-field>
+
+                   <mat-form-field>
+                          <input matInput placeholder="Receiver Phone 2" value="{{receiverphone2}}" formControlName="receiver_phone2" [(ngModel)]="model.receiver_phone2">
+                   </mat-form-field>
+
+                   <mat-form-field>
+                          <input matInput placeholder="Receiver Department" formControlName="receiver_dept" value="{{receiverdept}}" [(ngModel)]="model.receiver_dept">
+                   </mat-form-field>
+
+                   <mat-chip-list>
+                   <mat-chip color="primary" selected (click)="submit_reciver_info(event)">Confirm</mat-chip>
+                   </mat-chip-list>
+          </div>
+      </form>
+    <!---- <form #submit_reciver_infoForm="ngForm" (ngSubmit)="submit_reciver_info(event)" class="form-signin"  [formGroup]="poForm" >
         <div class="row">
           <div class="col-sm-5">
           <div class="form-group" [ngClass]="{'has-error':poForm.get('receiver_name').touched && poForm.get('receiver_name').invalid}">
@@ -38,7 +62,7 @@
      </div>
            <button [disabled]="submit_reciver_infoForm.invalid" type="button" (click)="submit_reciver_info(event)" class="btn btn-success  pull-right">Submit</button>&nbsp;
                
- </form>
+ </form>-->
  <div>
 </div>
 </div>

@@ -71,6 +71,69 @@ submitbasicinfo(event){
   this.cpo_id = cpo_id; 
   let vpo_id=this.route.snapshot.paramMap.get('vpo_id');  
   this.vpo_id = vpo_id; 
+
+//validation alert message
+          if(this.model.billing_address=="")
+          {
+            window.alert("Billing Address should not be empty");
+            return;
+          }
+          if(this.model.shipping_address=="")
+          {
+            window.alert("Shipping Address should not be empty");
+            return;
+          }
+
+          if(this.model.delivery_date=="")
+          {
+            window.alert("Delivery Date should not be empty");
+            return;
+          }
+          if(this.model.offer_reference=="")
+          {
+            window.alert("Offer Reference should not be empty");
+            return;
+          }
+
+          if(this.model.offer_date=="")
+          {
+            window.alert("Offer Date should not be empty");
+            return;
+          }
+          if(this.model.payment_term=="")
+          {
+            window.alert("Payment Term should not be empty");
+            return;
+          }
+          if(this.model.advance_percentage=="")
+          {
+            window.alert("Advance Percentage should not be empty");
+            return;
+          }
+          if(this.model.freight_charges=="")
+          {
+            window.alert("Freight Charges should not be empty");
+            return;
+          }
+          if(this.model.custom_duties=="")
+          {
+            window.alert("Custom Duties should not be empty");
+            return;
+          }
+
+          if(this.model.pf=="")
+          {
+            window.alert("PF should not be empty");
+            return;
+          }
+
+          if(this.model.insurance=="")
+          {
+            window.alert("Insurance should not be empty");
+            return;
+          }
+
+
   this.PoVendorService.PutSourcingVpoBasicInfo(
     this.model.billing_address,
     this.model.shipping_address,
@@ -86,22 +149,22 @@ submitbasicinfo(event){
     cpo_id,vpo_id).subscribe((data)=>{ 
       this.sourcingvpobasicinfo=data;
       console.log(data);
-     this.router.navigate(['sourcing/sourcing-po/sourcing-cpo-vendor-product/'+ cpo_id +'/vpo/' + vpo_id + '/sourcing-vpo-add-contactperson-info']);
+      this.router.navigate(['sourcing/sourcing-po/sourcing-cpo-vendor-product/'+ cpo_id +'/vpo/' + vpo_id + '/sourcing-vpo-add-contactperson-info']);
 });
 }
 buildForm(){
   this.poForm=this.builder.group({
-    billing_address:['',Validators.required],
-    shipping_address:['',Validators.required],
-    delivery_date:['',Validators.required],
-    offer_reference:['',Validators.required],
-    offer_date:['',Validators.required],
-    payment_term:['',Validators.required],
-    advance_percentage:['',Validators.required],
-    freight_charges:['',Validators.required],
-    custom_duties:['',Validators.required],
-    pf:['',Validators.required],
-    insurance:['',Validators.required],
+    billing_address:[''],
+    shipping_address:[''],
+    delivery_date:[''],
+    offer_reference:[''],
+    offer_date:[''],
+    payment_term:[''],
+    advance_percentage:[''],
+    freight_charges:[''],
+    custom_duties:[''],
+    pf:[''],
+    insurance:[''],
     
 
 });

@@ -69,6 +69,26 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
     this.vpo_id=vpo_id;
     console.log(this.model.mobileNo1);
 
+    //Validation 
+        if (this.model.name=="")
+        {
+            window.alert("name should  not be empty");
+            return;
+        }
+
+        if (this.model.mobileNo1=="")
+        {
+            window.alert("mobileNo1 should  not be empty");
+            return;
+        }
+
+        
+        if (this.model.email1=="")
+        {
+            window.alert("Email1 should  not be empty");
+            return;
+        }
+
     this.PoVendorService.Post_submit_sourcing_vpo_addcontact_person_info_list(                              
       this.model.name,
       this.model.mobileNo1,
@@ -88,9 +108,9 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
 buildForm(){
  
     this.poForm=this.builder.group({
-      name:['',Validators.required],
-       mobileNo1:['',Validators.required],
-       email:['',Validators.compose([Validators.required,Validators.email])],
+      name:[''],
+       mobileNo1:[''],
+       email1:[''],
       mobileNo2:[''],
       email2:['']
 });

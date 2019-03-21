@@ -4,7 +4,48 @@
     <div class="well">
       <h2 align="center">Supplier Vendor info</h2>
       <hr>
-      <form #submit_supplier_check_infoForm="ngForm" (ngSubmit)="submit_supplier_check_info(event)" class="form-signin" [formGroup]="poForm" >
+
+      <form [formGroup]="poForm"> 
+            <div class="example-container">
+                    <mat-form-field>
+                         <input matInput placeholder="Name" value="{{sourcingvpocheckinfo['vendor']['name']}}" formControlName="name" [(ngModel)]="model.name">
+                    </mat-form-field>
+
+                     <mat-form-field>
+                            <input matInput placeholder="Location" value="{{sourcingvpocheckinfo['vendor']['location']}}"formControlName="location" [(ngModel)]="model.location">
+                     </mat-form-field>
+
+                     <mat-form-field>
+                            <input matInput placeholder="City" value="{{sourcingvpocheckinfo['vendor']['city']}}"formControlName="city" [(ngModel)]="model.city">
+                     </mat-form-field>
+
+                     <mat-form-field>
+                            <input matInput placeholder="State"  value="{{sourcingvpocheckinfo['vendor']['state']}}"formControlName="state" [(ngModel)]="model.state" >
+                     </mat-form-field>
+
+                     <mat-form-field>
+                            <input matInput placeholder="Pin" value="{{sourcingvpocheckinfo['vendor']['pin']}}"formControlName="pin" [(ngModel)]="model.pin" >
+                     </mat-form-field>
+                     
+                     <mat-form-field>
+                            <input matInput placeholder="Country" value="{{sourcingvpocheckinfo['vendor']['country']}}"formControlName="country" [(ngModel)]="model.country" >
+                     </mat-form-field>
+
+                     <mat-form-field>
+                            <input matInput placeholder="GST Number" value="{{sourcingvpocheckinfo['vendor']['gst_number']}}"formControlName="gst_number" [(ngModel)]="model.gst_number" >
+                     </mat-form-field>
+
+                     <mat-form-field>
+                            <textarea matInput placeholder="Address" value="{{sourcingvpocheckinfo['vendor']['address']}}"formControlName="address" [(ngModel)]="model.address" ></textarea>
+                     </mat-form-field>
+
+                     <mat-chip-list>
+                     <mat-chip color="primary" selected (click)="submit_supplier_check_info(event)">Confirm</mat-chip>
+                     </mat-chip-list>
+            </div>
+        </form>
+         
+     <!---- <form #submit_supplier_check_infoForm="ngForm" (ngSubmit)="submit_supplier_check_info(event)" class="form-signin" [formGroup]="poForm" >
           <div class="row">
              <div class="col-sm-4">
                <div class="form-group" [ngClass]="{'has-error':poForm.get('name').touched && poForm.get('name').invalid}">
@@ -103,7 +144,7 @@
          
               </div>
               <button [disabled]="submit_supplier_check_infoForm.invalid" type="button" class="btn btn-success pull-right" (click)="submit_supplier_check_info(event)" >Submit</button>&nbsp;
-      </form>
+      </form>-->
  <div>
 </div>
 </div>

@@ -4,7 +4,35 @@
      <div class="well">
         <h3 align="center"> Terms and Conditions </h3>
             <hr>
-         <form #submit_terms_conditionForm="ngForm" (ngSubmit)="submit_terms_condition(event)" class="form-signin"  [formGroup]="poForm" >
+
+            <form [formGroup]="poForm"> 
+                <div class="example-container">
+                        <mat-form-field>
+                             <input matInput placeholder="Model Transport"  value="{{modeoftransport}}" formControlName="mode_of_transport" [(ngModel)]="model.mode_of_transport">
+                        </mat-form-field>
+      
+                         <mat-form-field>
+                                <input matInput placeholder="Inco Terms" value="{{incoterms}}" formControlName="inco_terms" [(ngModel)]="model.inco_terms">
+                         </mat-form-field>
+      
+                         <mat-form-field>
+                                <input matInput placeholder="Installation" value="{{installations}}" formControlName="installation" [(ngModel)]="model.installation">
+                         </mat-form-field>
+      
+                         <mat-form-field>
+                                <input matInput placeholder="Term Of Payment" value="{{terms_of_payments}}" formControlName="terms_of_payment" [(ngModel)]="model.terms_of_payment">
+                         </mat-form-field>
+      
+                         <mat-form-field>
+                            <textarea matInput placeholder="Comments"  formControlName="comments" value="{{comment}}" [(ngModel)]="model.comments"></textarea>
+                        </mat-form-field>
+  
+                         <mat-chip-list>
+                         <mat-chip color="primary" selected (click)="submit_terms_condition(event)">Confirm</mat-chip>
+                         </mat-chip-list>
+                </div>
+            </form>
+        <!---- <form #submit_terms_conditionForm="ngForm" (ngSubmit)="submit_terms_condition(event)" class="form-signin"  [formGroup]="poForm" >
 
           <div class="row">
           <div class="col-sm-4">
@@ -47,7 +75,7 @@
           </div>
           </div>
                    <button  [disabled]="submit_terms_conditionForm.invalid" type="button" class="btn btn-success" (click)="submit_terms_condition(event)" >Submit</button>&nbsp;
-         </form>
+         </form>-->
        
      </div>
 <app-sourcing-header></app-sourcing-header>

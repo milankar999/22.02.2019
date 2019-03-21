@@ -49,6 +49,31 @@ submit_terms_condition(event){
   this.cpo_id=cpo_id;
   let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
   this.vpo_id=vpo_id;
+
+  //validation alert message
+      if (this.model.mode_of_transport=="")
+      {
+        window.alert("mode of transport should not be empty");
+        return;
+      }
+
+      if (this.model.inco_terms=="")
+      {
+        window.alert("Inco Terms should not be empty");
+        return;
+      }
+
+      if (this.model.installation=="")
+      {
+        window.alert("Installation should not be empty");
+        return;
+      }
+
+      if (this.model.terms_of_payment=="")
+      {
+        window.alert("Term Of Payment should not be empty");
+        return;
+      }
   this.PoVendorService.Putsubmit_terms_condition(this.model.mode_of_transport,
     this.model.inco_terms,
     this.model.installation,
@@ -62,10 +87,10 @@ submit_terms_condition(event){
 }
 buildForm(){
   this.poForm=this.builder.group({
-    mode_of_transport:['',Validators.required],
-    inco_terms:['',Validators.required],
-    installation:['',Validators.required],
-    terms_of_payment:['',Validators.required],
+    mode_of_transport:[''],
+    inco_terms:[''],
+    installation:[''],
+    terms_of_payment:[''],
     comments:['']
 
    

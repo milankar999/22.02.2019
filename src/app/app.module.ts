@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from './guards/auth.guard';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatButtonModule, MatCheckboxModule,MatFormFieldModule,MatSelectModule,MatInputModule, MatChipsModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
  
  
 import { AppComponent } from './app.component';
@@ -186,7 +189,14 @@ import { SourcingCpoVendorProductProceedComponent } from './components/sourcing/
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    DragDropModule
+    DragDropModule,
+    MatButtonModule,
+     MatCheckboxModule,
+     MatFormFieldModule,
+     MatSelectModule,
+     MatInputModule,
+     BrowserAnimationsModule,
+     MatChipsModule
   ],
   providers: [CookieService,AuthGuard],
   bootstrap: [AppComponent]
