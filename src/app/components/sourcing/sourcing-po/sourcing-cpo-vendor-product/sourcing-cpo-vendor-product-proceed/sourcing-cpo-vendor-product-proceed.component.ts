@@ -17,6 +17,7 @@ export class SourcingCpoVendorProductProceedComponent implements OnInit {
   sourcing_cpo_market_po:object[]=[];
   cpo_id = "";
   vpo_id = "";
+  request_display='none';
   
   constructor(private formBuilder: FormBuilder,private PoVendorService:PoVendorService,private router:Router,private route:ActivatedRoute) {} 
 
@@ -32,12 +33,24 @@ export class SourcingCpoVendorProductProceedComponent implements OnInit {
     this.cpo_id=cpo_id;
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
     this.vpo_id=vpo_id;
+     
     this.PoVendorService.PostSourcing_Cpo_Market_ReadyPO(cpo_id,vpo_id).subscribe((data)=>{ 
+     
+      console.log(data);
+      this.router.navigate(['sourcing/sourcing-po/'+cpo_id+'/souring-cpo-vendor-product']);
+     
+    });
+
+  }
+  request_buying_purchase(event){
+    let cpo_id=this.route.snapshot.paramMap.get('cpo_id');
+    this.cpo_id=cpo_id;
+    let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
+    this.vpo_id=vpo_id;
+    this.PoVendorService.PostSourcing_Cpo_buying_PurchasePO(cpo_id,vpo_id).subscribe((data)=>{ 
       console.log(data);
       this.router.navigate(['sourcing/sourcing-po/'+cpo_id+'/souring-cpo-vendor-product']);
     });
-
-
   }
   openModalDialog()
   {
@@ -47,4 +60,13 @@ export class SourcingCpoVendorProductProceedComponent implements OnInit {
   {
     this.display='none';
     }
+    openRequestModalDialog()
+    {
+      this.request_display='block';
+    }
+    closeRequestModalDialog()
+    {
+      this.request_display='none';
+    }
+
 }

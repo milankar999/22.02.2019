@@ -108,7 +108,7 @@ this.PoVendorServic.getSourcingVpoLineitemEdit(cpo_id,vpo_id,lineitem_id).subscr
       console.log(cpo_id);
       console.log(vpo_id);
       console.log(lineitem_id);
-      this.router.navigate(['sourcing/sourcing-po/'+ cpo_id +'/souring-cpo-vendor-product']);  //go back to souring-cpo-vendor-product component
+     this.router.navigate(['sourcing/sourcing-po/'+ cpo_id +'/souring-cpo-vendor-product']);  //go back to souring-cpo-vendor-product component
     })
      
 }

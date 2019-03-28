@@ -58,54 +58,112 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
     let vpo_id=this.route.snapshot.paramMap.get('vpo_id');
     this.vpo_id=vpo_id;
 
-      //validation alert message
-    if (this.model.name=="")
+ //validation alert message
+  if(this.name==null){
+    if(this.model.name==""||this.model.name==null){
+         window.alert("name should not be empty");
+         return;
+       }
+      }
+   else{
+      if (this.model.name=="")
     {
       window.alert("name should not be empty");
       return;
     }
+  }
 
+    if(this.location==null){
+      if(this.model.location==""||this.model.location==null){
+        window.alert("Location should not be empty");
+        return;
+      }
+    }
+    else{
     if (this.model.location=="")
     {
       window.alert("location should not be empty");
       return;
     }
+  }
 
+  if(this.city==null){
+    if(this.model.city==""||this.model.city==null){
+      window.alert("City should not be empty");
+      return;
+    }
+  }
+  else{
     if (this.model.city=="")
     {
       window.alert("City should not be empty");
       return;
     }
-
+  }
+    if(this.state==null){
+      if(this.model.state==""||this.model.state==null){
+        window.alert("State should not be empty");
+        return;
+      }
+    }
+    else{
     if (this.model.state=="")
     {
       window.alert("state should not be empty");
       return;
     }
-
+  }
+    if(this.pin==null){
+      if(this.model.pin==""||this.model.pin==null){
+        window.alert("Pin should not be empty");
+        return;
+      }
+    }
+    else{
     if (this.model.pin=="")
     {
       window.alert("pin should not be empty");
       return;
     }
-
-    if (this.model.country=="")
+  }
+  if(this.country==null)
+    if (this.model.country==""||this.model.country==null)
     {
       window.alert("country should not be empty");
       return;
     }
-
-    if (this.model.gst_number=="")
+    else{
+      if(this.model.country==""){
+        window.alert("country should not be empty");
+        return;
+      }
+    }
+    if(this.gst_number==null){
+      if(this.model.gst_number==""||this.model.gst_number){
+        window.alert("GST Number should not be empty");
+        return;
+      }
+    }
+      else{
+        if (this.model.gst_number=="")
     {
       window.alert("GST Number should not be empty");
       return;
     }
-
+  }
+    if(this.address==null){
+      if(this.model.address==""||this.model.address==null){
+        window.alert("Address should not be empty");
+        return;
+      }
+    }
+      else{
     if (this.model.address=="")
     {
       window.alert("Address should not be empty");
       return;
     }
+  }
 
 
 
@@ -148,7 +206,6 @@ export class SourcingVpoCheckVendorInfoComponent implements OnInit {
     });
   }
 }
-
 
 
 

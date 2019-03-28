@@ -358,6 +358,16 @@ PostSourcing_Cpo_Market_ReadyPO(cpo_id,vpo_id){
    });       
 }
 
+PostSourcing_Cpo_buying_PurchasePO(cpo_id,vpo_id){
+  return this.http.post('api/po_to_vendor/pending_cpo/'+cpo_id+'/vpo/'+vpo_id+'/request_direct_purchase/', //SourcingVpoLineitemEdit database API LInk
+  {
+    
+  },
+  {
+      headers: new HttpHeaders().set('Authorization','Token ' + localStorage.getItem('token'))// send to header
+   }); 
+}
+
 getSourcingVpoList():Observable<VpoList[]>{ 
   return this.http.get<VpoList[]>('/api/po_to_vendor/vpo/ready_list/', //SourcingVpoLineitemEdit database API LInk
   {

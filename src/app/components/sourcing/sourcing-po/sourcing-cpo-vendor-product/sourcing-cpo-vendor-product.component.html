@@ -1,9 +1,11 @@
 <br><br>
 <h3 align="center"> Segmented Vendor Product List </h3>
+<a href="sourcing/sourcing-po/{{cpo_id}}/sourcing-cpo-pending-details"><button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Back To Details Page"><span class="glyphicon glyphicon-backward" ></span></button></a>    
    <div class="col-md-offset-0 col-md-12">
       <div  *ngFor="let offer of cpo_vendor_list">
          <div>
             <hr>
+            
             <div class="container">
                <label>
                   Vendor : {{offer.vendor.name}} &nbsp; || &nbsp; Vendor Contact Person : {{offer.vendor_contact_person.name}}&nbsp; || &nbsp; Offer reference : {{offer.offer_reference}} &nbsp; || &nbsp; Offer date {{offer.offer_date}}
@@ -25,11 +27,14 @@
                              <th>Brand</th>
                              <th>Product Code</th>
                              <th>HSN Code</th>
-                             <th>GST %</th>
                              <th>Quantity</th>
                              <th>UOM</th>
-                             <th>Price</th> 
+                             <th>Intial Price</th> 
                              <th>Discount%</th> 
+                             <th>Actual Price</th>
+                             <th>Total Basic Price</th>
+                             <th>GST %</th>
+                             <th>Total Price</th>
                            </tr>
                         </thead>
                         <tbody>
@@ -43,17 +48,21 @@
                               <td>{{data.brand}}</td>
                               <td>{{data.product_code}}</td>
                               <td>{{data.hsn_code}}</td>
-                              <td>{{data.gst}}</td>
                               <td>{{data.quantity}}</td>
                               <td>{{data.uom}}</td>
                               <td>{{data.unit_price}}</td>
                               <td>{{data.discount}}</td>
+                              <td>{{data.actual_price}}</td>
+                              <td>{{data.total_basic_price}}</td>
+                              <td>{{data.gst}}</td>
+                              <td>{{data.total_price}}</td>
+                             
                            </tr>
                         </tbody>
                   </table> 
                           
                               <hr>
-                           <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/proceed"><button class="btn btn-danger" style="float: right">Proceed to Release Order</button></a>
+                           <a href="sourcing/po_to_vendor/pending_cpo/{{cpo_id}}/vpo/{{offer.id}}/proceed"><button class="btn btn-danger"  style="float: right">Proceed to Release Order</button></a>
                         
                     
                   <!--ENd of Table-->
@@ -69,6 +78,7 @@
                </div> 
                <div class="panel-body">
                      <a href="sourcing/sourcing-po/souring-cpo-vendor-product/{{cpo_id}}/vpo-vendor-selection"> <button class="btn btn-success btn-sm" style="float: left">Sourcing New PO</button></a>      
+                      
                     
                      <br><br>
                      <!--Table-->

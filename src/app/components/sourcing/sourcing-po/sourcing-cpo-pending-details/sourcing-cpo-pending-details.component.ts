@@ -11,6 +11,7 @@ export class SourcingCpoPendingDetailsComponent implements OnInit {
   cpopendingdetails:object[]=[];
   vendor_id="";
   cpo_id = "";
+  public name : string ;
   constructor(private PoVendorService:PoVendorService, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
@@ -25,7 +26,7 @@ export class SourcingCpoPendingDetailsComponent implements OnInit {
       console.log(data);
     })
   }
-  }
-
+  
+}
 
 

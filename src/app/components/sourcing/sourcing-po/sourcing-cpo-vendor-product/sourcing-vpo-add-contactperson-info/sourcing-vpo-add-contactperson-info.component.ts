@@ -70,25 +70,47 @@ constructor(private PoVendorService:PoVendorService,private route:ActivatedRoute
     console.log(this.model.mobileNo1);
 
     //Validation 
-        if (this.model.name=="")
+        if (this.name==null){
+        if (this.model.name==""||this.model.name==null)
         {
             window.alert("name should  not be empty");
             return;
         }
+      } 
+        else{
+          if (this.model.name==""){
+            window.alert("name should  not be empty");
+            return;
+          }
+        }
 
+        if (this.mobileNo1==null){
+          if (this.model.mobileNo1==""||this.model.mobileNo1==null){
+            window.alert("mobileNo1 should  not be empty");
+            return;
+          }
+        }
+        else{
         if (this.model.mobileNo1=="")
         {
             window.alert("mobileNo1 should  not be empty");
             return;
         }
+      }
 
-        
+        if(this.email1==null){
+          if(this.model.emai1==""||this.model.email1==null){
+            window.alert("email1  should  not be empty");
+            return;
+          }
+        }
+        else{
         if (this.model.email1=="")
         {
             window.alert("Email1 should  not be empty");
             return;
         }
-
+        }
     this.PoVendorService.Post_submit_sourcing_vpo_addcontact_person_info_list(                              
       this.model.name,
       this.model.mobileNo1,

@@ -56,7 +56,7 @@ export class SourcingVpoReviewComponent implements OnInit {
         console.log(data);
        
           for(var item in data){
-            let discounted_price = data[item]["unit_price"] - ((data[item]["unit_price"])*(data[item]["discount"])/100);
+            let discounted_price = data[item]["quantity"]*(data[item]["unit_price"] - ((data[item]["unit_price"])*(data[item]["discount"])/100));
             let with_gst_price = discounted_price + (discounted_price * (data[item]["gst"]) / 100);
             this.total_amount = this.total_amount + with_gst_price; 
           }

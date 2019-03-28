@@ -73,66 +73,164 @@ submitbasicinfo(event){
   this.vpo_id = vpo_id; 
 
 //validation alert message
-          if(this.model.billing_address=="")
+  if( this.billingaddress==null){
+      if(this.model.billing_address=="" || this.model.billing_address==null)
           {
             window.alert("Billing Address should not be empty");
             return;
           }
+        }
+          else{
+            if (this.model.billing_address=="")
+              {
+                 window.alert("Billing Address should not be empty");
+                 return;
+       }
+     }
+     if( this.shippingaddress==null){
+      if(this.model.shipping_address=="" || this.model.shipping_address==null)
+          {
+            window.alert("Billing Address should not be empty");
+            return;
+          }
+        }
+          else{
           if(this.model.shipping_address=="")
           {
             window.alert("Shipping Address should not be empty");
             return;
           }
+        }
 
-          if(this.model.delivery_date=="")
+        if( this.deliverydate==null){
+          if(this.model.delivery_date==""||this.model.delivery_date==null)
           {
             window.alert("Delivery Date should not be empty");
             return;
           }
+        }
+        else{
+          if(this.model.delivery_date=="")
+          {
+            window.alert("Shipping Address should not be empty");
+            return;
+          }
+        }
+
+        if( this.offerreference==null){
+          if(this.model.offer_reference==""||this.model.offer_reference==null)
+          {
+            window.alert("Offer reference should not be empty");
+            return;
+          }
+        }
+        else{
           if(this.model.offer_reference=="")
           {
             window.alert("Offer Reference should not be empty");
             return;
           }
+        }
 
+        if( this.offerdate==null){
+          if(this.model.offer_date==""||this.model.offer_date==null)
+          {
+            window.alert("Offer Date should not be empty");
+            return;
+          }
+        }
+        else{
           if(this.model.offer_date=="")
           {
             window.alert("Offer Date should not be empty");
             return;
           }
+        } 
+
+        if( this.paymentterm==null){
+          if(this.model.payment_term==""||this.model.payment_term==null)
+          {
+            window.alert("Payment Term should not be empty");
+            return;
+          }
+        }
+        else{
           if(this.model.payment_term=="")
           {
             window.alert("Payment Term should not be empty");
             return;
           }
+        }
+        if( this.advancepercentage==null){
+          if(this.model.advance_percentage==""||this.model.advance_percentage==null)
+          {
+            window.alert("Advance Percentag should not be empty");
+            return;
+          }
+        }
+        else{
           if(this.model.advance_percentage=="")
           {
             window.alert("Advance Percentage should not be empty");
             return;
           }
+        }
+        if( this.freightcharges==null){
+          if(this.model.freight_charges==""||this.model.freight_charges==null)
+          {
+            window.alert("Freight Charges should not be empty");
+            return;
+          }
+        }
+        else{
           if(this.model.freight_charges=="")
           {
             window.alert("Freight Charges should not be empty");
             return;
           }
+        }
+        if( this.customduties==null){
+          if(this.model.custom_duties==""||this.model.custom_duties==null)
+          {
+            window.alert("Custom duties should not be empty");
+            return;
+          }
+        }
+        else{
           if(this.model.custom_duties=="")
           {
             window.alert("Custom Duties should not be empty");
             return;
           }
-
+        }
+        if( this.p_f==null){
+          if(this.model.pf==""||this.model.pf==null)
+          {
+            window.alert("PF should not be empty");
+            return;
+          }
+        }
+        else{
           if(this.model.pf=="")
           {
             window.alert("PF should not be empty");
             return;
           }
-
+        }
+        if( this.insurances==null){
+          if(this.model.insurance==""||this.model.insurance==null)
+          {
+            window.alert("Insurence should not be empty");
+            return;
+          }
+        }
+        else{
           if(this.model.insurance=="")
           {
             window.alert("Insurance should not be empty");
             return;
           }
-
+        }
 
   this.PoVendorService.PutSourcingVpoBasicInfo(
     this.model.billing_address,

@@ -3,9 +3,66 @@
 <br><br><br>
 <div class="col-md-offset-4 col-md-4">  <!--table fields-->
   <div class="well">
-    <label>Edit Lineitem</label>
-    <hr>
-    <form #submitvpolineitemeditForm="ngForm" (ngSubmit)="submitvpolineitemeditlist(event)" class="form-sigin">
+    <h4 align="center">Edit Lineitem</h4>
+    <form> 
+      <div class="example-container">
+              <mat-form-field>
+                   <input matInput placeholder="Product Title" id="producttitle" value="{{lineitem_object.product_title}}" name="producttitle" [(ngModel)]="Model.product_title">
+              </mat-form-field>
+
+               <mat-form-field>
+                      <input matInput placeholder="Description" id="description" value="{{lineitem_object.description}}" name="description" [(ngModel)]="Model.description">
+               </mat-form-field>
+
+               <mat-form-field>
+                      <input matInput placeholder="Model" id="model" value="{{lineitem_object.model}}" name="model" [(ngModel)]="Model.model">
+               </mat-form-field>
+
+               <mat-form-field>
+                      <input matInput placeholder="Brand" id="brand" value="{{lineitem_object.brand}}" name="brand" [(ngModel)]="Model.brand" >
+               </mat-form-field>
+
+               <mat-form-field>
+                      <input matInput placeholder="Product Code" id="productcode" value="{{lineitem_object.product_code}}" name="productcode" [(ngModel)]="Model.product_code" >
+               </mat-form-field>
+
+               <mat-form-field>
+                <input matInput placeholder="HSN Code" id="hsncode" value="{{lineitem_object.hsn_code}}" name="hsncode" [(ngModel)]="Model.hsn_code" >
+               </mat-form-field>
+
+               <mat-form-field>
+                <input matInput placeholder="Pack Size" id="packsize" value="{{lineitem_object.pack_size}}" name="packsize" [(ngModel)]="Model.packsize">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="GST" id="gst" value="{{lineitem_object.gst}}" name="gst" [(ngModel)]="Model.gst">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="UOM" id="uom" value="{{lineitem_object.uom}}" name="uom" [(ngModel)]="Model.uom">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Quantity" id="quantity" value="{{lineitem_object.quantity}}" name="quantity" [(ngModel)]="Model.quantity">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Unit Price" id="unitprice" value="{{lineitem_object.unit_price}}" name="unitprice" [(ngModel)]="Model.unit_price">
+               </mat-form-field>
+
+               <mat-form-field>
+                  <input matInput placeholder="Discount" id="discount" value="{{lineitem_object.discount}}" name="discount" [(ngModel)]="Model.discount">
+               </mat-form-field>
+               
+               <mat-chip-list>
+                  <mat-chip color="primary" selected (click)="submitvpolineitemeditlist(event)">Confirm</mat-chip>
+                  </mat-chip-list>
+              
+              
+      </div>
+  </form>
+  <br>
+   <!---- <form #submitvpolineitemeditForm="ngForm" (ngSubmit)="submitvpolineitemeditlist(event)" class="form-sigin">
         <div class="form-group">
           <label class="form-input" for="producttitle"> Product Title</label>
           <input type="text" class="form-control" id="producttitle" value="{{lineitem_object.product_title}}" name="producttitle" [(ngModel)]="Model.product_title"
@@ -72,8 +129,11 @@
           
          
         </div>
-      </form> 
-      <button class="btn btn-danger pull-left" (click)="openModalDialog()" >Remove This Item</button> 
+      </form> -->
+      <mat-chip-list>
+          <mat-chip color="warn" selected (click)="openModalDialog()">Remove This Item</mat-chip>
+          </mat-chip-list>
+     
       <div class="backdrop" [ngStyle]="{'display' :display}"></div>
       <div class="modal" tabindex="-1" role="dailog" [ngStyle]="{'display':display}">
         <div class="modal-dialog" role="document">
@@ -91,8 +151,6 @@
                 </div>
             </div>
       </div>
-      </div>           
-<br>
-<br>   
+      </div>            
   </div>
 </div>

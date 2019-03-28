@@ -49,6 +49,52 @@ export class SourcingVpoVendorSelectionComponent implements OnInit {
 submitvpolist(event){
   let cpo_id=this.route.snapshot.paramMap.get('cpo_id');  
   this.cpo_id = cpo_id;
+  //validation
+  if(this.model.name=="" || this.model.name==null){
+    window.alert("name should not be empty ");
+    return;
+  }
+  if(this.model.location=="" || this.model.location==null){
+    window.alert("location should not be empty ");
+    return;
+  }
+  if(this.model.address=="" || this.model.address==null){
+    window.alert("address should not be empty ");
+    return;
+  }
+  if(this.model.city=="" || this.model.city==null){
+    window.alert("city should not be empty ");
+    return;
+  }
+  if(this.model.pin=="" || this.model.pin==null){
+    window.alert("pin should not be empty ");
+    return;
+  }
+  if(this.model.state=="" || this.model.state==null){
+    window.alert("state should not be empty ");
+    return;
+  }
+ 
+  if(this.model.country=="" || this.model.country==null){
+    window.alert("Country should not be empty ");
+    return;
+  }
+  if(this.model.office_email1=="" || this.model.office_email1==null){
+    window.alert("Office Email 1 should not be empty ");
+    return;
+  }
+  if(this.model.office_phone1=="" || this.model.office_phone1==null){
+    window.alert("Office Phone 1 should not be empty ");
+    return;
+  }
+  if(this.model.gst_number=="" || this.model.gst_number==null){
+    window.alert("Gst Number should not be empty ");
+    return;
+  }
+  if(this.model.payment_term=="" || this.model.payment_term==null){
+    window.alert("Payment Term should not be empty ");
+    return;
+  }
   this.PoVendorService.postSourcingVpoProduct(this.model.name,
     this.model.location,this.model.address,
     this.model.city,this.model.state,

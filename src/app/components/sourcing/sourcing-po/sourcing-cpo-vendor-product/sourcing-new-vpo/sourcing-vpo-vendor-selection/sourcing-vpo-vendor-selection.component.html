@@ -19,7 +19,75 @@
                                                 <div class="panel-heading text-center">New Contact-Person-Selection                                   
                                                     <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
                                                 </div>
-                                                 <div class="modal-body">
+                                                <div class="modal-body">
+                                                  <form > 
+                                                         <div class="example-container">
+                                                              <mat-form-field>
+                                                                   <input matInput placeholder="Name"  name="name" [(ngModel)]="model.name">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Location"  name="location" [(ngModel)]="model.location">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <textarea matInput placeholder="Address"  name="address" [(ngModel)]="model.address"></textarea>
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="City"  name="city" [(ngModel)]="model.city">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Pin"  name="pin" [(ngModel)]="model.pin">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="State"  name="state" [(ngModel)]="model.state">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Country"  name="country" [(ngModel)]="model.country">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Office Email1"  name="office_email1" [(ngModel)]="model.office_email1">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Office Email2"  name="office_email2" [(ngModel)]="model.office_email2">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Office phone1"  name="office_phone1" [(ngModel)]="model.office_phone1">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Office phone2"  name="office_phone2" [(ngModel)]="model.office_phone2">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Gst Number"  name="gst_number" [(ngModel)]="model.gst_number">
+                                                              </mat-form-field>
+                                                              
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Payment Term"  name="payment_term" [(ngModel)]="model.payment_term">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="advance_persentage"  name="advance_persentage" [(ngModel)]="model.advance_persentage">
+                                                              </mat-form-field>
+
+                                                              <mat-form-field>
+                                                                <input matInput placeholder="Inco Term"  name="inco_term" [(ngModel)]="model.inco_term">
+                                                              </mat-form-field>
+
+                                                              <button mat-raised-button color="primary" (click)="submitvpolist(event)">Confirm</button>
+                                                              
+                                                         </div>
+                                                    </form>
+                                                </div>
+                                                <!---- <div class="modal-body">
                                     
                                                         
                                                                 <div class="form-group">
@@ -91,11 +159,10 @@
                                          
                                         </div>
                         
-                                    </div>
-                                
-                                 </div>
-                            </div> 
-                            </div>
+                                              </div>-->
+                                         </div>
+                                    </div> 
+                                </div>
              </div><br><br>
     <!--Table data-->
      <table id="dcustomer" class="table table-hover table-bordered table-sm" width="100%">

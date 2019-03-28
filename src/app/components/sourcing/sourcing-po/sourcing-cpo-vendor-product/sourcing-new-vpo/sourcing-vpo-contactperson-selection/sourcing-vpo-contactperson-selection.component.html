@@ -21,7 +21,33 @@
                                     </div>
                                      <!--modal-body-->
                 <div class="modal-body">
-                    <form #submitvpocontactlistForm="ngForm" (ngSubmit)="submitvpocontactlist(event)" class="form-signin" [formGroup]="poForm" >
+                        <form> 
+                                <div class="example-container">
+                                        <mat-form-field>
+                                             <input matInput placeholder="Name"  name="name" [(ngModel)]="model.name">
+                                        </mat-form-field>
+                    
+                                         <mat-form-field>
+                                                <input matInput placeholder="Mobile No1" name="mobileNo1"  [(ngModel)]="model.mobileNo1">
+                                         </mat-form-field>
+                    
+                                         <mat-form-field>
+                                                <input matInput placeholder="Mobile No2" name="mobileNo2"  [(ngModel)]="model.mobileNo2">
+                                         </mat-form-field>
+                    
+                                         <mat-form-field>
+                                                <input matInput placeholder="Office Email 1" name="email1"  [(ngModel)]="model.email1" >
+                                         </mat-form-field>
+                    
+                                         <mat-form-field>
+                                                <input matInput placeholder="Office Email 2" name="email2"  [(ngModel)]="model.email2" >
+                                         </mat-form-field>
+                                         
+                                         <button mat-raised-button color="primary" (click)="submitvpocontactlist(event)">Confirm</button>
+                                        
+                                </div>
+                            </form>
+                 <!----   <form #submitvpocontactlistForm="ngForm" (ngSubmit)="submitvpocontactlist(event)" class="form-signin" [formGroup]="poForm" >
                         <div class="form-group" [ngClass]="{'has-error':poForm.get('name').touched && poForm.get('name').invalid}">
                                  
                             <label for="name" class="control-label">Name*</label>
@@ -54,7 +80,7 @@
 
                     <button [disabled]="submitvpocontactlistForm.invalid" class="btn btn-primary">submit</button>&nbsp;
                     <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
-                      </form>
+                      </form>-->
                   </div>
              </div>
          </div>

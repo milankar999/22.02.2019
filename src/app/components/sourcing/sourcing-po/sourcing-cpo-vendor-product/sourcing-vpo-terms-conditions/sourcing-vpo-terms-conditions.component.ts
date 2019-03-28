@@ -51,24 +51,52 @@ submit_terms_condition(event){
   this.vpo_id=vpo_id;
 
   //validation alert message
+      if(this.modeoftransport==null){
+        if (this.model.mode_of_transport=="" || this.model.mode_of_transport==null){
+          window.alert("mode of transport should not be empty");
+          return;
+        }
+      }
+      else{
       if (this.model.mode_of_transport=="")
       {
         window.alert("mode of transport should not be empty");
         return;
       }
+    }
+    if(this.incoterms==null){
+      if (this.model.inco_terms==""||this.model.inco_terms==null){
+        window.alert("Inco Terms should not be empty");
+        return;
+      }
+    }
+     else{
 
       if (this.model.inco_terms=="")
       {
         window.alert("Inco Terms should not be empty");
         return;
       }
-
+    }
+      if(this.installations==null){
+        if(this.model.installation==""||this.model.installation==null){
+        window.alert("Installation should not be empty");
+        return;
+      }
+    }
+    else{
       if (this.model.installation=="")
       {
         window.alert("Installation should not be empty");
         return;
       }
-
+    }
+      if(this.terms_of_payments==null){
+        if(this.model.terms_of_payment==""||this.model.terms_of_payment==null){
+          window.alert("Term Of Payment should not be empty");
+        return;
+        }
+      }
       if (this.model.terms_of_payment=="")
       {
         window.alert("Term Of Payment should not be empty");

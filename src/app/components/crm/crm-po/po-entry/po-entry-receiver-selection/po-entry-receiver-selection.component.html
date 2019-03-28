@@ -15,7 +15,37 @@
                             <button type="button" class="close" (click)="closeModalDialog()">&times;</button>
                         </div> 
                         <div class="modal-body">
-                                <form #submitreciverForm="ngForm" (ngSubmit)="submitreciverlist(event)" class="form-signin" [formGroup]="poForm" >
+                                <form [formGroup]="poForm"> 
+                                        <div class="example-container">
+                                                <mat-form-field>
+                                                     <input matInput placeholder="Person Name" formControlName="person_name" [(ngModel)]="model.person_name">
+                                                </mat-form-field>
+                            
+                                                 <mat-form-field>
+                                                        <input matInput placeholder="Mobile No1"  formControlName="mobileNo1"   [(ngModel)]="model.mobileNo1">
+                                                 </mat-form-field>
+                            
+                                                 <mat-form-field>
+                                                        <input matInput placeholder="Mobile No2" formControlName="mobileNo2"  [(ngModel)]="model.mobileNo2">
+                                                 </mat-form-field>
+                            
+                                                 <mat-form-field>
+                                                        <input matInput placeholder="Office Email 1" formControlName="email1"  [(ngModel)]="model.email1" >
+                                                 </mat-form-field>
+                            
+                                                 <mat-form-field>
+                                                        <input matInput placeholder="Office Email 2" formControlName="email2"  [(ngModel)]="model.email2" >
+                                                 </mat-form-field>
+                                                 
+                                                 <mat-form-field>
+                                                        <input matInput placeholder="Department Name" formControlName="department_name"  [(ngModel)]="model.department_name" >
+                                                 </mat-form-field>
+
+                                                 <button mat-raised-button color="primary" [disabled]='isDisabled(model)' (click)="submitreciverlist(event)">Confirm</button>
+                                              
+                                        </div>
+                                    </form>
+                               <!---- <form #submitreciverForm="ngForm" (ngSubmit)="submitreciverlist(event)" class="form-signin" [formGroup]="poForm" >
                                         <div class="form-group" [ngClass]="{'has-error':poForm.get('person_name').touched && poForm.get('person_name').invalid}">
                                             <label for="person_name" class="control-label">Person Name*</label>
                                             <input type="text" id="person_name" class="form-control" formControlName="person_name" [(ngModel)]="model.person_name">
@@ -55,7 +85,7 @@
            
                                         <button [disabled]="submitreciverForm.invalid" class="btn btn-primary">submit</button>&nbsp;
                                         <button type="button" class="btn btn-danger" (click)="closeModalDialog()">Cancel</button>
-                               </form>
+                               </form>-->
                         </div>
                         <!---model-->
                     </div>
@@ -65,7 +95,7 @@
 
         <label>Selece A Receiver From This List</label>
         <button type="button" class="btn btn-success btn-sm" style="float:right" (click)="openModalDialog()"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Receiver</button>
-        <br>
+        <br><br>
         <table id="dcustomer" class="table table-hover table-bordered table-sm">
             <thead>
                 <tr>

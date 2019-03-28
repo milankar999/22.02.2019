@@ -49,23 +49,54 @@ submit_reciver_info(event){
   this.vpo_id=vpo_id;
 
   //validation
+  if(this.receivername==null){
+    if (this.model.receiver_name==""||this.model.receiver_name==null)
+    {
+      window.alert("Receiver Name should not be empty");
+      return;
+    }
+  }
+  else{
     if (this.model.receiver_name=="")
     {
       window.alert("Receiver Name should not be empty");
       return;
     }
+  }
 
-    if (this.model.receiver_phone1=="")
+    if(this.receiverphone1==null){
+
+    if (this.model.receiver_phone1==""||this.model.receiver_phone1==null)
     {
       window.alert("Receiver Phone 1 should not be empty");
       return;
     }
-
-    if (this.model.receiver_dept=="")
+  }
+  else{
+    if(this.model.receiver_phone1=="")
     {
-      window.alert("Receiver Dept should not be empty");
+      window.alert("Receiver Phone 1 should not be empty");
       return;
     }
+  }
+
+  if(this.receiverdept==null){
+
+    if (this.model.receiver_dept==""||this.model.receiver_dept==null)
+    {
+      window.alert("Receiver Phone 1 should not be empty");
+      return;
+    }
+  }
+    else{
+         if (this.model.receiver_dept=="")
+           {
+              window.alert("Receiver Dept should not be empty");
+              return;
+    }
+  }
+
+  //End validation 
   this.PoVendorService.Putsubmit_reciver_info(this.model.receiver_name,
     this.model.receiver_phone1,
     this.model.receiver_phone2,

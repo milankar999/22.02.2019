@@ -54,6 +54,26 @@ export class PoEntryRequesterSelectionComponent implements OnInit {
   submitrequestorlist(event){
     let id=this.route.snapshot.paramMap.get('customer');
     this.requestorId=id;
+
+      //validation
+      if(this.model.name=="")
+      {
+        window.alert("Person Name should not be empty");
+        return;
+      }
+
+      if(this.model.mobileNo1=="")
+      {
+        window.alert("Mobile No1 should not be empty");
+        return;
+      }
+
+      if(this.model.email1=="")
+      {
+        window.alert("Email1 should not be empty");
+        return;
+      }
+
     console.log(id);
     this.poEntryServicesService.PostRequestorlist(this. model.name,this.model.mobileNo1,this.model.mobileNo2,this.model.email1,this.model.email2,id).subscribe(data => {
       console.log(data);
@@ -63,9 +83,9 @@ export class PoEntryRequesterSelectionComponent implements OnInit {
   }
   buildForm(){
     this.poForm=this.builder.group({
-     name:['',Validators.required],
-      mobileNo1:['',Validators.required],
-      email:['',Validators.compose([Validators.required,Validators.email])],
+     name:[''],
+      mobileNo1:[''],
+      email1:[''],
      mobileNo2:[''],
      email2:['']
     });

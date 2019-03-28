@@ -28,6 +28,7 @@ export class PoEntryReceiverSelectionComponent implements OnInit {
  public requestorId;
  display='none';
  poForm :FormGroup;
+ public name: string;
 
 
 constructor(private  poEntryServicesService:PoEntryServicesService, private router:Router,
@@ -62,18 +63,49 @@ openModalDialog()
            let id=this.route.snapshot.paramMap.get('customer');
            let id1=this.route.snapshot.paramMap.get('requester');
            this.reciverId=id;
+
+           //validation
+           if(this.model.person_name=="")
+           {
+             window.alert("Person Name should not be empty");
+             return;
+           }
+
+           if(this.model.mobileNo1=="")
+           {
+             window.alert("Mobile No1 should not be empty");
+             return;
+           }
+
+           if(this.model.email1=="")
+           {
+             window.alert("Email1 should not be empty");
+             return;
+           }
+
+           if(this.model.department_name=="")
+           {
+             window.alert("Department Name should not be empty");
+             return;
+           }
            this.poEntryServicesService.PostReciverlist(this.model.person_name,
            this.model.mobileNo1,this.model.mobileNo2, this.model.email1,this.model.email2,this.model.department_name,id,id1).subscribe(data => {
-           console.log(data);
+           this.model.person_name='disabled';
+            console.log(data);
            window.location.reload();//display the console    
        });
     }
+    isDisabled(model):
+      boolean {
+        return model && model.person_name === name;
+       }
+    
     buildForm(){
       this.poForm=this.builder.group({
-        person_name:['',Validators.required],
-        mobileNo1:['',Validators.required],
-        email:['',Validators.compose([Validators.required,Validators.email])],
-        department_name:['',Validators.required],
+        person_name:[''],
+        mobileNo1:[''],
+        email1:[''],
+        department_name:[''],
         mobileNo2:[''],
         email2:['']
        
